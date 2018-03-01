@@ -19,7 +19,12 @@
         <activity android:name=".AboutActivity" />
         <activity android:name=".IntroductionActivity" />
         <activity android:name=".RulaActivity" />
-        <activity android:name=".RebaActivity"></activity>
+        <activity android:name=".RebaActivity" />
+        <activity android:name=".SudutActivity" />
+        <activity android:name=".RulaAddtionalPartAActivity" />
+        <activity android:name=".RulaAdditionalPartBActivity" />
+        <activity android:name=".RebaAdditionalPartAActivity" />
+        <activity android:name=".RebaAdditionalPartBActivity"></activity>
     </application>
 
 </manifest>
