@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.RulaAdditionalPartBActivity">
+
+    <include
+        android:id="@+id/rulaAdd2_toolbar"
+        layout="@layout/view_toolbar"
+        />
+
+    <ScrollView
+        android:id="@+id/rulaAdd2_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rulaAdd2_toolbar"
+        >
+        <RelativeLayout
+            android:id="@+id/rulaAdd2_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rulaAdd2_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rulaAdd2_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rulaAdd2_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rulaAdd2_Neck_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck is twisted" />
+
+                    <CheckBox
+                        android:id="@+id/rulaAdd2_Neck_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck is side bending" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rulaAdd2_cardViewTrunk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rulaAdd2_cardViewNeck"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rulaAdd2_linearLayoutTrunk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rulaAdd2_textTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rulaAdd2_Trunk_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk is twisted" />
+
+                    <CheckBox
+                        android:id="@+id/rulaAdd2_Trunk_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk is side bending" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rulaAdd2_cardViewLeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rulaAdd2_cardViewTrunk"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rulaAdd2_linearLayoutLeg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rulaAdd2_textLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Legs"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/rulaAdd2_leg_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_leg_radio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Legs and feet are supported in balanced posture"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_leg_radio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Legs and feet are not supported balanced posture"
+                            />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rulaAdd2_cardViewMuscle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rulaAdd2_cardViewLeg"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rulaAdd2_linearLayoutMuscle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rulaAdd2_textMuscle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck, Trunk, and Legs Muscle"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rulaAdd2_Muscle_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Posture is mainly static, e.g. held
+> 10 minute orrepeated occurs 4X per minute" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rulaAdd2_cardViewLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rulaAdd2_cardViewMuscle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rulaAdd2_linearLayoutLoad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rulaAdd2_textLoad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck, Trunk, and Legs Load"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <RadioGroup
+                        android:id="@+id/rulaAdd2_load_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_load_radio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Less than 2 Kg intermittent load"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_load_radio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2 to 10 Kg intermittent load"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_load_radio3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2 to 10 Kg static or repeated load"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rulaAdd2_load_radio4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="more than 10 Kg or repeated or shocks load"
+                            />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
