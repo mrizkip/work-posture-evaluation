@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -53,19 +54,19 @@ public class RulaAdditionalPartBActivity extends AppCompatActivity {
     RadioButton neckTrunkLegsLoad4;
 
     private int neckPosition;
-    private int neckValue;
+    private int neckValue = 0;
 
     private int trunkPosition;
-    private int trunkValue;
+    private int trunkValue = 0;
 
-    private int legsRadio;
-    private int legsValue;
+    private int legsRadio = 0;
+    private int legsValue = 0;
 
-    private int neckTrunkLegsMuscleCheck;
-    private int neckTrunkLegsMuscleValue;
+    private int neckTrunkLegsMuscleCheck = 0;
+    private int neckTrunkLegsMuscleValue = 0;
 
-    private int neckTrunkLegsLoadRadio;
-    private int neckTrunkLegsLoadValue;
+    private int neckTrunkLegsLoadRadio = 0;
+    private int neckTrunkLegsLoadValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,99 @@ public class RulaAdditionalPartBActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        // Check Neck CheckBox
+        neckValue = neckValue + neckPosition;
+        neck1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    neckValue = neckValue + 1;
+                } else {
+                    neckValue = neckValue - 1;
+                }
+            }
+        });
 
+        neck2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    neckValue = neckValue + 1;
+                } else {
+                    neckValue = neckValue - 1;
+                }
+            }
+        });
+
+        // Check Trunk CheckBox
+        trunkValue = trunkValue + trunkPosition;
+        trunk1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    trunkValue = trunkValue + 1;
+                } else {
+                    trunkValue = trunkValue - 1;
+                }
+            }
+        });
+
+        trunk2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    trunkValue = trunkValue + 1;
+                } else {
+                    trunkValue = trunkValue - 1;
+                }
+            }
+        });
+
+        // Check Legs RadioButton
+        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.rulaAdd2_leg_radio1:
+                        legsRadio = 1;
+                    case  R.id.rulaAdd2_leg_radio2:
+                        legsRadio = 2;
+                }
+            }
+        });
+        legsValue = legsValue + legsRadio;
+
+        // Check Neck, Trunk, Legs Muscle CheckBox
+        neckTrunkLegsMuscle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    neckTrunkLegsMuscleCheck = neckTrunkLegsMuscleCheck + 1;
+                } else {
+                    neckTrunkLegsMuscleCheck = neckTrunkLegsMuscleCheck - 1;
+                }
+            }
+        });
+        neckTrunkLegsMuscleValue = neckTrunkLegsMuscleValue + neckTrunkLegsMuscleCheck;
+
+
+        // Check Neck, Trunk, Legs Load
+        neckTrunkLegsLoadGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.rulaAdd2_load_radio1:
+                        neckTrunkLegsLoadRadio = 0;
+                    case R.id.rulaAdd2_load_radio2:
+                        neckTrunkLegsLoadRadio = 1;
+                    case R.id.rulaAdd2_load_radio3:
+                        neckTrunkLegsLoadRadio = 2;
+                    case R.id.rulaAdd2_load_radio4:
+                        neckTrunkLegsLoadRadio = 3;
+                }
+            }
+        });
+        neckTrunkLegsLoadValue = neckTrunkLegsLoadValue + neckTrunkLegsLoadRadio;
 
     }
 

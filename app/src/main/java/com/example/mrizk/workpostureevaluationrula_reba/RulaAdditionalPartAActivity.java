@@ -70,13 +70,13 @@ public class RulaAdditionalPartAActivity extends AppCompatActivity {
     private int wristValue = 0;
 
     private int wristTwistRadio = 0;
-    private int wristTwistValue;
+    private int wristTwistValue = 0;
 
     private int armAndWristMuscleCheck = 0;
-    private int armAndWristMuscleValue;
+    private int armAndWristMuscleValue = 0;
 
     private int armAndWristLoadRadio = 0;
-    private int armAndWristLoadValue;
+    private int armAndWristLoadValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,9 +164,6 @@ public class RulaAdditionalPartAActivity extends AppCompatActivity {
                     case R.id.rulaAdd1_wristTwist_radio2:
                         wristTwistRadio = 2;
                         break;
-                    default:
-                        wristTwistRadio = 0;
-                        break;
                 }
             }
         });
@@ -179,7 +176,7 @@ public class RulaAdditionalPartAActivity extends AppCompatActivity {
                 if (b) {
                     armAndWristMuscleCheck = armAndWristMuscleCheck + 1;
                 } else {
-                    armAndWristMuscleCheck = armAndWristMuscleCheck + 1;
+                    armAndWristMuscleCheck = armAndWristMuscleCheck - 1;
                 }
             }
         });
