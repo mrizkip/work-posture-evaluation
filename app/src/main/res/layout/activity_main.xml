@@ -7,7 +7,9 @@
     android:orientation="vertical"
     tools:context="com.example.mrizk.workpostureevaluationrula_reba.MainActivity">
 
-    <include layout="@layout/view_toolbar" />
+    <include
+        android:id="@+id/mainActivity_toolbar"
+        layout="@layout/view_toolbar" />
 
     <Button
         android:id="@+id/mainActivity_buttonIntroduction"

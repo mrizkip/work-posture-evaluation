@@ -11,45 +11,35 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class ResultRulaActivity extends AppCompatActivity {
 
-    @BindView(R.id.mainActivity_toolbar)
+    @BindView(R.id.result_rula_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.mainActivity_buttonIntroduction)
-    Button buttonIntroduce;
-    @BindView(R.id.mainActivity_buttonAbout)
-    Button buttonAbout;
+    @BindView(R.id.result_rula_buttonStart)
+    Button buttonStart;
 
     ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_result_rula);
 
         ButterKnife.bind(this);
 
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("WORK POSTURE EVALUATION");
+            actionBar.setTitle("RESULT RULA");
         }
 
-        buttonIntroduce.setOnClickListener(new View.OnClickListener() {
+        buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, IntroductionActivity.class);
+                Intent intent = new Intent(ResultRulaActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
-
-        buttonAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 }

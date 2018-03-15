@@ -3,8 +3,11 @@ package com.example.mrizk.workpostureevaluationrula_reba;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,6 +26,8 @@ public class RulaActivity extends AppCompatActivity {
 //    public static final int PHOTO_PICK_CAMERA_REQUEST_CODE = 9067;
 //    public static final int PHOTO_PICK_GALLERY_REQUEST_CODE = 9068;
 
+    @BindView(R.id.rula_toolbar)
+    Toolbar toolbar;
     @BindView(R.id.rula_imageView)
     ImageView imageViewRula;
     @BindView(R.id.rula_cameraContainer)
@@ -30,6 +35,7 @@ public class RulaActivity extends AppCompatActivity {
     @BindView(R.id.rula_galleryContainer)
     RelativeLayout galleryContainer;
 
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,13 @@ public class RulaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rula);
 
         ButterKnife.bind(this);
+
+        if (toolbar != null) setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            actionBar = getSupportActionBar();
+            actionBar.setTitle("RULA");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +80,25 @@ public class RulaActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
+                    Intent intent = new Intent(RulaActivity.this, RulaSudutActivity.class);
+                    intent.putExtra("photo", pickedPhoto);
+                    startActivity(intent);
                     return;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

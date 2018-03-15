@@ -20,11 +20,14 @@
         <activity android:name=".IntroductionActivity" />
         <activity android:name=".RulaActivity" />
         <activity android:name=".RebaActivity" />
-        <activity android:name=".SudutActivity" />
-        <activity android:name=".RulaAddtionalPartAActivity" />
+        <activity android:name=".RulaSudutActivity" />
+        <activity android:name=".RulaAdditionalPartAActivity" />
         <activity android:name=".RulaAdditionalPartBActivity" />
         <activity android:name=".RebaAdditionalPartAActivity" />
-        <activity android:name=".RebaAdditionalPartBActivity"></activity>
+        <activity android:name=".RebaAdditionalPartBActivity" />
+        <activity android:name=".RebaSudutActivity" />
+        <activity android:name=".ResultRulaActivity" />
+        <activity android:name=".ResultRebaActivity"></activity>
     </application>
 
 </manifest>
