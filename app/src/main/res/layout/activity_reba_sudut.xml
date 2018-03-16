@@ -11,12 +11,90 @@
         layout="@layout/view_toolbar"
         />
 
-    <ImageView
-        android:id="@+id/reba_sudut_imageView"
+    <ScrollView
+        android:id="@+id/reba_sudut_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/sudut_toolbar"
-        android:src="@mipmap/ic_launcher"
-        />
+        android:layout_below="@+id/reba_sudut_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/reba_sudut_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/reba_sudut_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewLeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_imageView"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/reba_sudut_linearLayoutLeg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Legs"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/reba_sudut_leg_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/reba_sudut_leg_radio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Support in the two legs, walking or seated"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/reba_sudut_leg_radio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Support in one leg"
+                            />
+
+                    </RadioGroup>
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_leg_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="30&#176; to 60&#176;" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_leg_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="More than 60&#176;" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            
+        </RelativeLayout>
+
+    </ScrollView>
+
+    
 
 </RelativeLayout>

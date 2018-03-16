@@ -22,13 +22,13 @@
         <activity android:name=".reba.RebaActivity" />
         <activity android:name=".rula.RulaSudutActivity" />
         <activity android:name=".rula.RulaAdditionalActivity" />
-        <activity android:name=".reba.RebaAdditionalPartAActivity" />
-        <activity android:name=".reba.RebaAdditionalPartBActivity" />
         <activity android:name=".reba.RebaSudutActivity" />
         <activity android:name=".rula.ResultRulaActivity" />
         <activity android:name=".reba.ResultRebaActivity" />
         <activity android:name=".rula.RulaUpperArmNeckTrunkActivity" />
-        <activity android:name=".rula.RulaLowerArmActivity"></activity>
+        <activity android:name=".rula.RulaLowerArmActivity" />
+        <activity android:name=".reba.RebaNeckTrunkActivity" />
+        <activity android:name=".reba.RebaWristActivity"></activity>
     </application>
 
 </manifest>

@@ -29,8 +29,6 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     CheckBox wrist1;
     @BindView(R.id.rula_lowerArm_wristTwist_radioGroup)
     RadioGroup wristTwistGroup;
-    @BindView(R.id.rula_lowerArm_leg_radioGroup)
-    RadioGroup legsGroup;
 
     @BindView(R.id.rula_lowerArm_toolbar)
     Toolbar toolbar;
@@ -42,8 +40,6 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     private int wristPosition;
     private int wristTwistRadio;
     private int wristTwistValue = 0;
-    private int legsRadio;
-    private int legsValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,22 +102,6 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         });
         wristTwistValue = wristTwistValue + wristTwistRadio;
 
-        // Check Legs RadioButton
-        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.rula_lowerArm_leg_radio1:
-                        legsRadio = 1;
-                        break;
-                    case  R.id.rula_lowerArm_leg_radio2:
-                        legsRadio = 2;
-                        break;
-                }
-            }
-        });
-        legsValue = legsValue + legsRadio;
-
     }
 
     @Override
@@ -139,7 +119,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.rula_upper_arm_neck_trunk_next:
+            case R.id.rula_lower_arm_next:
                 Intent intent = new Intent(RulaLowerArmActivity.this, RulaAdditionalActivity.class);
                 startActivity(intent);
         }
