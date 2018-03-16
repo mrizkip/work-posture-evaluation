@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.RulaUpperArmNeckTrunkActivity">
+
+    <include
+        android:id="@+id/rula_upperArm_toolbar"
+        layout="@layout/view_toolbar"
+        />
+    
+    <ScrollView
+        android:id="@+id/rula_upperArm_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rula_upperArm_toolbar"
+        >
+        <RelativeLayout
+            android:id="@+id/rula_upperArm_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/rula_upperArm_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@mipmap/ic_launcher"
+                />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_upperArm_cardViewUpperArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rula_upperArm_imageView"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rula_upperArm_linearLayoutUpperArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_upperArm_textUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upper Arm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rula_upperArm_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shoulder is raised" />
+
+                    <CheckBox
+                        android:id="@+id/rula_upperArm_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upper arm is abducted" />
+
+                    <CheckBox
+                        android:id="@+id/rula_upperArm_check3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Arm is supported or person is leaning" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_neck_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rula_upperArm_cardViewUpperArm"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rula_neck_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_neck_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rula_neck_Neck_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck is twisted" />
+
+                    <CheckBox
+                        android:id="@+id/rula_neck_Neck_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck is side bending" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_trunk_cardViewTrunk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rula_neck_cardViewNeck"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rula_trunk_linearLayoutTrunk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_trunk_textTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rula_trunk_check1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk is twisted" />
+
+                    <CheckBox
+                        android:id="@+id/rula_trunk_check2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk is side bending" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            
+        </RelativeLayout>
+        
+    </ScrollView>
+    
+</RelativeLayout>
