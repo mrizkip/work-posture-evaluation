@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/rula_add2_next"
+        android:id="@+id/reba_neck_trunk_next"
         android:icon="@drawable/ic_arrow_forward_black_24dp"
         app:showAsAction="always"
         android:iconTint="#FFFFFF"

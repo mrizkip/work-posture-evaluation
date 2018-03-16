@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
@@ -26,14 +27,19 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RulaSudutActivity extends AppCompatActivity {
 
-    @BindView(R.id.sudut_toolbar)
+    @BindView(R.id.rula_sudut_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.sudut_imageView)
+    @BindView(R.id.rula_sudut_imageView)
     ImageView imageView;
+    @BindView(R.id.rula_sudut_leg_radioGroup)
+    RadioGroup legsGroup;
 
     ActionBar actionBar;
 
     private CameraGallerySelectorDialog selectorDialog;
+
+    private int legsRadio;
+    private int legsValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,22 @@ public class RulaSudutActivity extends AppCompatActivity {
                 EZPhotoPick.startPhotoPickActivity(RulaSudutActivity.this, galleryConfig);
             }
         });
+
+        // Check Legs RadioButton
+        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.rula_sudut_leg_radio1:
+                        legsRadio = 1;
+                        break;
+                    case  R.id.rula_sudut_leg_radio2:
+                        legsRadio = 2;
+                        break;
+                }
+            }
+        });
+        legsValue = legsValue + legsRadio;
     }
 
     @Override
