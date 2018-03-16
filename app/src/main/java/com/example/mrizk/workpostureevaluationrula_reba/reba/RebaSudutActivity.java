@@ -1,6 +1,7 @@
-package com.example.mrizk.workpostureevaluationrula_reba;
+package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,38 +9,47 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import com.example.mrizk.workpostureevaluationrula_reba.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RebaAdditionalPartBActivity extends AppCompatActivity {
+public class RebaSudutActivity extends AppCompatActivity {
 
-    @BindView(R.id.rebaAdd2_toolbar)
+    @BindView(R.id.reba_sudut_toolbar)
     Toolbar toolbar;
-    ActionBar actionBar;
+    @BindView(R.id.reba_sudut_imageView)
+    ImageView imageView;
 
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reba_additional_part_b);
+        setContentView(R.layout.activity_reba_sudut);
 
         ButterKnife.bind(this);
 
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA ADDITIONAL 2");
+            actionBar.setTitle("RULA SUDUT");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        Intent intent = getIntent();
+        Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
+        imageView.setImageBitmap(bitmap);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_reba_add_part_b, menu);
+        inflater.inflate(R.menu.menu_reba_sudut, menu);
 
-        MenuItem itemNext = menu.findItem(R.id.reba_add2_next);
+        MenuItem itemNext = menu.findItem(R.id.reba_sudut_next);
         return true;
     }
 
@@ -49,10 +59,9 @@ public class RebaAdditionalPartBActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.reba_add2_next:
-                Intent intent = new Intent(RebaAdditionalPartBActivity.this, ResultRebaActivity.class);
+            case R.id.reba_sudut_next:
+                Intent intent = new Intent(RebaSudutActivity.this, RebaAdditionalPartAActivity.class);
                 startActivity(intent);
-                finish();
         }
         return super.onOptionsItemSelected(item);
     }
