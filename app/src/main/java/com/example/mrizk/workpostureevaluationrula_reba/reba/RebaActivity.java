@@ -1,4 +1,4 @@
-package com.example.mrizk.workpostureevaluationrula_reba;
+package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.example.mrizk.workpostureevaluationrula_reba.R;
+
 import java.io.IOException;
 
 import butterknife.BindView;
@@ -21,18 +23,15 @@ import siclo.com.ezphotopicker.api.EZPhotoPickStorage;
 import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
-public class RulaActivity extends AppCompatActivity {
+public class RebaActivity extends AppCompatActivity {
 
-//    public static final int PHOTO_PICK_CAMERA_REQUEST_CODE = 9067;
-//    public static final int PHOTO_PICK_GALLERY_REQUEST_CODE = 9068;
-
-    @BindView(R.id.rula_toolbar)
+    @BindView(R.id.reba_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.rula_imageView)
-    ImageView imageViewRula;
-    @BindView(R.id.rula_cameraContainer)
+    @BindView(R.id.reba_imageView)
+    ImageView imageView;
+    @BindView(R.id.reba_cameraContainer)
     RelativeLayout cameraContainer;
-    @BindView(R.id.rula_galleryContainer)
+    @BindView(R.id.reba_galleryContainer)
     RelativeLayout galleryContainer;
 
     ActionBar actionBar;
@@ -40,14 +39,14 @@ public class RulaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula);
+        setContentView(R.layout.activity_reba);
 
         ButterKnife.bind(this);
 
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA");
+            actionBar.setTitle("REBA");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -57,7 +56,7 @@ public class RulaActivity extends AppCompatActivity {
                 EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
                 cameraConfig.photoSource = PhotoSource.CAMERA;
                 cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaActivity.this, cameraConfig);
+                EZPhotoPick.startPhotoPickActivity(RebaActivity.this, cameraConfig);
             }
         });
         galleryContainer.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +65,9 @@ public class RulaActivity extends AppCompatActivity {
                 EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
                 cameraConfig.photoSource = PhotoSource.GALLERY;
                 cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaActivity.this, cameraConfig);
+                EZPhotoPick.startPhotoPickActivity(RebaActivity.this, cameraConfig);
             }
         });
-
     }
 
     @Override
@@ -80,7 +78,7 @@ public class RulaActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RulaActivity.this, RulaSudutActivity.class);
+                    Intent intent = new Intent(RebaActivity.this, RebaSudutActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     startActivity(intent);
                     return;
@@ -101,5 +99,3 @@ public class RulaActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-
-

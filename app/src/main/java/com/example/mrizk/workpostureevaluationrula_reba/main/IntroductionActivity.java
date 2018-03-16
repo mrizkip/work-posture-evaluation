@@ -1,15 +1,18 @@
-package com.example.mrizk.workpostureevaluationrula_reba;
+package com.example.mrizk.workpostureevaluationrula_reba.main;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.example.mrizk.workpostureevaluationrula_reba.reba.RebaActivity;
+import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

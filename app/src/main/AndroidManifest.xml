@@ -9,25 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".IntroductionActivity" />
-        <activity android:name=".RulaActivity" />
-        <activity android:name=".RebaActivity" />
-        <activity android:name=".RulaSudutActivity" />
-        <activity android:name=".RulaAdditionalPartAActivity" />
-        <activity android:name=".RulaAdditionalPartBActivity" />
-        <activity android:name=".RebaAdditionalPartAActivity" />
-        <activity android:name=".RebaAdditionalPartBActivity" />
-        <activity android:name=".RebaSudutActivity" />
-        <activity android:name=".ResultRulaActivity" />
-        <activity android:name=".ResultRebaActivity"></activity>
+        <activity android:name=".main.AboutActivity" />
+        <activity android:name=".main.IntroductionActivity" />
+        <activity android:name=".rula.RulaActivity" />
+        <activity android:name=".reba.RebaActivity" />
+        <activity android:name=".rula.RulaSudutActivity" />
+        <activity android:name=".rula.RulaAdditionalPartAActivity" />
+        <activity android:name=".rula.RulaAdditionalPartBActivity" />
+        <activity android:name=".reba.RebaAdditionalPartAActivity" />
+        <activity android:name=".reba.RebaAdditionalPartBActivity" />
+        <activity android:name=".reba.RebaSudutActivity" />
+        <activity android:name=".rula.ResultRulaActivity" />
+        <activity android:name=".reba.ResultRebaActivity"></activity>
     </application>
 
 </manifest>

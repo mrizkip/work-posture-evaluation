@@ -1,4 +1,4 @@
-package com.example.mrizk.workpostureevaluationrula_reba;
+package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -10,75 +10,60 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import com.example.mrizk.workpostureevaluationrula_reba.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RulaAdditionalPartBActivity extends AppCompatActivity {
+public class RebaAdditionalPartAActivity extends AppCompatActivity {
 
-    @BindView(R.id.rulaAdd2_toolbar)
-    Toolbar toolbar;
-    ActionBar actionBar;
-
-    @BindView(R.id.rulaAdd2_Neck_check1)
+    @BindView(R.id.rebaAdd1_Neck_check1)
     CheckBox neck1;
-    @BindView(R.id.rulaAdd2_Neck_check2)
+    @BindView(R.id.rebaAdd1_Neck_check2)
     CheckBox neck2;
-
-    @BindView(R.id.rulaAdd2_Trunk_check1)
+    @BindView(R.id.rebaAdd1_Trunk_check1)
     CheckBox trunk1;
-    @BindView(R.id.rulaAdd2_Trunk_check2)
+    @BindView(R.id.rebaAdd1_Trunk_check2)
     CheckBox trunk2;
+    @BindView(R.id.rebaAdd1_leg_radioGroup)
+    RadioGroup legsRadioGroup;
+    @BindView(R.id.rebaAdd1_leg_check1)
+    CheckBox legsCheck1;
+    @BindView(R.id.rebaAdd1_leg_check2)
+    CheckBox legsCheck2;
+    @BindView(R.id.rebaAdd1_load_radioGroup)
+    RadioGroup loadRadioGroup;
+    @BindView(R.id.rebaAdd1_load_check1)
+    CheckBox loadCheck1;
 
-    @BindView(R.id.rulaAdd2_leg_radioGroup)
-    RadioGroup legsGroup;
-    @BindView(R.id.rulaAdd2_leg_radio1)
-    RadioButton legs1;
-    @BindView(R.id.rulaAdd2_leg_radio2)
-    RadioButton legs2;
+    @BindView(R.id.rebaAdd1_toolbar)
+    Toolbar toolbar;
 
-    @BindView(R.id.rulaAdd2_Muscle_check1)
-    CheckBox neckTrunkLegsMuscle1;
-
-    @BindView(R.id.rulaAdd2_load_radioGroup)
-    RadioGroup neckTrunkLegsLoadGroup;
-    @BindView(R.id.rulaAdd2_load_radio1)
-    RadioButton neckTrunkLegsLoad1;
-    @BindView(R.id.rulaAdd2_load_radio2)
-    RadioButton neckTrunkLegsLoad2;
-    @BindView(R.id.rulaAdd2_load_radio3)
-    RadioButton neckTrunkLegsLoad3;
-    @BindView(R.id.rulaAdd2_load_radio4)
-    RadioButton neckTrunkLegsLoad4;
+    ActionBar actionBar;
 
     private int neckPosition;
     private int neckValue = 0;
-
     private int trunkPosition;
     private int trunkValue = 0;
-
+    private int legsPosition;
     private int legsRadio = 0;
     private int legsValue = 0;
-
-    private int neckTrunkLegsMuscleCheck = 0;
-    private int neckTrunkLegsMuscleValue = 0;
-
-    private int neckTrunkLegsLoadRadio = 0;
-    private int neckTrunkLegsLoadValue = 0;
+    private int loadRadio = 0;
+    private int loadValue = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula_additional_part_b);
+        setContentView(R.layout.activity_reba_additional_part_a);
 
         ButterKnife.bind(this);
 
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA ADDITIONAL 2");
+            actionBar.setTitle("REBA ADDITIONAL 1");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -130,60 +115,85 @@ public class RulaAdditionalPartBActivity extends AppCompatActivity {
             }
         });
 
-        // Check Legs RadioButton
-        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        // Check Legs Radio and CheckBox
+        legsValue = legsValue + legsPosition;
+        legsRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
-                    case R.id.rulaAdd2_leg_radio1:
+                    case R.id.rebaAdd1_leg_radio1:
                         legsRadio = 1;
-                    case  R.id.rulaAdd2_leg_radio2:
+                        break;
+                    case R.id.rebaAdd1_leg_radio2:
                         legsRadio = 2;
+                        break;
                 }
             }
         });
         legsValue = legsValue + legsRadio;
 
-        // Check Neck, Trunk, Legs Muscle CheckBox
-        neckTrunkLegsMuscle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        legsCheck1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
-                    neckTrunkLegsMuscleCheck = neckTrunkLegsMuscleCheck + 1;
+                    legsValue = legsValue + 1;
                 } else {
-                    neckTrunkLegsMuscleCheck = neckTrunkLegsMuscleCheck - 1;
+                    legsValue = legsValue - 1;
                 }
             }
         });
-        neckTrunkLegsMuscleValue = neckTrunkLegsMuscleValue + neckTrunkLegsMuscleCheck;
 
+        legsCheck2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    if (b) {
+                        legsValue = legsValue + 2;
+                    } else {
+                        legsValue = legsValue - 2;
+                    }
+                }
+            }
+        });
 
-        // Check Neck, Trunk, Legs Load
-        neckTrunkLegsLoadGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        // Check Load RadioGroup and CheckBox
+        loadRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
-                    case R.id.rulaAdd2_load_radio1:
-                        neckTrunkLegsLoadRadio = 0;
-                    case R.id.rulaAdd2_load_radio2:
-                        neckTrunkLegsLoadRadio = 1;
-                    case R.id.rulaAdd2_load_radio3:
-                        neckTrunkLegsLoadRadio = 2;
-                    case R.id.rulaAdd2_load_radio4:
-                        neckTrunkLegsLoadRadio = 3;
+                    case R.id.rebaAdd1_load_radio1:
+                        loadRadio = 0;
+                        break;
+                    case R.id.rebaAdd1_load_radio2:
+                        loadRadio = 1;
+                        break;
+                    case R.id.rebaAdd1_load_radio3:
+                        loadRadio = 2;
+                        break;
                 }
             }
         });
-        neckTrunkLegsLoadValue = neckTrunkLegsLoadValue + neckTrunkLegsLoadRadio;
+        loadValue = loadValue + loadRadio;
+
+        loadCheck1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    loadValue = loadValue + 1;
+                } else {
+                    loadValue = loadValue - 1;
+                }
+            }
+        });
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_rula_add_part_b, menu);
+        inflater.inflate(R.menu.menu_reba_add_part_a, menu);
 
-        MenuItem itemNext = menu.findItem(R.id.rula_add2_next);
+        MenuItem itemNext = menu.findItem(R.id.reba_add1_next);
         return true;
     }
 
@@ -193,11 +203,11 @@ public class RulaAdditionalPartBActivity extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.rula_add2_next:
-                Intent intent = new Intent(RulaAdditionalPartBActivity.this, ResultRulaActivity.class);
+            case R.id.reba_add1_next:
+                Intent intent = new Intent(RebaAdditionalPartAActivity.this, RebaAdditionalPartBActivity.class);
                 startActivity(intent);
-                finish();
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
