@@ -65,10 +65,10 @@ public class RulaActivity extends AppCompatActivity {
         galleryContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
-                cameraConfig.photoSource = PhotoSource.GALLERY;
-                cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaActivity.this, cameraConfig);
+                EZPhotoPickConfig galleryConfig = new EZPhotoPickConfig();
+                galleryConfig.photoSource = PhotoSource.GALLERY;
+                galleryConfig.exportingSize = 400;
+                EZPhotoPick.startPhotoPickActivity(RulaActivity.this, galleryConfig);
             }
         });
 
