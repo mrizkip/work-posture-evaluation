@@ -2,6 +2,9 @@ package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +26,7 @@ import butterknife.ButterKnife;
 public class RulaLowerArmActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_lowerArm_imageView)
-    ImageView imageView;
+    DrawView imageView;
     @BindView(R.id.rula_lowerArm_check1)
     CheckBox lowerArm1;
     @BindView(R.id.rula_lowerArm_wrist_check1)
@@ -110,6 +114,8 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_rula_lower_arm, menu);
 
         MenuItem itemNext = menu.findItem(R.id.rula_lower_arm_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 

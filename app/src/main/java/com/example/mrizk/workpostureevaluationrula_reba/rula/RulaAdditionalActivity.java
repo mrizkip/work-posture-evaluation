@@ -1,6 +1,9 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -138,6 +141,8 @@ public class RulaAdditionalActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_rula_add_part_a, menu);
 
         MenuItem itemNext = menu.findItem(R.id.rula_add1_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 

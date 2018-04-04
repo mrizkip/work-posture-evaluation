@@ -19,6 +19,7 @@ import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaSudutActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaUpperArmNeckTrunkActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
 
@@ -33,8 +34,8 @@ public class RebaSudutActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_sudut_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.reba_sudut_imageView)
-    ImageView imageView;
+    @BindView(R.id.reba_sudut_drawView)
+    DrawView imageView;
     @BindView(R.id.reba_sudut_leg_radioGroup)
     RadioGroup legsGroup;
     @BindView(R.id.reba_sudut_leg_check1)

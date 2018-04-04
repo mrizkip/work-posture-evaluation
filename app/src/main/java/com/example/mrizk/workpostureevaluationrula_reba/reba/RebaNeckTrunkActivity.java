@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
 
@@ -29,7 +30,7 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 public class RebaNeckTrunkActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_neck_trunk_imageView)
-    ImageView imageView;
+    DrawView imageView;
     @BindView(R.id.reba_neck_trunk_neckCheck1)
     CheckBox neck1;
     @BindView(R.id.reba_neck_trunk_neckCheck2)

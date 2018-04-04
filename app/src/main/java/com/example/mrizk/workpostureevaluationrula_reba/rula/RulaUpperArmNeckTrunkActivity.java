@@ -3,6 +3,9 @@ package com.example.mrizk.workpostureevaluationrula_reba.rula;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import android.widget.ImageView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
 
@@ -29,7 +33,7 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_upperArm_imageView)
-    ImageView imageView;
+    DrawView imageView;
     @BindView(R.id.rula_upperArm_check1)
     CheckBox upperArm1;
     @BindView(R.id.rula_upperArm_check2)
@@ -191,6 +195,8 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_rula_upper_arm_neck_trunk, menu);
 
         MenuItem itemNext = menu.findItem(R.id.rula_upper_arm_neck_trunk_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
