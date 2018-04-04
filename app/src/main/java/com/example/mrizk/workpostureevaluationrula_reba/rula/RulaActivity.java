@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -52,6 +53,8 @@ public class RulaActivity extends AppCompatActivity {
             actionBar.setTitle("RULA");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        Picasso.get().load("https://www.qidonk.cf/februari/ss/Template Utama.jpg").error(R.mipmap.ic_launcher).into(imageViewRula);
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override

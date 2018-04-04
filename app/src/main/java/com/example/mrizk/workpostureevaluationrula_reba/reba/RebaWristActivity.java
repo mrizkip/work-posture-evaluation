@@ -17,6 +17,7 @@ import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
 
@@ -30,7 +31,7 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 public class RebaWristActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_wrist_imageView)
-    ImageView imageView;
+    DrawView imageView;
     @BindView(R.id.reba_wrist_wrist_check1)
     CheckBox wrist1;
     @BindView(R.id.reba_wrist_load_radioGroup)

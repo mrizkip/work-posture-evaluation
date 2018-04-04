@@ -3,6 +3,9 @@ package com.example.mrizk.workpostureevaluationrula_reba.rula;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
 
@@ -29,8 +33,8 @@ public class RulaSudutActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_sudut_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.rula_sudut_imageView)
-    ImageView imageView;
+    @BindView(R.id.rula_sudut_drawView)
+    DrawView imageView;
     @BindView(R.id.rula_sudut_leg_radioGroup)
     RadioGroup legsGroup;
 
@@ -102,6 +106,8 @@ public class RulaSudutActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_rula_sudut, menu);
 
         MenuItem itemNext = menu.findItem(R.id.sudut_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
