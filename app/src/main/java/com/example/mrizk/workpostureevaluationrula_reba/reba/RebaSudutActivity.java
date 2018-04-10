@@ -3,10 +3,14 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,6 +26,8 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelect
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +37,8 @@ import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RebaSudutActivity extends AppCompatActivity {
+
+    private static final String TAG = "RebaSudutActivity";
 
     @BindView(R.id.reba_sudut_toolbar)
     Toolbar toolbar;
@@ -51,6 +59,9 @@ public class RebaSudutActivity extends AppCompatActivity {
     private int legsPosition;
     private int legsRadio;
 
+    private List<DrawView.Line> lineList;
+    private List<Double> degreeList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +79,10 @@ public class RebaSudutActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
+        imageView.setType("REBA");
+
+        lineList = new ArrayList<>();
+        degreeList = new ArrayList<>();
 
         selectorDialog = new CameraGallerySelectorDialog(this);
 
@@ -139,6 +154,8 @@ public class RebaSudutActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_reba_sudut, menu);
 
         MenuItem itemNext = menu.findItem(R.id.reba_sudut_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
@@ -162,12 +179,37 @@ public class RebaSudutActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
+                    lineList = imageView.getLineList();
+                    calculateDegree(lineList);
                     Intent intent = new Intent(RebaSudutActivity.this, RebaNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
+                    intent.putExtra("trunkPosition", degreeList.get(0));
+                    intent.putExtra("neckPosition", degreeList.get(1));
+                    intent.putExtra("upperArmPosition", degreeList.get(2));
+                    intent.putExtra("lowerArmPosition", degreeList.get(3));
+                    intent.putExtra("wristPosition", degreeList.get(4));
+                    intent.putExtra("legsPosition", degreeList.get(5));
                     startActivity(intent);
                     return;
                 } catch (IOException e) {
                     e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void calculateDegree(List<DrawView.Line> lineList) {
+        Log.d(TAG, "calculateDegree: " + lineList.size());
+        if (lineList.size() >= 2) {
+            for (int i = 0; i < lineList.size(); i++) {
+                if (!(i % 2 == 0)) {
+                    double degree = Math.toDegrees(imageView.calculateAngle(lineList.get(i - 1), lineList.get(i)));
+                    degree = Math.abs(degree);
+                    if (degree > 180) {
+                        degree = 360 - degree;
+                    }
+                    Log.d(TAG, "calculateDegree: " + degree);
+                    degreeList.add(degree);
                 }
             }
         }

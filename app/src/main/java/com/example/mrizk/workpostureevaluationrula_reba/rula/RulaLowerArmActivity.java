@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 public class RulaLowerArmActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_lowerArm_imageView)
-    DrawView imageView;
+    ImageView imageView;
     @BindView(R.id.rula_lowerArm_check1)
     CheckBox lowerArm1;
     @BindView(R.id.rula_lowerArm_wrist_check1)

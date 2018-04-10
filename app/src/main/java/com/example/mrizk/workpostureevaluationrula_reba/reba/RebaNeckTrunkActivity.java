@@ -3,10 +3,14 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,8 +33,10 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RebaNeckTrunkActivity extends AppCompatActivity {
 
+    private static final String TAG = "RebaNeckTrunkActivity";
+
     @BindView(R.id.reba_neck_trunk_imageView)
-    DrawView imageView;
+    ImageView imageView;
     @BindView(R.id.reba_neck_trunk_neckCheck1)
     CheckBox neck1;
     @BindView(R.id.reba_neck_trunk_neckCheck2)
@@ -61,6 +67,15 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
     private int upperArmPosition;
     private int lowerArmValue = 0;
     private int lowerArmPosition;
+    private int wristPosition;
+    private int legsPosition;
+
+    private double trunkDegree;
+    private double neckDegree;
+    private double upperArmDegree;
+    private double lowerArmDegree;
+    private double wristDegree;
+    private double legsDegree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +91,33 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        // get intent
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
 
+        // get degrees
+        trunkDegree = intent.getDoubleExtra("trunkPosition", 0);
+        neckDegree = intent.getDoubleExtra("neckPosition", 0);
+        upperArmDegree = intent.getDoubleExtra("upperArmPosition", 0);
+        lowerArmDegree = intent.getDoubleExtra("lowerArmPosition", 0);
+        wristDegree = intent.getDoubleExtra("wristPosition", 0);
+        legsDegree = intent.getDoubleExtra("legsPosition", 0);
+
+        // calculate score of position
+        calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree, legsDegree);
+
+        // check result
+        Log.d(TAG, "onCreate: trunk score " + trunkPosition);
+        Log.d(TAG, "onCreate: neck score " + neckPosition);
+        Log.d(TAG, "onCreate: upperArm score " + upperArmPosition);
+        Log.d(TAG, "onCreate: lowerArm score " + lowerArmPosition);
+        Log.d(TAG, "onCreate: wrist score " + wristPosition);
+        Log.d(TAG, "onCreate: legs score " + legsPosition);
+
+        // TODO: DELETE CHECKBOX LEGS DAN HITUNG RADIO SCORE
+
+        // create camera and gallery selector dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
@@ -188,12 +226,80 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
 
     }
 
+    private void calculatePositionScore(double trunkDegree, double neckDegree, double upperArmDegree,
+                                        double lowerArmDegree, double wristDegree, double legsDegree) {
+        long trunk = Math.round(trunkDegree);
+        long neck = Math.round(neckDegree);
+        long upperArm = Math.round(upperArmDegree);
+        long lowerArm = Math.round(lowerArmDegree);
+        long wrist = Math.round(wristDegree);
+        long legs = Math.round(legsDegree);
+
+        // trunk
+        if (trunk == 0) {
+            trunkPosition = 1;
+        } else if (trunk > 0 && trunk <= 20) {
+            trunkPosition = 2;
+        } else if (trunk > 20 && trunk <= 60) {
+            trunkPosition = 3;
+        } else if (trunk > 60) {
+            trunkPosition = 4;
+        } else if (trunk < 0) {
+            trunkPosition = 2;
+        }
+
+        // neck TODO: CHECK NECK IF 0 - 10 DEGREE SCORE +1
+        if (neck >= 0 && neck <= 20) {
+            neckPosition = 1;
+        } else if (neck > 20) {
+            neckPosition = 2;
+        } else if (neck < 0) {
+            neckPosition = 2;
+        }
+
+        // upper arm
+        if (upperArm >= 0 && upperArm <= 20) {
+            upperArmPosition = 1;
+        } else if ((upperArm > 20 && upperArm <= 45) || (upperArm < 0 && upperArm >= -20)) {
+            upperArmPosition = 2;
+        } else if (upperArm > 45 && upperArm <= 90) {
+            upperArmPosition = 3;
+        } else if (upperArm > 90) {
+            upperArmPosition = 4;
+        }
+
+        // lower arm
+        if (lowerArm >= 60 && lowerArm <= 100) {
+            lowerArmPosition = 1;
+        } else if ((lowerArm > 100) || (lowerArm < 60)) {
+            lowerArmPosition = 2;
+        }
+
+        // wrist
+        if (wrist >= 0 && wrist <= 15) {
+            wristPosition = 1;
+        } else if (wrist > 15) {
+            wristPosition = 2;
+        }
+
+        // legs
+        if (legs >= 30 && legs <= 60) {
+            legsPosition = 1;
+        } else if (legs > 60) {
+            legsPosition = 2;
+        } else if (legs < 30) {
+            legsPosition = 0;
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_reba_neck_trunk, menu);
 
         MenuItem itemNext = menu.findItem(R.id.reba_neck_trunk_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
