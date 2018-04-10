@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,8 +33,10 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
+    private static final String TAG = "RulaUpperArmNeckTrunkAc";
+
     @BindView(R.id.rula_upperArm_imageView)
-    DrawView imageView;
+    ImageView imageView;
     @BindView(R.id.rula_upperArm_check1)
     CheckBox upperArm1;
     @BindView(R.id.rula_upperArm_check2)
@@ -60,6 +63,14 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     private int neckPosition;
     private int trunkValue = 0;
     private int trunkPosition;
+    private int lowerArmPosition;
+    private int wristPosition;
+
+    private double trunkDegree;
+    private double neckDegree;
+    private double upperArmDegree;
+    private double lowerArmDegree;
+    private double wristDegree;
 
     private CameraGallerySelectorDialog selectorDialog;
 
@@ -82,6 +93,24 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
 
+        // get degrees
+        trunkDegree = intent.getDoubleExtra("trunkPosition", 0);
+        neckDegree = intent.getDoubleExtra("neckPosition", 0);
+        upperArmDegree = intent.getDoubleExtra("upperArmPosition", 0);
+        lowerArmDegree = intent.getDoubleExtra("lowerArmPosition", 0);
+        wristDegree = intent.getDoubleExtra("wristPosition", 0);
+
+        // calculate score of position
+        calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree);
+
+        // check result
+        Log.d(TAG, "onCreate: trunk score " + trunkPosition);
+        Log.d(TAG, "onCreate: neck score " + neckPosition);
+        Log.d(TAG, "onCreate: upperArm score " + upperArmPosition);
+        Log.d(TAG, "onCreate: lowerArm score " + lowerArmPosition);
+        Log.d(TAG, "onCreate: wristPosition " + wristPosition);
+
+        // TODO: HITUNG CHECKBOX SCORE
 
         // Create Camera and Gallery Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
@@ -189,6 +218,65 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
     }
 
+    private void calculatePositionScore(double trunkDegree, double neckDegree, double upperArmDegree,
+                                        double lowerArmDegree, double wristDegree) {
+        long trunk = Math.round(trunkDegree);
+        long neck = Math.round(neckDegree);
+        long upperArm = Math.round(upperArmDegree);
+        long lowerArm = Math.round(lowerArmDegree);
+        long wrist = Math.round(wristDegree);
+
+        // trunk
+        if (trunk == 0) {
+            trunkPosition = 1;
+        } else if (trunk > 0 && trunk <= 20) {
+            trunkPosition = 2;
+        } else if (trunk > 20 && trunk <= 60) {
+            trunkPosition = 3;
+        } else if (trunk > 60) {
+            trunkPosition = 4;
+        }
+
+        // neck
+        if (neck >= 0 && neck <= 10) {
+            neckPosition = 1;
+        } else if (neck > 10 && neck <= 20) {
+            neckPosition = 2;
+        } else if (neck > 20) {
+            neckPosition = 3;
+        } else if (neck < 0) {
+            neckPosition = 4;
+        }
+        
+        // upper arm
+        if (upperArm >= 0 && upperArm <= 20) {
+            upperArmPosition = 1;
+        } else if ((upperArm > 20 && upperArm <= 45) || (upperArm < 0 && upperArm >= -20)) {
+            upperArmPosition = 2;
+        } else if (upperArm > 45 && upperArm <= 90) {
+            upperArmPosition = 3;
+        } else if (upperArm > 90) {
+            upperArmPosition = 4;
+        }
+        
+        // lower arm
+        if (lowerArm >= 60 && lowerArm <= 100) {
+            lowerArmPosition = 1;
+        } else if ((lowerArm > 100) || (lowerArm < 60)) {
+            lowerArmPosition = 2;
+        }
+        
+        // wrist
+        if (wrist == 0) {
+            wristPosition = 1;
+        } else if (wrist > 0 && wrist <= 15) {
+            wristPosition = 2;
+        } else if (wrist > 15) {
+            wristPosition = 3;
+        }
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -207,7 +295,6 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.rula_upper_arm_neck_trunk_next:
-                // TODO: CAMERA GALLERY SELECTION DIALOG
                 selectorDialog.show();
         }
         return super.onOptionsItemSelected(item);

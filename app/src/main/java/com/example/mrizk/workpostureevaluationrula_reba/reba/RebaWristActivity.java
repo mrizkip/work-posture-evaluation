@@ -3,6 +3,9 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +34,7 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 public class RebaWristActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_wrist_imageView)
-    DrawView imageView;
+    ImageView imageView;
     @BindView(R.id.reba_wrist_wrist_check1)
     CheckBox wrist1;
     @BindView(R.id.reba_wrist_load_radioGroup)
@@ -184,6 +187,8 @@ public class RebaWristActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_reba_wrist, menu);
 
         MenuItem itemNext = menu.findItem(R.id.reba_wrist_next);
+        Drawable drawable = itemNext.getIcon();
+        drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
