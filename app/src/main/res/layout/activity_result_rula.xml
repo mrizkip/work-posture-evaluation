@@ -4,12 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.ResultRulaActivity">
 
     <include
         android:id="@+id/result_rula_toolbar"
         layout="@layout/view_toolbar" />
 
+    <RelativeLayout
+        android:layout_below="@id/result_rula_toolbar"
+        android:layout_above="@id/result_rula_buttonStart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/result_rula_scoreA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Posture Score A: "
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreAMuscle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreA"
+            android:text="Muscle A "
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreALoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreAMuscle"
+            android:text="Load A"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreALoad"
+            android:text="Posture Score B: "
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreBMuscle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreB"
+            android:text="Muscle B"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreBLoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreBMuscle"
+            android:text="Load B"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_rula_scoreFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/result_rula_scoreBLoad"
+            android:text="Final Score: "
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/result_rula_buttonStart"

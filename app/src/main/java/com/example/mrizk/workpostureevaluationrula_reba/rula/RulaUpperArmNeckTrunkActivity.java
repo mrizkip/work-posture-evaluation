@@ -72,6 +72,8 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     private double lowerArmDegree;
     private double wristDegree;
 
+    private int legsScore;
+
     private CameraGallerySelectorDialog selectorDialog;
 
     @Override
@@ -99,18 +101,10 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         upperArmDegree = intent.getDoubleExtra("upperArmPosition", 0);
         lowerArmDegree = intent.getDoubleExtra("lowerArmPosition", 0);
         wristDegree = intent.getDoubleExtra("wristPosition", 0);
+        legsScore = intent.getIntExtra("legsScore", 0);
 
         // calculate score of position
         calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree);
-
-        // check result
-        Log.d(TAG, "onCreate: trunk score " + trunkPosition);
-        Log.d(TAG, "onCreate: neck score " + neckPosition);
-        Log.d(TAG, "onCreate: upperArm score " + upperArmPosition);
-        Log.d(TAG, "onCreate: lowerArm score " + lowerArmPosition);
-        Log.d(TAG, "onCreate: wristPosition " + wristPosition);
-
-        // TODO: HITUNG CHECKBOX SCORE
 
         // Create Camera and Gallery Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
@@ -310,8 +304,13 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
                     Intent intent = new Intent(RulaUpperArmNeckTrunkActivity.this, RulaLowerArmActivity.class);
                     intent.putExtra("photo", pickedPhoto);
+                    intent.putExtra("legsScore", legsScore);
+                    intent.putExtra("upperArmScore", upperArmValue);
+                    intent.putExtra("neckScore", neckValue);
+                    intent.putExtra("trunkScore", trunkValue);
+                    intent.putExtra("lowerArmPosition", lowerArmPosition);
+                    intent.putExtra("wristPosition", wristPosition);
                     startActivity(intent);
-                    return;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
