@@ -14,8 +14,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
@@ -42,6 +45,10 @@ public class RulaSudutActivity extends AppCompatActivity {
     DrawView imageView;
     @BindView(R.id.rula_sudut_leg_radioGroup)
     RadioGroup legsGroup;
+    @BindView(R.id.rula_sudut_cbUpperArm)
+    CheckBox cbUpperArm;
+    @BindView(R.id.rula_sudut_cbNeck)
+    CheckBox cbNeck;
 
     ActionBar actionBar;
 
@@ -52,6 +59,8 @@ public class RulaSudutActivity extends AppCompatActivity {
 
     private List<DrawView.Line> lineList;
     private List<Double> degreeList;
+    private Double upperArmDegree;
+    private Double neckDegree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,21 +104,6 @@ public class RulaSudutActivity extends AppCompatActivity {
             }
         });
 
-        // Check Legs RadioButton
-        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.rula_sudut_leg_radio1:
-                        legsRadio = 1;
-                        break;
-                    case R.id.rula_sudut_leg_radio2:
-                        legsRadio = 2;
-                        break;
-                }
-            }
-        });
-        legsValue = legsValue + legsRadio;
     }
 
     @Override
@@ -130,7 +124,24 @@ public class RulaSudutActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.sudut_next:
-                selectorDialog.show();
+                lineList = imageView.getLineList();
+                if (lineList.size() < 5) {
+                    Toast.makeText(this, "Sudut yang dibuat harus sebanyak 5!", Toast.LENGTH_SHORT).show();
+                } else {
+                    calculateDegree(lineList);
+                    // Mengecek check box
+                    upperArmDegree = degreeList.get(2);
+                    if (cbUpperArm.isChecked()) {
+                        upperArmDegree *= -1;
+                    }
+                    neckDegree = degreeList.get(1);
+                    if (cbNeck.isChecked()) {
+                        neckDegree *= -1;
+                    }
+                    Log.d(TAG, "onActivityResult: UpperArm Degree " + upperArmDegree);
+                    Log.d(TAG, "onActivityResult: neck Degree " + neckDegree);
+                    selectorDialog.show();
+                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -142,16 +153,27 @@ public class RulaSudutActivity extends AppCompatActivity {
             if (requestCode == EZPhotoPick.PHOTO_PICK_GALLERY_REQUEST_CODE
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
+                    // Mengambil jawaban radio button legs
+                    int radioButtonId = legsGroup.getCheckedRadioButtonId();
+                    switch (radioButtonId) {
+                        case R.id.rula_sudut_leg_radio1:
+                            legsRadio = 1;
+                            break;
+                        case R.id.rula_sudut_leg_radio2:
+                            legsRadio = 2;
+                            break;
+                    }
+
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    lineList = imageView.getLineList();
-                    calculateDegree(lineList);
                     Intent intent = new Intent(RulaSudutActivity.this, RulaUpperArmNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     intent.putExtra("trunkPosition", degreeList.get(0));
-                    intent.putExtra("neckPosition", degreeList.get(1));
-                    intent.putExtra("upperArmPosition", degreeList.get(2));
+                    intent.putExtra("neckPosition", neckDegree);
+                    intent.putExtra("upperArmPosition", upperArmDegree);
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
+                    legsValue = legsValue + legsRadio;
+                    intent.putExtra("legsScore", legsValue);
                     startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -175,5 +197,9 @@ public class RulaSudutActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public Double inExtension(Double degree) {
+        return degree * -1;
     }
 }

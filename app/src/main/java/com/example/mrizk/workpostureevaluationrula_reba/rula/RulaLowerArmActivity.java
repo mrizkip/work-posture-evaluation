@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RulaLowerArmActivity extends AppCompatActivity {
+
+    private static final String TAG = "RulaLowerArmActivity";
 
     @BindView(R.id.rula_lowerArm_imageView)
     ImageView imageView;
@@ -45,6 +48,11 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     private int wristTwistRadio;
     private int wristTwistValue = 0;
 
+    private int neckScore;
+    private int trunkScore;
+    private int upperArmScore;
+    private int legsScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +71,18 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
+        neckScore = intent.getIntExtra("neckScore", 0);
+        trunkScore = intent.getIntExtra("trunkScore", 0);
+        upperArmScore = intent.getIntExtra("upperArmScore", 0);
+        legsScore = intent.getIntExtra("legsScore", 0);
+        lowerArmPosition = intent.getIntExtra("lowerArmPosition", 0);
+
+        // check result
+        Log.d(TAG, "onCreate: neckScore : " + neckScore);
+        Log.d(TAG, "onCreate: trunkScore : " + trunkScore);
+        Log.d(TAG, "onCreate: upperArmScore : " + upperArmScore);
+        Log.d(TAG, "onCreate: lowerArm Position" + lowerArmPosition);
+        Log.d(TAG, "onCreate: legsScore : " + legsScore);
 
         // Check LowerArm CheckBox
         lowerArmValue = lowerArmValue + lowerArmPosition;
@@ -90,22 +110,6 @@ public class RulaLowerArmActivity extends AppCompatActivity {
             }
         });
 
-        // Check WristTwist
-        wristTwistGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.rula_lowerArm_wristTwist_radio1:
-                        wristTwistRadio = 1;
-                        break;
-                    case R.id.rula_lowerArm_wristTwist_radio2:
-                        wristTwistRadio = 2;
-                        break;
-                }
-            }
-        });
-        wristTwistValue = wristTwistValue + wristTwistRadio;
-
     }
 
     @Override
@@ -126,7 +130,26 @@ public class RulaLowerArmActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.rula_lower_arm_next:
+                // get wrist twist score
+                int wristRadioId = wristTwistGroup.getCheckedRadioButtonId();
+                switch (wristRadioId) {
+                    case R.id.rula_lowerArm_wristTwist_radio1:
+                        wristTwistRadio = 1;
+                        break;
+                    case R.id.rula_lowerArm_wristTwist_radio2:
+                        wristTwistRadio = 2;
+                        break;
+                }
+
+                wristTwistValue = wristTwistValue + wristTwistRadio;
                 Intent intent = new Intent(RulaLowerArmActivity.this, RulaAdditionalActivity.class);
+                intent.putExtra("legsScore", legsScore);
+                intent.putExtra("upperArmScore", upperArmScore);
+                intent.putExtra("neckScore", neckScore);
+                intent.putExtra("trunkScore", trunkScore);
+                intent.putExtra("lowerArmScore", lowerArmValue);
+                intent.putExtra("wristScore", wristValue);
+                intent.putExtra("wristTwistScore", wristTwistValue);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

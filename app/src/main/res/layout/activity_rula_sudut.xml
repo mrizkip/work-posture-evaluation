@@ -28,13 +28,92 @@
                 android:layout_height="400dp"
                 android:src="@mipmap/ic_launcher"
                 />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_sudut_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rula_sudut_drawView"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rula_sudut_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_sudut_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck Position"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rula_sudut_cbNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck position in extension"
+                        />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_sudut_cardViewUpperArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rula_sudut_cardViewNeck"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/rula_sudut_linearLayoutUpperArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_sudut_textUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upper Arm Position"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/rula_sudut_cbUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upper arm position in extension"
+                        />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
             
             <android.support.v7.widget.CardView
                 android:id="@+id/rula_sudut_cardViewLeg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rula_sudut_drawView"
-                android:layout_margin="10dp"
+                android:layout_below="@id/rula_sudut_cardViewUpperArm"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
