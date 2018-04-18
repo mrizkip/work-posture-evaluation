@@ -241,8 +241,8 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         } else if (neck < 0) {
             neckPosition = 4;
         }
-        
-        // upper arm
+
+        // upper arm TODO: Calculate if in extension > 20
         if (upperArm >= 0 && upperArm <= 20) {
             upperArmPosition = 1;
         } else if ((upperArm > 20 && upperArm <= 45) || (upperArm < 0 && upperArm >= -20)) {
@@ -252,14 +252,14 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         } else if (upperArm > 90) {
             upperArmPosition = 4;
         }
-        
+
         // lower arm
         if (lowerArm >= 60 && lowerArm <= 100) {
             lowerArmPosition = 1;
         } else if ((lowerArm > 100) || (lowerArm < 60)) {
             lowerArmPosition = 2;
         }
-        
+
         // wrist
         if (wrist == 0) {
             wristPosition = 1;

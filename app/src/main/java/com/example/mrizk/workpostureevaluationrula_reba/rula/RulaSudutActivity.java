@@ -140,6 +140,19 @@ public class RulaSudutActivity extends AppCompatActivity {
                     }
                     Log.d(TAG, "onActivityResult: UpperArm Degree " + upperArmDegree);
                     Log.d(TAG, "onActivityResult: neck Degree " + neckDegree);
+
+                    // Mengambil jawaban radio button legs
+                    int radioButtonId = legsGroup.getCheckedRadioButtonId();
+                    switch (radioButtonId) {
+                        case R.id.rula_sudut_leg_radio1:
+                            legsRadio = 1;
+                            break;
+                        case R.id.rula_sudut_leg_radio2:
+                            legsRadio = 2;
+                            break;
+                    }
+
+                    legsValue = legsValue + legsRadio;
                     selectorDialog.show();
                 }
         }
@@ -153,17 +166,6 @@ public class RulaSudutActivity extends AppCompatActivity {
             if (requestCode == EZPhotoPick.PHOTO_PICK_GALLERY_REQUEST_CODE
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
-                    // Mengambil jawaban radio button legs
-                    int radioButtonId = legsGroup.getCheckedRadioButtonId();
-                    switch (radioButtonId) {
-                        case R.id.rula_sudut_leg_radio1:
-                            legsRadio = 1;
-                            break;
-                        case R.id.rula_sudut_leg_radio2:
-                            legsRadio = 2;
-                            break;
-                    }
-
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
                     Intent intent = new Intent(RulaSudutActivity.this, RulaUpperArmNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
@@ -172,7 +174,6 @@ public class RulaSudutActivity extends AppCompatActivity {
                     intent.putExtra("upperArmPosition", upperArmDegree);
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
-                    legsValue = legsValue + legsRadio;
                     intent.putExtra("legsScore", legsValue);
                     startActivity(intent);
                 } catch (IOException e) {
@@ -199,7 +200,4 @@ public class RulaSudutActivity extends AppCompatActivity {
         }
     }
 
-    public Double inExtension(Double degree) {
-        return degree * -1;
-    }
 }

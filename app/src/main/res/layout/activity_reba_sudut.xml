@@ -30,11 +30,122 @@
                 />
 
             <android.support.v7.widget.CardView
-                android:id="@+id/reba_sudut_cardViewLeg"
+                android:id="@+id/reba_sudut_cardViewTrunk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/reba_sudut_drawView"
                 android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/reba_sudut_linearLayoutTrunk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trunk"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Trunk position in extension" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewTrunk"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/reba_sudut_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Neck"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Neck position in extension" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewUpperArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewNeck"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:id="@+id/reba_sudut_linearLayoutUpperArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upper Arm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:text="Upper arm position in extension" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewLeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewUpperArm"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
@@ -74,19 +185,6 @@
                             />
 
                     </RadioGroup>
-
-                    <CheckBox
-                        android:id="@+id/reba_sudut_leg_check1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="5dp"
-                        android:text="30&#176; to 60&#176;" />
-
-                    <CheckBox
-                        android:id="@+id/reba_sudut_leg_check2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="More than 60&#176;" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

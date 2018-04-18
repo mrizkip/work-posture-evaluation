@@ -76,6 +76,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         upperArmScore = intent.getIntExtra("upperArmScore", 0);
         legsScore = intent.getIntExtra("legsScore", 0);
         lowerArmPosition = intent.getIntExtra("lowerArmPosition", 0);
+        wristPosition = intent.getIntExtra("wristPosition", 0);
 
         // check result
         Log.d(TAG, "onCreate: neckScore : " + neckScore);

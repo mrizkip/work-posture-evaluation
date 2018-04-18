@@ -63,6 +63,12 @@ public class RebaWristActivity extends AppCompatActivity {
     private int couplingRadio;
     private int activityValue = 0;
 
+    private int trunkScore;
+    private int neckScore;
+    private int upperArmScore;
+    private int lowerArmScore;
+    private int legsScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,13 +79,19 @@ public class RebaWristActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-                actionBar.setTitle("REBA WRIST");
+            actionBar.setTitle("REBA WRIST");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
+        trunkScore = intent.getIntExtra("trunkScore", 0);
+        neckScore = intent.getIntExtra("neckScore", 0);
+        upperArmScore = intent.getIntExtra("upperArmScore", 0);
+        lowerArmScore = intent.getIntExtra("lowerArmScore", 0);
+        wristPosition = intent.getIntExtra("wristPosition", 0);
+        legsScore = intent.getIntExtra("legsScore", 0);
 
         // Check Wrist CheckBox
         wristValue = wristValue + wristPosition;
@@ -94,25 +106,7 @@ public class RebaWristActivity extends AppCompatActivity {
             }
         });
 
-        // Check Load RadioGroup and CheckBox
-        wristLoadGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.reba_wrist_load_radio1:
-                        loadRadio = 0;
-                        break;
-                    case R.id.reba_wrist_load_radio2:
-                        loadRadio = 1;
-                        break;
-                    case R.id.reba_wrist_load_radio3:
-                        loadRadio = 2;
-                        break;
-                }
-            }
-        });
-        loadValue = loadValue + loadRadio;
-
+        // Check Load CheckBox
         wristLoad1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -123,28 +117,6 @@ public class RebaWristActivity extends AppCompatActivity {
                 }
             }
         });
-
-        // Check Coupling Radio
-        couplingGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.reba_wrist_coupling_radio1:
-                        couplingRadio = 0;
-                        break;
-                    case R.id.reba_wrist_coupling_radio2:
-                        couplingRadio = 1;
-                        break;
-                    case R.id.reba_wrist_coupling_radio3:
-                        couplingRadio = 2;
-                        break;
-                    case R.id.reba_wrist_coupling_radio4:
-                        couplingRadio = 3;
-                        break;
-                }
-            }
-        });
-        couplingValue = couplingValue + couplingRadio;
 
         // Check Activity CheckBox
         activity1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -199,7 +171,48 @@ public class RebaWristActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.reba_wrist_next:
+                // get radio button value
+                int loadRadioId = wristLoadGroup.getCheckedRadioButtonId();
+                switch (loadRadioId) {
+                    case R.id.reba_wrist_load_radio1:
+                        loadRadio = 0;
+                        break;
+                    case R.id.reba_wrist_load_radio2:
+                        loadRadio = 1;
+                        break;
+                    case R.id.reba_wrist_load_radio3:
+                        loadRadio = 2;
+                        break;
+                }
+                loadValue = loadValue + loadRadio;
+
+                int couplingRadioId = couplingGroup.getCheckedRadioButtonId();
+                switch (couplingRadioId) {
+                    case R.id.reba_wrist_coupling_radio1:
+                        couplingRadio = 0;
+                        break;
+                    case R.id.reba_wrist_coupling_radio2:
+                        couplingRadio = 1;
+                        break;
+                    case R.id.reba_wrist_coupling_radio3:
+                        couplingRadio = 2;
+                        break;
+                    case R.id.reba_wrist_coupling_radio4:
+                        couplingRadio = 3;
+                        break;
+                }
+                couplingValue = couplingValue + couplingRadio;
+
                 Intent intent = new Intent(RebaWristActivity.this, ResultRebaActivity.class);
+                intent.putExtra("trunkScore", trunkScore);
+                intent.putExtra("neckScore", neckScore);
+                intent.putExtra("upperArmScore", upperArmScore);
+                intent.putExtra("lowerArmScore", lowerArmScore);
+                intent.putExtra("wristScore", wristValue);
+                intent.putExtra("legsScore", legsScore);
+                intent.putExtra("loadScore", loadValue);
+                intent.putExtra("couplingScore", couplingValue);
+                intent.putExtra("activityScore", activityValue);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
