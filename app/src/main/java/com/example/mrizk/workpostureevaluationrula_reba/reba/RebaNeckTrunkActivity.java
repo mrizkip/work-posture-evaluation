@@ -68,6 +68,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
     private int lowerArmValue = 0;
     private int lowerArmPosition;
     private int wristPosition;
+    private int legsValue;
     private int legsPosition;
 
     private double trunkDegree;
@@ -103,6 +104,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         lowerArmDegree = intent.getDoubleExtra("lowerArmPosition", 0);
         wristDegree = intent.getDoubleExtra("wristPosition", 0);
         legsDegree = intent.getDoubleExtra("legsPosition", 0);
+        legsValue = intent.getIntExtra("legsValue", 0);
 
         // calculate score of position
         calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree, legsDegree);
@@ -114,8 +116,6 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: lowerArm score " + lowerArmPosition);
         Log.d(TAG, "onCreate: wrist score " + wristPosition);
         Log.d(TAG, "onCreate: legs score " + legsPosition);
-
-        // TODO: DELETE CHECKBOX LEGS DAN HITUNG RADIO SCORE
 
         // create camera and gallery selector dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
@@ -224,6 +224,9 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         // Check LowerArm Position
         lowerArmValue = lowerArmValue + lowerArmPosition;
 
+        // legs position
+        legsValue = legsValue + legsPosition;
+
     }
 
     private void calculatePositionScore(double trunkDegree, double neckDegree, double upperArmDegree,
@@ -248,7 +251,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
             trunkPosition = 2;
         }
 
-        // neck TODO: CHECK NECK IF 0 - 10 DEGREE SCORE +1
+        // neck
         if (neck >= 0 && neck <= 20) {
             neckPosition = 1;
         } else if (neck > 20) {
@@ -257,7 +260,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
             neckPosition = 2;
         }
 
-        // upper arm
+        // upper arm TODO: Calculate if in extension > 20
         if (upperArm >= 0 && upperArm <= 20) {
             upperArmPosition = 1;
         } else if ((upperArm > 20 && upperArm <= 45) || (upperArm < 0 && upperArm >= -20)) {
@@ -325,8 +328,13 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
                     Intent intent = new Intent(RebaNeckTrunkActivity.this, RebaWristActivity.class);
                     intent.putExtra("photo", pickedPhoto);
+                    intent.putExtra("trunkScore", trunkValue);
+                    intent.putExtra("neckScore", neckValue);
+                    intent.putExtra("upperArmScore", upperArmValue);
+                    intent.putExtra("lowerArmScore", lowerArmValue);
+                    intent.putExtra("wristPosition", wristPosition);
+                    intent.putExtra("legsScore", legsValue);
                     startActivity(intent);
-                    return;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

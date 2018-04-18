@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaSudutActivity;
@@ -46,21 +47,25 @@ public class RebaSudutActivity extends AppCompatActivity {
     DrawView imageView;
     @BindView(R.id.reba_sudut_leg_radioGroup)
     RadioGroup legsGroup;
-    @BindView(R.id.reba_sudut_leg_check1)
-    CheckBox legs1;
-    @BindView(R.id.reba_sudut_leg_check2)
-    CheckBox legs2;
+    @BindView(R.id.reba_sudut_cbTrunk)
+    CheckBox cbTrunk;
+    @BindView(R.id.reba_sudut_cbNeck)
+    CheckBox cbNeck;
+    @BindView(R.id.reba_sudut_cbUpperArm)
+    CheckBox cbUpperArm;
 
     ActionBar actionBar;
 
     private CameraGallerySelectorDialog selectorDialog;
 
     private int legsValue = 0;
-    private int legsPosition;
     private int legsRadio;
 
     private List<DrawView.Line> lineList;
     private List<Double> degreeList;
+    private Double trunkDegree;
+    private Double neckDegree;
+    private Double upperArmDegree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,48 +109,6 @@ public class RebaSudutActivity extends AppCompatActivity {
             }
         });
 
-        // Check Legs Radio and CheckBox
-        legsValue = legsValue + legsPosition;
-        legsGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (i) {
-                    case R.id.reba_sudut_leg_radio1:
-                        legsRadio = 1;
-                        break;
-                    case R.id.reba_sudut_leg_radio2:
-                        legsRadio = 2;
-                        break;
-                }
-            }
-        });
-        legsValue = legsValue + legsRadio;
-
-        legs1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    legsValue = legsValue + 1;
-                } else {
-                    legsValue = legsValue - 1;
-                }
-            }
-        });
-
-        legs2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    if (b) {
-                        legsValue = legsValue + 2;
-                    } else {
-                        legsValue = legsValue - 2;
-                    }
-                }
-            }
-        });
-
-
     }
 
     @Override
@@ -166,7 +129,39 @@ public class RebaSudutActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.reba_sudut_next:
-                selectorDialog.show();
+                lineList = imageView.getLineList();
+                if (lineList.size() < 6) {
+                    Toast.makeText(this, "Sudut yang dibuat harus sebanyak 6!", Toast.LENGTH_SHORT).show();
+                } else {
+                    calculateDegree(lineList);
+                    // mengecek check box
+                    trunkDegree = degreeList.get(0);
+                    if (cbTrunk.isChecked()) {
+                        trunkDegree *= -1;
+                    }
+                    neckDegree = degreeList.get(1);
+                    if (cbNeck.isChecked()) {
+                        neckDegree *= -1;
+                    }
+                    upperArmDegree = degreeList.get(2);
+                    if (cbUpperArm.isChecked()) {
+                        upperArmDegree *= -1;
+                    }
+
+                    // mengambil radio button
+                    int radioButtonId = legsGroup.getCheckedRadioButtonId();
+                    switch (radioButtonId) {
+                        case R.id.reba_sudut_leg_radio1:
+                            legsRadio = 1;
+                            break;
+                        case R.id.reba_sudut_leg_radio2:
+                            legsRadio = 2;
+                            break;
+                    }
+                    legsValue = legsValue + legsRadio;
+
+                    selectorDialog.show();
+                }
         }
         return super.onOptionsItemSelected(item);
     }
@@ -179,18 +174,16 @@ public class RebaSudutActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    lineList = imageView.getLineList();
-                    calculateDegree(lineList);
                     Intent intent = new Intent(RebaSudutActivity.this, RebaNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
-                    intent.putExtra("trunkPosition", degreeList.get(0));
-                    intent.putExtra("neckPosition", degreeList.get(1));
-                    intent.putExtra("upperArmPosition", degreeList.get(2));
+                    intent.putExtra("trunkPosition", trunkDegree);
+                    intent.putExtra("neckPosition", neckDegree);
+                    intent.putExtra("upperArmPosition", upperArmDegree);
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
                     intent.putExtra("legsPosition", degreeList.get(5));
+                    intent.putExtra("legsValue", legsValue);
                     startActivity(intent);
-                    return;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -199,7 +192,6 @@ public class RebaSudutActivity extends AppCompatActivity {
     }
 
     private void calculateDegree(List<DrawView.Line> lineList) {
-        Log.d(TAG, "calculateDegree: " + lineList.size());
         if (lineList.size() >= 2) {
             for (int i = 0; i < lineList.size(); i++) {
                 if (!(i % 2 == 0)) {

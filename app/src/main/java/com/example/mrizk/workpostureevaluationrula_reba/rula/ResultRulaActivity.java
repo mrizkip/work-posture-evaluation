@@ -14,7 +14,6 @@ import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.main.MainActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRulaA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRulaB;
-import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRulaC;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RulaTableA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RulaTableB;
 
@@ -34,17 +33,17 @@ public class ResultRulaActivity extends AppCompatActivity {
     @BindView(R.id.result_rula_scoreA)
     TextView textScoreA;
     @BindView(R.id.result_rula_scoreB)
-            TextView textScoreB;
+    TextView textScoreB;
     @BindView(R.id.result_rula_scoreFinal)
-            TextView textScoreFinal;
+    TextView textScoreFinal;
     @BindView(R.id.result_rula_scoreAMuscle)
-            TextView textMuscleA;
+    TextView textMuscleA;
     @BindView(R.id.result_rula_scoreALoad)
-            TextView textLoadA;
+    TextView textLoadA;
     @BindView(R.id.result_rula_scoreBMuscle)
-            TextView textMuscleB;
+    TextView textMuscleB;
     @BindView(R.id.result_rula_scoreBLoad)
-            TextView textLoadB;
+    TextView textLoadB;
 
     ActionBar actionBar;
 

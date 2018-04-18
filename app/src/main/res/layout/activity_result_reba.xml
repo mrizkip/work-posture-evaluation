@@ -10,6 +10,64 @@
         android:id="@+id/result_reba_toolbar"
         layout="@layout/view_toolbar" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/result_reba_toolbar"
+        android:layout_above="@id/result_reba_buttonStart"
+        android:padding="10dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/result_reba_tvScoreA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Score A"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_reba_tvLoadScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Load Score"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_reba_tvScoreB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Score B"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_reba_tvCouplingScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coupling Score"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_reba_tvActivityScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity Score"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/result_reba_tvFinalScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Final Score"
+            android:textColor="@color/primaryText"
+            android:textSize="16sp"
+            />
+    </LinearLayout>
+
     <Button
         android:id="@+id/result_reba_buttonStart"
         android:layout_width="match_parent"
