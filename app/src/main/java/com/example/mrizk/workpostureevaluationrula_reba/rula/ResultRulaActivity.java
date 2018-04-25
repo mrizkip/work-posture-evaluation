@@ -81,7 +81,7 @@ public class ResultRulaActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RESULT RULA");
+            actionBar.setTitle("Result RULA");
         }
 
         // init table

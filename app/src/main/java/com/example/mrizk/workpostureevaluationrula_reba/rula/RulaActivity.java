@@ -50,7 +50,7 @@ public class RulaActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA");
+            actionBar.setTitle("Take Beside Posture");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

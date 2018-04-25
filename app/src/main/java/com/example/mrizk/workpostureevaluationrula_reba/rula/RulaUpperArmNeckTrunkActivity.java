@@ -86,7 +86,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA UPPER ARM NECK TRUNK");
+            actionBar.setTitle("RULA Upeer Arm Neck Trunk");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -108,6 +108,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
         // Create Camera and Gallery Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
+        selectorDialog.setChooseString("Take Top Posture");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override

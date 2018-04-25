@@ -63,7 +63,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA LOWER ARM");
+            actionBar.setTitle("RULA Lower Arm");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

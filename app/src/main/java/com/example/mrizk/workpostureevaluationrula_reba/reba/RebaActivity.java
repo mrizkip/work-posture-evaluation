@@ -46,7 +46,7 @@ public class RebaActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA");
+            actionBar.setTitle("Take Beside Posture");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

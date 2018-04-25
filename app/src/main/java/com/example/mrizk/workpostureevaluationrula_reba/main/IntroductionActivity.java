@@ -40,7 +40,7 @@ public class IntroductionActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("INTRODUCTION");
+            actionBar.setTitle("Method Selection");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
