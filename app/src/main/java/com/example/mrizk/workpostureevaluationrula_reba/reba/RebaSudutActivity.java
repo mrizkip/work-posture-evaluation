@@ -77,7 +77,7 @@ public class RebaSudutActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA SUDUT");
+            actionBar.setTitle("REBA Angle Measurement");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -90,6 +90,7 @@ public class RebaSudutActivity extends AppCompatActivity {
         degreeList = new ArrayList<>();
 
         selectorDialog = new CameraGallerySelectorDialog(this);
+        selectorDialog.setChooseString("Take Front Posture");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override

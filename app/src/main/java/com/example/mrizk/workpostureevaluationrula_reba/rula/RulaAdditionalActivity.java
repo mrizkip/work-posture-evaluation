@@ -65,7 +65,7 @@ public class RulaAdditionalActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA ADDITIONAL");
+            actionBar.setTitle("RULA Additional");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

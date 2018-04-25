@@ -72,7 +72,7 @@ public class RulaSudutActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA SUDUT");
+            actionBar.setTitle("RULA Angle Measurement");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -85,6 +85,7 @@ public class RulaSudutActivity extends AppCompatActivity {
         degreeList = new ArrayList<>();
 
         selectorDialog = new CameraGallerySelectorDialog(this);
+        selectorDialog.setChooseString("Take Front Posture");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override

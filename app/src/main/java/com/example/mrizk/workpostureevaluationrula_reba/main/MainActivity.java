@@ -1,6 +1,9 @@
 package com.example.mrizk.workpostureevaluationrula_reba.main;
 
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,10 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.mainActivity_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.mainActivity_buttonIntroduction)
-    Button buttonIntroduce;
-    @BindView(R.id.mainActivity_buttonAbout)
-    Button buttonAbout;
+    @BindView(R.id.main_bottomNavigation)
+    BottomNavigationView bottomNavigationView;
 
     ActionBar actionBar;
 
@@ -34,24 +35,34 @@ public class MainActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("WORK POSTURE EVALUATION");
+            actionBar.setTitle("Work Posture Evaluation");
         }
 
-        buttonIntroduce.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, IntroductionActivity.class);
-                startActivity(intent);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+                case R.id.nav_home:
+                    selectedFragment = HomeFragment.newInstance();
+                    actionBar.setTitle("Work Posture Evaluation");
+                    break;
+                case R.id.nav_guide:
+                    selectedFragment = GuideFragment.newInstance();
+                    actionBar.setTitle("Guide");
+                    break;
+                case R.id.nav_about:
+                    selectedFragment = AboutFragment.newInstance();
+                    actionBar.setTitle("About");
+                    break;
             }
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.main_frameLayout, selectedFragment);
+            transaction.commit();
+            return true;
         });
 
-        buttonAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-            }
-        });
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_frameLayout, HomeFragment.newInstance());
+        transaction.commit();
 
     }
 }

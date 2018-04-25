@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.example.mrizk.workpostureevaluationrula_reba.main.MainActivity">
 
     <include
         android:id="@+id/mainActivity_toolbar"
         layout="@layout/view_toolbar" />
 
-    <Button
-        android:id="@+id/mainActivity_buttonIntroduction"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/main_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_bottomNavigation"
+        android:layout_below="@id/mainActivity_toolbar"
+        android:animateLayoutChanges="true"
+        >
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/main_bottomNavigation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:text="Introduction" />
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@color/nav_item_state_list"
+        app:itemTextColor="@color/nav_item_state_list"
+        app:menu="@menu/menu_bottom_navigation"
+        >
 
-    <Button
-        android:id="@+id/mainActivity_buttonAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/mainActivity_buttonReba"
-        android:text="About" />
+    </android.support.design.widget.BottomNavigationView>
 
 
-</LinearLayout>
+</RelativeLayout>
