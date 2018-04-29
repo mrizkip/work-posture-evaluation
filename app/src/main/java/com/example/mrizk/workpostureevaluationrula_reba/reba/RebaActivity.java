@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -49,6 +50,8 @@ public class RebaActivity extends AppCompatActivity {
             actionBar.setTitle("Take Beside Posture");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        Picasso.get().load("file:///android_asset/guide_take_data.png").into(imageView);
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override

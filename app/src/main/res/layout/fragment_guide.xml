@@ -7,10 +7,10 @@
     android:orientation="vertical"
     tools:context=".main.GuideFragment">
 
-    <TextView
+    <ImageView
+        android:id="@+id/guide_imageGuide"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Guide"
-        android:textColor="@color/white"/>
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>
