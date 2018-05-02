@@ -115,7 +115,6 @@ public class RebaSudutActivity extends AppCompatActivity {
 
         // Create Help Dialog
         helpDialog = new HelpDialog(this);
-        // TODO (2) set help dialog Drawable
 
     }
 

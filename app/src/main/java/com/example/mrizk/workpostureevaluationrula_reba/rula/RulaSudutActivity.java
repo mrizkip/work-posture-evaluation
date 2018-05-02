@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +54,12 @@ public class RulaSudutActivity extends AppCompatActivity {
     CheckBox cbUpperArm;
     @BindView(R.id.rula_sudut_cbNeck)
     CheckBox cbNeck;
+    @BindView(R.id.rula_sudut_ivNeck1)
+    ImageView ivNeck1;
+    @BindView(R.id.rula_sudut_ivUpperArm)
+            ImageView ivUpperArm1;
+    @BindView(R.id.rula_sudut_leg_ivLegs)
+            ImageView ivLegs;
 
     ActionBar actionBar;
 
@@ -64,6 +73,8 @@ public class RulaSudutActivity extends AppCompatActivity {
     private List<Double> degreeList;
     private Double upperArmDegree;
     private Double neckDegree;
+
+    private Drawable neckDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,8 +122,21 @@ public class RulaSudutActivity extends AppCompatActivity {
 
         // Create Help Dialog
         helpDialog = new HelpDialog(this);
-        // TODO (1) set help dialog drawable
 
+        // add drawable right
+        addDrawableRight();
+
+    }
+
+    private void addDrawableRight() {
+        // neck
+        Picasso.get().load("file:///android_asset/neck_extention.png").into(ivNeck1);
+
+        // upper arm
+        Picasso.get().load("file:///android_asset/upper_arm_extention.png").into(ivUpperArm1);
+
+        // legs
+        Picasso.get().load("file:///android_asset/legs.png").into(ivLegs);
     }
 
     @Override
