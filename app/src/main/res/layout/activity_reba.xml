@@ -14,7 +14,7 @@
     <ImageView
         android:id="@+id/reba_imageView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="450dp"
         android:src="@mipmap/ic_launcher"
         android:layout_below="@id/reba_toolbar"
         />
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reba_imageView"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="-15dp"
         android:layout_marginLeft="16dp"
         android:text="Choose posture photo source"
         android:textColor="@color/white"
@@ -35,7 +35,7 @@
         android:id="@+id/reba_centerPosition"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/reba_texViewInputGambar"
         android:layout_centerInParent="true" />
 
@@ -43,7 +43,6 @@
         android:id="@+id/reba_cameraContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/reba_texViewInputGambar"
         android:layout_marginRight="24dp"
         android:layout_toLeftOf="@id/reba_centerPosition"
@@ -64,8 +63,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/reba_cameraIcon"
             android:layout_centerHorizontal="true"
-            tools:text="Camera"
-            android:textSize="18sp"
+            android:text="Camera"
+            android:textSize="14sp"
             android:textColor="@color/white"/>
 
     </RelativeLayout>
@@ -74,7 +73,6 @@
         android:id="@+id/reba_galleryContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/reba_texViewInputGambar"
         android:layout_marginLeft="24dp"
         android:layout_toRightOf="@id/reba_centerPosition"
@@ -95,8 +93,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/reba_galleryIcon"
             android:layout_centerHorizontal="true"
-            tools:text="Gallery"
-            android:textSize="18sp"
+            android:text="Gallery"
+            android:textSize="14sp"
             android:textColor="@color/white"/>
 
     </RelativeLayout>

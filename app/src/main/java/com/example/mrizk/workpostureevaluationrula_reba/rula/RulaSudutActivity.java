@@ -1,6 +1,7 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +55,7 @@ public class RulaSudutActivity extends AppCompatActivity {
     ActionBar actionBar;
 
     private CameraGallerySelectorDialog selectorDialog;
+    private HelpDialog helpDialog;
 
     private int legsRadio;
     private int legsValue = 0;
@@ -84,6 +87,7 @@ public class RulaSudutActivity extends AppCompatActivity {
         lineList = new ArrayList<>();
         degreeList = new ArrayList<>();
 
+        // Create Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
         selectorDialog.setChooseString("Take Front Posture");
 
@@ -105,6 +109,10 @@ public class RulaSudutActivity extends AppCompatActivity {
             }
         });
 
+        // Create Help Dialog
+        helpDialog = new HelpDialog(this);
+        // TODO (1) set help dialog drawable
+
     }
 
     @Override
@@ -115,6 +123,10 @@ public class RulaSudutActivity extends AppCompatActivity {
         MenuItem itemNext = menu.findItem(R.id.sudut_next);
         Drawable drawable = itemNext.getIcon();
         drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
+        MenuItem itemHelp = menu.findItem(R.id.sudut_help);
+        Drawable helpIcon = itemHelp.getIcon();
+        helpIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
@@ -156,6 +168,9 @@ public class RulaSudutActivity extends AppCompatActivity {
                     legsValue = legsValue + legsRadio;
                     selectorDialog.show();
                 }
+                return true;
+            case R.id.sudut_help:
+                helpDialog.show();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -25,6 +25,7 @@ import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaSudutActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaUpperArmNeckTrunkActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class RebaSudutActivity extends AppCompatActivity {
     ActionBar actionBar;
 
     private CameraGallerySelectorDialog selectorDialog;
+    private HelpDialog helpDialog;
 
     private int legsValue = 0;
     private int legsRadio;
@@ -89,6 +91,7 @@ public class RebaSudutActivity extends AppCompatActivity {
         lineList = new ArrayList<>();
         degreeList = new ArrayList<>();
 
+        // Create Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
         selectorDialog.setChooseString("Take Front Posture");
 
@@ -110,6 +113,10 @@ public class RebaSudutActivity extends AppCompatActivity {
             }
         });
 
+        // Create Help Dialog
+        helpDialog = new HelpDialog(this);
+        // TODO (2) set help dialog Drawable
+
     }
 
     @Override
@@ -120,6 +127,10 @@ public class RebaSudutActivity extends AppCompatActivity {
         MenuItem itemNext = menu.findItem(R.id.reba_sudut_next);
         Drawable drawable = itemNext.getIcon();
         drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
+        MenuItem itemHelp = menu.findItem(R.id.reba_sudut_help);
+        Drawable helpIcon = itemHelp.getIcon();
+        helpIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
@@ -163,6 +174,9 @@ public class RebaSudutActivity extends AppCompatActivity {
 
                     selectorDialog.show();
                 }
+                return true;
+            case R.id.reba_sudut_help:
+                helpDialog.show();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
@@ -24,12 +25,12 @@ import butterknife.ButterKnife;
  */
 public class AboutFragment extends Fragment {
 
-    @BindView(R.id.about_ivWebIcon)
-    ImageView ivWebIcon;
-    @BindView(R.id.about_ivEmailIcon)
-    ImageView ivEmailIcon;
-    @BindView(R.id.about_ivCallIcon)
-    ImageView ivCallIcon;
+    @BindView(R.id.about_webContainer)
+    RelativeLayout ivWebIcon;
+    @BindView(R.id.about_mailContainer)
+    RelativeLayout ivEmailIcon;
+    @BindView(R.id.about_callContainer)
+    RelativeLayout ivCallIcon;
 
     public static AboutFragment newInstance() {
         AboutFragment aboutFragment = new AboutFragment();

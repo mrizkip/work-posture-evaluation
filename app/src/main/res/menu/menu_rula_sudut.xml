@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/sudut_help"
+        android:icon="@drawable/ic_help_black_24dp"
+        app:showAsAction="always"
+        android:iconTint="#FFFFFF"
+        android:title="Next"
+        tools:targetApi="o" />
+    <item
         android:id="@+id/sudut_next"
         android:icon="@drawable/ic_arrow_forward_black_24dp"
         app:showAsAction="always"

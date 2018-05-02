@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cameraGallerySelector_cameraIcon"
             android:layout_centerHorizontal="true"
-            tools:text="Camera" />
+            android:text="Camera" />
 
     </RelativeLayout>
 
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cameraGallerySelector_galleryIcon"
             android:layout_centerHorizontal="true"
-            tools:text="Gallery" />
+            android:text="Gallery" />
 
     </RelativeLayout>
 
