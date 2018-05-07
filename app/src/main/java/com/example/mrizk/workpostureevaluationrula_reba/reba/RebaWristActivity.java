@@ -79,7 +79,7 @@ public class RebaWristActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA WRIST");
+            actionBar.setTitle("Top View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

@@ -1,6 +1,7 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
@@ -28,22 +30,30 @@ public class ResultRulaActivity extends AppCompatActivity {
 
     @BindView(R.id.result_rula_toolbar)
     Toolbar toolbar;
-    @BindView(R.id.result_rula_buttonStart)
-    Button buttonStart;
-    @BindView(R.id.result_rula_scoreA)
-    TextView textScoreA;
-    @BindView(R.id.result_rula_scoreB)
-    TextView textScoreB;
-    @BindView(R.id.result_rula_scoreFinal)
-    TextView textScoreFinal;
-    @BindView(R.id.result_rula_scoreAMuscle)
-    TextView textMuscleA;
-    @BindView(R.id.result_rula_scoreALoad)
-    TextView textLoadA;
-    @BindView(R.id.result_rula_scoreBMuscle)
-    TextView textMuscleB;
-    @BindView(R.id.result_rula_scoreBLoad)
-    TextView textLoadB;
+    @BindView(R.id.result_rula_tvNeckScore)
+    TextView tvNeckScore;
+    @BindView(R.id.result_rula_tvTrunkScore)
+    TextView tvTrunkScore;
+    @BindView(R.id.result_rula_tvUpperArmScore)
+    TextView tvUpperArmScore;
+    @BindView(R.id.result_rula_tvLowerArmScore)
+    TextView tvLowerArmScore;
+    @BindView(R.id.result_rula_tvWristScore)
+    TextView tvWristScore;
+    @BindView(R.id.result_rula_tvTotalScore)
+    TextView tvTotalScore;
+    @BindView(R.id.result_rula_partHighScore)
+    TextView tvPartHighScore;
+    @BindView(R.id.result_rula_imvSudut)
+    ImageView imvResult;
+    @BindView(R.id.result_rula_sideView)
+    ImageView menuSideView;
+    @BindView(R.id.result_rula_save)
+    ImageView menuSave;
+    @BindView(R.id.result_rula_healthCare)
+    ImageView menuHealthCare;
+    @BindView(R.id.result_rula_home)
+    ImageView menuHome;
 
     ActionBar actionBar;
 
@@ -70,6 +80,8 @@ public class ResultRulaActivity extends AppCompatActivity {
 
     private MapKeyRulaA mapKeyRulaA;
     private MapKeyRulaB mapKeyRulaB;
+
+    private Bitmap bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,19 +113,7 @@ public class ResultRulaActivity extends AppCompatActivity {
         armAndWristLoadScore = intent.getIntExtra("armAndWristLoadScore", 0);
         neckTrunkLegsMuscleScore = intent.getIntExtra("neckTrunkLegsMuscleScore", 0);
         neckTrunkLegsLoadScore = intent.getIntExtra("neckTrunkLegsLoadScore", 0);
-
-        Log.d(TAG, "onCreate: neckScore: " + neckScore);
-        Log.d(TAG, "onCreate: trunkScore: " + trunkScore);
-        Log.d(TAG, "onCreate: upperArmScore: " + upperArmScore);
-        Log.d(TAG, "onCreate: legsScore: " + legsScore);
-        Log.d(TAG, "onCreate: lowerArmScore: " + lowerArmScore);
-        Log.d(TAG, "onCreate: wristScore: " + wristScore);
-        Log.d(TAG, "onCreate: wristTwistScore: " + wristTwistScore);
-        Log.d(TAG, "onCreate: armAndWristMuscleScore: " + armAndWristMuscleScore);
-        Log.d(TAG, "onCreate: armAndWristLoadScore: " + armAndWristLoadScore);
-        Log.d(TAG, "onCreate: neckTrunkLegsMuscleScore: " + neckTrunkLegsMuscleScore);
-        Log.d(TAG, "onCreate: neckTrunkLegsLoadScore: " + neckTrunkLegsLoadScore);
-
+        bmpResult = intent.getParcelableExtra("bmpResult");
 
         // calculate result
         mapKeyRulaA = new MapKeyRulaA(upperArmScore, lowerArmScore, wristScore, wristTwistScore);
@@ -124,39 +124,84 @@ public class ResultRulaActivity extends AppCompatActivity {
         } else {
             postureScoreA = 0;
         }
-        Log.d(TAG, "onCreate: Score Posture A: " + String.valueOf(postureScoreA));
 
         if (mapTableB.containsKey(mapKeyRulaB)) {
             postureScoreB = mapTableB.get(mapKeyRulaB);
         } else {
             postureScoreB = 0;
         }
-        Log.d(TAG, "onCreate: Score Posture B: " + String.valueOf(postureScoreB));
 
         wristArmScore = postureScoreA + armAndWristMuscleScore + armAndWristLoadScore;
         neckTrunkLegsScore = postureScoreB + neckTrunkLegsMuscleScore + neckTrunkLegsLoadScore;
 
         calculateFinalScore();
-        Log.d(TAG, "onCreate: finalScore: " + String.valueOf(finalScore));
+
+        String stringHighScoreName = calculateMaxScore();
+
+        // set image result
+        imvResult.setImageBitmap(bmpResult);
 
         // set text
-        textScoreA.setText("Posture Score A: " + String.valueOf(postureScoreA));
-        textMuscleA.setText("Arm/Wrist Muscle Use Score: " + String.valueOf(armAndWristMuscleScore));
-        textLoadA.setText("Arm/Wrist Force / Load Score: " + String.valueOf(armAndWristLoadScore));
-        textScoreB.setText("Posture Score B: " + String.valueOf(postureScoreB));
-        textMuscleB.setText("Neck Trunk Legs Muscle Use Score: " + String.valueOf(neckTrunkLegsMuscleScore));
-        textLoadB.setText("Neck Trunk Legs Force / Load Score: " + String.valueOf(neckTrunkLegsLoadScore));
-        textScoreFinal.setText("Final Score: " + String.valueOf(finalScore));
+        tvNeckScore.setText("Neck Score: " + String.valueOf(neckScore));
+        tvTrunkScore.setText("Trunk Score: " + String.valueOf(trunkScore));
+        tvUpperArmScore.setText("Upper Arm Score: " + String.valueOf(upperArmScore));
+        tvLowerArmScore.setText("Lower Arm Score: " + String.valueOf(lowerArmScore));
+        String totalWrist = String.valueOf((wristScore + wristTwistScore));
+        tvWristScore.setText("Wrist Score: " + totalWrist);
+        tvTotalScore.setText("Total Score: " + finalScore);
+        tvPartHighScore.setText(stringHighScoreName);
 
-        // Home
-        buttonStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ResultRulaActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        // set on click menu
+        menuSideView.setOnClickListener(view -> sideView());
+        menuSave.setOnClickListener(view -> saveScreen());
+        menuHealthCare.setOnClickListener(view -> healthCare());
+        menuHome.setOnClickListener(view -> home());
+    }
+
+    private void sideView() {
+
+    }
+
+    private void saveScreen() {
+
+    }
+
+    private void healthCare() {
+    }
+
+    private void home() {
+        Intent intent = new Intent(ResultRulaActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private String calculateMaxScore() {
+        int maxScore = 0;
+        String maxName = "";
+
+        if (neckScore > maxScore) {
+            maxScore = neckScore;
+            maxName = "Neck";
+        }
+        if (trunkScore > maxScore) {
+            maxScore = trunkScore;
+            maxName = "Trunk";
+        }
+        if (upperArmScore > maxScore) {
+            maxScore = upperArmScore;
+            maxName = "Upper Arm";
+        }
+        if (lowerArmScore > maxScore) {
+            maxScore = lowerArmScore;
+            maxName = "Lower Arm";
+        }
+        int totalWrist = wristScore + wristTwistScore;
+        if (totalWrist > maxScore) {
+            maxScore = totalWrist;
+            maxName = "Wrist";
+        }
+
+        return maxName;
+
     }
 
     private void initTableA() {

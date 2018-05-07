@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -74,7 +75,7 @@ public class RulaSudutActivity extends AppCompatActivity {
     private Double upperArmDegree;
     private Double neckDegree;
 
-    private Drawable neckDrawable;
+    private Bitmap bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,7 @@ public class RulaSudutActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA Angle Measurement");
+            actionBar.setTitle("Side View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -161,6 +162,13 @@ public class RulaSudutActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.sudut_next:
+                // save image
+                imageView.setDrawingCacheEnabled(true);
+                bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
+                imageView.setDrawingCacheEnabled(false);
+//                bmpResult = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+
+                // hitung sudut
                 lineList = imageView.getLineList();
                 if (lineList.size() < 5) {
                     Toast.makeText(this, "Sudut yang dibuat harus sebanyak 5!", Toast.LENGTH_SHORT).show();
@@ -175,8 +183,6 @@ public class RulaSudutActivity extends AppCompatActivity {
                     if (cbNeck.isChecked()) {
                         neckDegree *= -1;
                     }
-                    Log.d(TAG, "onActivityResult: UpperArm Degree " + upperArmDegree);
-                    Log.d(TAG, "onActivityResult: neck Degree " + neckDegree);
 
                     // Mengambil jawaban radio button legs
                     int radioButtonId = legsGroup.getCheckedRadioButtonId();
@@ -215,8 +221,10 @@ public class RulaSudutActivity extends AppCompatActivity {
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
                     intent.putExtra("legsScore", legsValue);
+                    intent.putExtra("bmpResult", bmpResult);
                     startActivity(intent);
                 } catch (IOException e) {
+                    Log.e(TAG, "onActivityResult: Error here");
                     e.printStackTrace();
                 }
             }
@@ -233,7 +241,6 @@ public class RulaSudutActivity extends AppCompatActivity {
                     if (degree > 180) {
                         degree = 360 - degree;
                     }
-                    Log.d(TAG, "calculateDegree: " + degree);
                     degreeList.add(degree);
                 }
             }

@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
-import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +35,12 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     CheckBox wrist1;
     @BindView(R.id.rula_lowerArm_wristTwist_radioGroup)
     RadioGroup wristTwistGroup;
+    @BindView(R.id.rula_lowerArm_ivCheck1)
+    ImageView ivLowerArm1;
+    @BindView(R.id.rula_wrist_ivCheck1)
+    ImageView ivWrist1;
+    @BindView(R.id.rula_lowerArm_wristTwist_ivRadio)
+    ImageView ivWristTwist1;
 
     @BindView(R.id.rula_lowerArm_toolbar)
     Toolbar toolbar;
@@ -53,6 +58,8 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     private int upperArmScore;
     private int legsScore;
 
+    private Bitmap bmpResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +70,12 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA Lower Arm");
+            actionBar.setTitle("Top View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        // add drawable right
+        addDrawableRight();
 
         // Get Intent and Place Image
         Intent intent = getIntent();
@@ -77,40 +87,39 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         legsScore = intent.getIntExtra("legsScore", 0);
         lowerArmPosition = intent.getIntExtra("lowerArmPosition", 0);
         wristPosition = intent.getIntExtra("wristPosition", 0);
-
-        // check result
-        Log.d(TAG, "onCreate: neckScore : " + neckScore);
-        Log.d(TAG, "onCreate: trunkScore : " + trunkScore);
-        Log.d(TAG, "onCreate: upperArmScore : " + upperArmScore);
-        Log.d(TAG, "onCreate: lowerArm Position" + lowerArmPosition);
-        Log.d(TAG, "onCreate: legsScore : " + legsScore);
+        bmpResult = (Bitmap) intent.getParcelableExtra("bmpResult");
 
         // Check LowerArm CheckBox
         lowerArmValue = lowerArmValue + lowerArmPosition;
-        lowerArm1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    lowerArmValue = lowerArmValue + 1;
-                } else {
-                    lowerArmValue = lowerArmValue - 1;
-                }
+        lowerArm1.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                lowerArmValue = lowerArmValue + 1;
+            } else {
+                lowerArmValue = lowerArmValue - 1;
             }
         });
 
         // Check Wrist CheckBox
         wristValue = wristValue + wristPosition;
-        wrist1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    wristValue = wristValue + 1;
-                } else {
-                    wristValue = wristValue - 1;
-                }
+        wrist1.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                wristValue = wristValue + 1;
+            } else {
+                wristValue = wristValue - 1;
             }
         });
 
+    }
+
+    private void addDrawableRight() {
+        // lower arm
+        Picasso.get().load("file:///android_asset/shoulder_raised.png").error(R.mipmap.ic_launcher).into(ivLowerArm1);
+
+        // wrist
+        Picasso.get().load("file:///android_asset/wrist_bent.png").into(ivWrist1);
+
+        // wrist twist
+        Picasso.get().load("file:///android_asset/neck_extention.png").into(ivWristTwist1);
     }
 
     @Override
@@ -151,6 +160,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
                 intent.putExtra("lowerArmScore", lowerArmValue);
                 intent.putExtra("wristScore", wristValue);
                 intent.putExtra("wristTwistScore", wristTwistValue);
+                intent.putExtra("bmpResult", bmpResult);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

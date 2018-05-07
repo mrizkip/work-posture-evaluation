@@ -79,7 +79,7 @@ public class RebaSudutActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA Angle Measurement");
+            actionBar.setTitle("Side View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
