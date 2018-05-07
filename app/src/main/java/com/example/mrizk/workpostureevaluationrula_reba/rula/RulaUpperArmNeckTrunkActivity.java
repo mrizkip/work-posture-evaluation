@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +19,7 @@ import android.widget.ImageView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
-import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -51,6 +50,20 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     CheckBox trunk1;
     @BindView(R.id.rula_trunk_check2)
     CheckBox trunk2;
+    @BindView(R.id.rula_neck_ivCheck1)
+    ImageView ivNeck1;
+    @BindView(R.id.rula_neck_ivCheck2)
+    ImageView ivNeck2;
+    @BindView(R.id.rula_upperArm_ivCheck1)
+    ImageView ivUpperArm1;
+    @BindView(R.id.rula_upperArm_ivCheck2)
+    ImageView ivUpperArm2;
+    @BindView(R.id.rula_upperArm_ivCheck3)
+    ImageView ivUpperArm3;
+    @BindView(R.id.rula_trunk_ivCheck1)
+    ImageView ivTrunk1;
+    @BindView(R.id.rula_trunk_ivCheck2)
+    ImageView ivTrunk2;
 
     @BindView(R.id.rula_upperArm_toolbar)
     Toolbar toolbar;
@@ -65,6 +78,8 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     private int trunkPosition;
     private int lowerArmPosition;
     private int wristPosition;
+
+    private Bitmap bmpResult;
 
     private double trunkDegree;
     private double neckDegree;
@@ -86,14 +101,18 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("RULA Upeer Arm Neck Trunk");
+            actionBar.setTitle("Front View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         // Get Intent and Place Image
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
+//        bmpResult = (Bitmap) intent.getParcelableExtra("bmpResult");
         imageView.setImageBitmap(bitmap);
+
+        // add drawable right
+        addDrawableRight();
 
         // get degrees
         trunkDegree = intent.getDoubleExtra("trunkPosition", 0);
@@ -130,86 +149,81 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
         // Check UpperArm CheckBox
         upperArmValue = upperArmValue + upperArmPosition;
-        upperArm1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    upperArmValue = upperArmValue + 1;
-                } else {
-                    upperArmValue = upperArmValue - 1;
-                }
+        upperArm1.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                upperArmValue = upperArmValue + 1;
+            } else {
+                upperArmValue = upperArmValue - 1;
             }
         });
 
-        upperArm2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    upperArmValue = upperArmValue + 1;
-                } else {
-                    upperArmValue = upperArmValue - 1;
-                }
+        upperArm2.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                upperArmValue = upperArmValue + 1;
+            } else {
+                upperArmValue = upperArmValue - 1;
             }
         });
 
-        upperArm3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    upperArmValue = upperArmValue - 1;
-                } else {
-                    upperArmValue = upperArmValue + 1;
-                }
+        upperArm3.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                upperArmValue = upperArmValue - 1;
+            } else {
+                upperArmValue = upperArmValue + 1;
             }
         });
 
         // Check Neck CheckBox
         neckValue = neckValue + neckPosition;
-        neck1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    neckValue = neckValue + 1;
-                } else {
-                    neckValue = neckValue - 1;
-                }
+        neck1.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                neckValue = neckValue + 1;
+            } else {
+                neckValue = neckValue - 1;
             }
         });
 
-        neck2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    neckValue = neckValue + 1;
-                } else {
-                    neckValue = neckValue - 1;
-                }
+        neck2.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                neckValue = neckValue + 1;
+            } else {
+                neckValue = neckValue - 1;
             }
         });
 
         // Check Trunk CheckBox
         trunkValue = trunkValue + trunkPosition;
-        trunk1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    trunkValue = trunkValue + 1;
-                } else {
-                    trunkValue = trunkValue - 1;
-                }
+        trunk1.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                trunkValue = trunkValue + 1;
+            } else {
+                trunkValue = trunkValue - 1;
             }
         });
 
-        trunk2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    trunkValue = trunkValue + 1;
-                } else {
-                    trunkValue = trunkValue - 1;
-                }
+        trunk2.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                trunkValue = trunkValue + 1;
+            } else {
+                trunkValue = trunkValue - 1;
             }
         });
+
+    }
+
+    private void addDrawableRight() {
+        // upper arm
+        Picasso.get().load("file:///android_asset/shoulder_raised.png").into(ivUpperArm1);
+        Picasso.get().load("file:///android_asset/shoulder_abducted.png").into(ivUpperArm2);
+        Picasso.get().load("file:///android_asset/shoulder_leaning.png").into(ivUpperArm3);
+
+        // neck
+        Picasso.get().load("file:///android_asset/neck_twisted.png").into(ivNeck1);
+        Picasso.get().load("file:///android_asset/neck_bending.png").into(ivNeck2);
+
+        // trunk
+        Picasso.get().load("file:///android_asset/trunk_twisted.png").into(ivTrunk1);
+        Picasso.get().load("file:///android_asset/trunk_bending.png").into(ivTrunk2);
 
     }
 
@@ -311,6 +325,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                     intent.putExtra("trunkScore", trunkValue);
                     intent.putExtra("lowerArmPosition", lowerArmPosition);
                     intent.putExtra("wristPosition", wristPosition);
+                    intent.putExtra("bmpResult", bmpResult);
                     startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();

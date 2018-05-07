@@ -26,9 +26,6 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RulaActivity extends AppCompatActivity {
 
-//    public static final int PHOTO_PICK_CAMERA_REQUEST_CODE = 9067;
-//    public static final int PHOTO_PICK_GALLERY_REQUEST_CODE = 9068;
-
     @BindView(R.id.rula_toolbar)
     Toolbar toolbar;
     @BindView(R.id.rula_imageView)
@@ -54,7 +51,7 @@ public class RulaActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Picasso.get().load("https://www.qidonk.cf/februari/ss/Template Utama.jpg").error(R.mipmap.ic_launcher).into(imageViewRula);
+        Picasso.get().load("file:///android_asset/guide_take_data.png").into(imageViewRula);
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override

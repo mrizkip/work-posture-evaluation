@@ -42,11 +42,10 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/rula_sudut_linearLayoutNeck"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
@@ -57,16 +56,28 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <CheckBox
                         android:id="@+id/rula_sudut_cbNeck"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="Neck position in extension"
-                        />
+                        app:layout_constraintBottom_toBottomOf="@+id/rula_sudut_ivNeck1"
+                        app:layout_constraintRight_toLeftOf="@id/rula_sudut_ivNeck1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_textNeck" />
+                    <ImageView
+                        android:id="@+id/rula_sudut_ivNeck1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_textNeck"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
 
-                </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -80,11 +91,10 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/rula_sudut_linearLayoutUpperArm"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
@@ -95,16 +105,30 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <CheckBox
                         android:id="@+id/rula_sudut_cbUpperArm"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
                         android:text="Upper arm position in extension"
-                        />
+                        app:layout_constraintBottom_toBottomOf="@+id/rula_sudut_ivUpperArm"
+                        app:layout_constraintEnd_toStartOf="@id/rula_sudut_ivUpperArm"
+                        app:layout_constraintRight_toLeftOf="@id/rula_sudut_ivUpperArm"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_textUpperArm" />
 
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/rula_sudut_ivUpperArm"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_textUpperArm"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
             
             <android.support.v7.widget.CardView
@@ -118,11 +142,10 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/rula_sudut_linearLayoutLeg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
@@ -133,12 +156,15 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <RadioGroup
                         android:id="@+id/rula_sudut_leg_radioGroup"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_textLeg">
                         <RadioButton
                             android:id="@+id/rula_sudut_leg_radio1"
                             android:layout_width="match_parent"
@@ -156,7 +182,16 @@
 
                     </RadioGroup>
 
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/rula_sudut_leg_ivLegs"
+                        android:layout_width="200dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toBottomOf="@id/rula_sudut_leg_radioGroup"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
         </RelativeLayout>
     </ScrollView>

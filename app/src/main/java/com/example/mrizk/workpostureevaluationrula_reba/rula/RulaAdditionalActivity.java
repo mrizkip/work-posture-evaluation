@@ -1,6 +1,7 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -55,6 +56,8 @@ public class RulaAdditionalActivity extends AppCompatActivity {
     private int wristTwistScore;
     private int legsScore;
 
+    private Bitmap bmpResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,7 @@ public class RulaAdditionalActivity extends AppCompatActivity {
         lowerArmScore = intent.getIntExtra("lowerArmScore", 0);
         wristScore = intent.getIntExtra("wristScore", 0);
         wristTwistScore = intent.getIntExtra("wristTwistScore", 0);
+        bmpResult = intent.getParcelableExtra("bmpResult");
 
         // Check ArmAndWristMuscle
         armAndWristMuscle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -172,6 +176,7 @@ public class RulaAdditionalActivity extends AppCompatActivity {
                 intent.putExtra("armAndWristLoadScore", armAndWristLoadValue);
                 intent.putExtra("neckTrunkLegsMuscleScore", neckTrunkLegsMuscleValue);
                 intent.putExtra("neckTrunkLegsLoadScore", neckTrunkLegsLoadValue);
+                intent.putExtra("bmpResult", bmpResult);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

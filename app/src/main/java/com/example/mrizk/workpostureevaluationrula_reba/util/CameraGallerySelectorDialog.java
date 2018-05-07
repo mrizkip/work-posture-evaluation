@@ -43,10 +43,10 @@ public class CameraGallerySelectorDialog {
     }
 
     private void setupDefaultConfig() {
-        cameraString = "Kamera";
+        cameraString = "Camera";
         galleryString = "Gallery";
-        chooseString = "Pilih";
-        cancelString = "Batal";
+        chooseString = "Choose";
+        cancelString = "Cancel";
         cameraIcon = ContextCompat.getDrawable(context, R.drawable.ic_camera_alt_black_24dp);
         galleryIcon = ContextCompat.getDrawable(context, R.drawable.ic_image_black_24dp);
         imageIntro = ContextCompat.getDrawable(context, R.mipmap.ic_launcher);
@@ -144,6 +144,14 @@ public class CameraGallerySelectorDialog {
 
     public void setCancelStringRes(@StringRes int cancelStringRes) {
         this.cancelString = context.getResources().getString(cancelStringRes);
+    }
+
+    public Drawable getImageIntro() {
+        return imageIntro;
+    }
+
+    public void setImageIntro(Drawable imageIntro) {
+        this.imageIntro = imageIntro;
     }
 
     public void setOnSelectionSelected(OnSelectionSelected listener) {

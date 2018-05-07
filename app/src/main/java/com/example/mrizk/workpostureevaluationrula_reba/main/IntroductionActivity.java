@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.reba.RebaActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaActivity;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +44,8 @@ public class IntroductionActivity extends AppCompatActivity {
             actionBar.setTitle("Method Selection");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        Picasso.get().load("file:///android_asset/guide_methode.png").into(imageViewIntro);
 
         buttonRula.setOnClickListener(new View.OnClickListener() {
             @Override

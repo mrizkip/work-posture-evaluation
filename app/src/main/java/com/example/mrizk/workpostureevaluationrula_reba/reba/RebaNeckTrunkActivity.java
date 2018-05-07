@@ -88,7 +88,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         if (toolbar != null) setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             actionBar = getSupportActionBar();
-            actionBar.setTitle("REBA NECK TRUNK UPPER ARM");
+            actionBar.setTitle("Front View");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 

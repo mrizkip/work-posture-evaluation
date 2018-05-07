@@ -11,81 +11,158 @@
         android:id="@+id/result_rula_toolbar"
         layout="@layout/view_toolbar" />
 
-    <RelativeLayout
-        android:layout_below="@id/result_rula_toolbar"
-        android:layout_above="@id/result_rula_buttonStart"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
-        <TextView
-            android:id="@+id/result_rula_scoreA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Posture Score A: "
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreAMuscle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreA"
-            android:text="Muscle A "
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreALoad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreAMuscle"
-            android:text="Load A"
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreALoad"
-            android:text="Posture Score B: "
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreBMuscle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreB"
-            android:text="Muscle B"
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreBLoad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreBMuscle"
-            android:text="Load B"
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:id="@+id/result_rula_scoreFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/result_rula_scoreBLoad"
-            android:text="Final Score: "
-            android:textColor="@color/primaryText"
-            android:textSize="16sp"
-            />
-    </RelativeLayout>
+        android:layout_below="@id/result_rula_toolbar"
+        android:padding="10dp"
+        android:id="@+id/relativeLayout2">
 
-    <Button
-        android:id="@+id/result_rula_buttonStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mulai Awal"
-        android:layout_alignParentBottom="true"
-        />
+        <ImageView
+            android:id="@+id/result_rula_imvSudut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="Side View"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearLeft"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearLeft"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearBottom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/result_rula_linearRight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_rula_imvSudut">
+
+            <TextView
+                android:id="@+id/result_rula_tvNeckScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Neck Score: "
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/result_rula_tvTrunkScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Trunk Score: "
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/result_rula_tvUpperArmScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Upper Arm Score: "
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/result_rula_tvLowerArmScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Lower Arm Score: "
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/result_rula_tvWristScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Wrist Score: "
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/result_rula_tvTotalScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Total Score: "
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearRight"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/result_rula_linearLeft"
+            app:layout_constraintTop_toBottomOf="@+id/result_rula_imvSudut">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You must be careful in this part:"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                />
+            <TextView
+                android:id="@+id/result_rula_partHighScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="()"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/result_rula_sideView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_undo_black_24dp"
+                android:tint="@color/white_icon"
+                android:contentDescription="Back to Side View" />
+            <ImageView
+                android:id="@+id/result_rula_save"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_save_black_24dp"
+                android:tint="@color/white_icon"
+                android:contentDescription="Save Screenshot" />
+            <ImageView
+                android:id="@+id/result_rula_healthCare"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_accessibility_black_24dp"
+                android:tint="@color/colorAccent"
+                android:contentDescription="Health Care" />
+            <ImageView
+                android:id="@+id/result_rula_home"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_home_black_24dp"
+                android:tint="@color/white_icon"
+                android:contentDescription="Home" />
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
