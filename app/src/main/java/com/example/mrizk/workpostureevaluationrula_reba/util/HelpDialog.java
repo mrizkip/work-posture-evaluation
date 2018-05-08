@@ -19,6 +19,7 @@ public class HelpDialog {
     private String title;
     private String okString;
     private Drawable imageHelp;
+    private String pathImage;
 
 
     public HelpDialog(Context context) {
@@ -32,13 +33,13 @@ public class HelpDialog {
         title = "Help";
         okString = "OK";
         imageHelp = ContextCompat.getDrawable(context, R.mipmap.ic_launcher);
+        pathImage = "file:///android_asset/guide_angle.png";
     }
 
     private View provideDialogView() {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_help_sudut, null);
         ImageView imageView = view.findViewById(R.id.dialogHelp_imageView);
-
-        Picasso.get().load("file:///android_asset/guide_angle.png").error(imageHelp).into(imageView);
+        Picasso.get().load(pathImage).error(imageHelp).into(imageView);
         return view;
     }
 
@@ -64,5 +65,13 @@ public class HelpDialog {
 
     public void setImageHelp(Drawable imageHelp) {
         this.imageHelp = imageHelp;
+    }
+
+    public String getPathImage() {
+        return pathImage;
+    }
+
+    public void setPathImage(String pathImage) {
+        this.pathImage = pathImage;
     }
 }

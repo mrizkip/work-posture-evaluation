@@ -51,7 +51,7 @@ public class RebaActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Picasso.get().load("file:///android_asset/guide_take_data.png").into(imageView);
+        Picasso.get().load("file:///android_asset/guide_take_data1.png").into(imageView);
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override

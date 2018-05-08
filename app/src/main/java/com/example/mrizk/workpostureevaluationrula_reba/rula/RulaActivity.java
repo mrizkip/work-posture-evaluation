@@ -51,7 +51,7 @@ public class RulaActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        Picasso.get().load("file:///android_asset/guide_take_data.png").into(imageViewRula);
+        Picasso.get().load("file:///android_asset/guide_take_data1.png").into(imageViewRula);
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,6 @@ public class RulaActivity extends AppCompatActivity {
                     Intent intent = new Intent(RulaActivity.this, RulaSudutActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     startActivity(intent);
-                    return;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -10,19 +10,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
-import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaSudutActivity;
-import com.example.mrizk.workpostureevaluationrula_reba.rula.RulaUpperArmNeckTrunkActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
@@ -94,6 +89,7 @@ public class RebaSudutActivity extends AppCompatActivity {
         // Create Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
         selectorDialog.setChooseString("Take Front Posture");
+        selectorDialog.setImageString("file:///android_asset/guide_take_data2.png");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override
@@ -214,7 +210,6 @@ public class RebaSudutActivity extends AppCompatActivity {
                     if (degree > 180) {
                         degree = 360 - degree;
                     }
-                    Log.d(TAG, "calculateDegree: " + degree);
                     degreeList.add(degree);
                 }
             }

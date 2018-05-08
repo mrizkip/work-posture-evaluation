@@ -58,7 +58,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     private int upperArmScore;
     private int legsScore;
 
-    private Bitmap bmpResult;
+    private String bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
         legsScore = intent.getIntExtra("legsScore", 0);
         lowerArmPosition = intent.getIntExtra("lowerArmPosition", 0);
         wristPosition = intent.getIntExtra("wristPosition", 0);
-        bmpResult = (Bitmap) intent.getParcelableExtra("bmpResult");
+        bmpResult = intent.getStringExtra("bmpResult");
 
         // Check LowerArm CheckBox
         lowerArmValue = lowerArmValue + lowerArmPosition;
@@ -113,13 +113,13 @@ public class RulaLowerArmActivity extends AppCompatActivity {
 
     private void addDrawableRight() {
         // lower arm
-        Picasso.get().load("file:///android_asset/shoulder_raised.png").error(R.mipmap.ic_launcher).into(ivLowerArm1);
+        Picasso.get().load("file:///android_asset/shoulder_raised.png").resize(800, 800).into(ivLowerArm1);
 
         // wrist
-        Picasso.get().load("file:///android_asset/wrist_bent.png").into(ivWrist1);
+        Picasso.get().load("file:///android_asset/wrist_bent.png").resize(800, 800).into(ivWrist1);
 
         // wrist twist
-        Picasso.get().load("file:///android_asset/neck_extention.png").into(ivWristTwist1);
+        Picasso.get().load("file:///android_asset/neck_extention.png").resize(800, 800).into(ivWristTwist1);
     }
 
     @Override

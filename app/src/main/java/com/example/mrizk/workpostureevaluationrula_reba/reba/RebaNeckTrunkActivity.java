@@ -109,16 +109,10 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         // calculate score of position
         calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree, legsDegree);
 
-        // check result
-        Log.d(TAG, "onCreate: trunk score " + trunkPosition);
-        Log.d(TAG, "onCreate: neck score " + neckPosition);
-        Log.d(TAG, "onCreate: upperArm score " + upperArmPosition);
-        Log.d(TAG, "onCreate: lowerArm score " + lowerArmPosition);
-        Log.d(TAG, "onCreate: wrist score " + wristPosition);
-        Log.d(TAG, "onCreate: legs score " + legsPosition);
-
         // create camera and gallery selector dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
+        selectorDialog.setChooseString("Take Top Posture");
+        selectorDialog.setImageString("file:///android_asset/guide_take_data3.png");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override

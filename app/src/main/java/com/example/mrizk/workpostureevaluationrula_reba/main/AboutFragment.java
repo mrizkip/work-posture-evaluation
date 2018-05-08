@@ -54,7 +54,7 @@ public class AboutFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        Picasso.get().load("file:///android_asset/home.png").into(imvAbout);
+        Picasso.get().load("file:///android_asset/about.png").into(imvAbout);
 
         // set onClick
         ivWebIcon.setOnClickListener(v -> webClick());

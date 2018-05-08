@@ -2,6 +2,8 @@ package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -30,8 +32,11 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -58,9 +63,9 @@ public class RulaSudutActivity extends AppCompatActivity {
     @BindView(R.id.rula_sudut_ivNeck1)
     ImageView ivNeck1;
     @BindView(R.id.rula_sudut_ivUpperArm)
-            ImageView ivUpperArm1;
+    ImageView ivUpperArm1;
     @BindView(R.id.rula_sudut_leg_ivLegs)
-            ImageView ivLegs;
+    ImageView ivLegs;
 
     ActionBar actionBar;
 
@@ -74,8 +79,6 @@ public class RulaSudutActivity extends AppCompatActivity {
     private List<Double> degreeList;
     private Double upperArmDegree;
     private Double neckDegree;
-
-//    private Bitmap bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +105,7 @@ public class RulaSudutActivity extends AppCompatActivity {
         // Create Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
         selectorDialog.setChooseString("Take Front Posture");
+        selectorDialog.setImageString("file:///android_asset/guide_take_data2.png");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override
@@ -131,13 +135,13 @@ public class RulaSudutActivity extends AppCompatActivity {
 
     private void addDrawableRight() {
         // neck
-        Picasso.get().load("file:///android_asset/neck_extention.png").into(ivNeck1);
+        Picasso.get().load("file:///android_asset/neck_extention.png").resize(800, 800).into(ivNeck1);
 
         // upper arm
-        Picasso.get().load("file:///android_asset/upper_arm_extention.png").into(ivUpperArm1);
+        Picasso.get().load("file:///android_asset/upper_arm_extention.png").resize(800, 800).into(ivUpperArm1);
 
         // legs
-        Picasso.get().load("file:///android_asset/legs.png").into(ivLegs);
+        Picasso.get().load("file:///android_asset/legs.png").resize(2000, 800).into(ivLegs);
     }
 
     @Override
@@ -162,11 +166,6 @@ public class RulaSudutActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.sudut_next:
-                // save image
-//                imageView.setDrawingCacheEnabled(true);
-//                bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
-//                imageView.setDrawingCacheEnabled(false);
-//                bmpResult = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
 
                 // hitung sudut
                 lineList = imageView.getLineList();
@@ -212,6 +211,13 @@ public class RulaSudutActivity extends AppCompatActivity {
             if (requestCode == EZPhotoPick.PHOTO_PICK_GALLERY_REQUEST_CODE
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
+                    // save image
+                    imageView.setDrawingCacheEnabled(true);
+                    Bitmap bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
+                    imageView.setDrawingCacheEnabled(false);
+//                    bmpResult = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+                    String pathToImageResult = saveToInternalStorage(bmpResult);
+
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
                     Intent intent = new Intent(RulaSudutActivity.this, RulaUpperArmNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
@@ -221,10 +227,9 @@ public class RulaSudutActivity extends AppCompatActivity {
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
                     intent.putExtra("legsScore", legsValue);
-//                    intent.putExtra("bmpResult", bmpResult);
+                    intent.putExtra("bmpResult", pathToImageResult);
                     startActivity(intent);
                 } catch (IOException e) {
-                    Log.e(TAG, "onActivityResult: Error here");
                     e.printStackTrace();
                 }
             }
@@ -232,7 +237,6 @@ public class RulaSudutActivity extends AppCompatActivity {
     }
 
     private void calculateDegree(List<DrawView.Line> lineList) {
-        Log.d(TAG, "calculateDegree: " + lineList.size());
         if (lineList.size() >= 2) {
             for (int i = 0; i < lineList.size(); i++) {
                 if (!(i % 2 == 0)) {
@@ -245,6 +249,33 @@ public class RulaSudutActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private String saveToInternalStorage(Bitmap bitmapImage) {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("WorkPostureEvaluation", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, "Posture" + now + ".jpg");
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return mypath.getAbsolutePath();
     }
 
 }

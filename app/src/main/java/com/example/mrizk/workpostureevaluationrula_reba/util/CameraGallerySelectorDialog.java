@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by mrizk on 16/03/2018.
@@ -32,6 +33,7 @@ public class CameraGallerySelectorDialog {
     private String cameraString;
     private String galleryString;
     private Drawable imageIntro;
+    private String imageString;
 
     private AlertDialog builtDialog;
 
@@ -75,6 +77,12 @@ public class CameraGallerySelectorDialog {
         galleryIconField.setImageDrawable(galleryIcon);
         cameraTextField.setText(cameraString);
         galleryTextField.setText(galleryString);
+
+        try {
+            Picasso.get().load(imageString).error(R.mipmap.ic_launcher).into(imageIntroField);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         cameraContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +160,14 @@ public class CameraGallerySelectorDialog {
 
     public void setImageIntro(Drawable imageIntro) {
         this.imageIntro = imageIntro;
+    }
+
+    public String getImageString() {
+        return imageString;
+    }
+
+    public void setImageString(String imageString) {
+        this.imageString = imageString;
     }
 
     public void setOnSelectionSelected(OnSelectionSelected listener) {
