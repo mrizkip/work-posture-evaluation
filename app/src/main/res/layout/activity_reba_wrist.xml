@@ -38,7 +38,7 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/reba_wrist_linearLayoutWrist"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -52,14 +52,33 @@
                         android:text="Wrist"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
 
                     <CheckBox
                         android:id="@+id/reba_wrist_wrist_check1"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Wrist is bent from midline or twisted" />
-                </LinearLayout>
+                        android:text="Wrist is bent from midline or twisted"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/reba_wrist_imvWristBend"
+                        app:layout_constraintBottom_toBottomOf="@id/reba_wrist_imvWristBend"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp" />
+
+                    <ImageView
+                        android:id="@+id/reba_wrist_imvWristBend"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintTop_toBottomOf="@id/reba_wrist_textWrist"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView

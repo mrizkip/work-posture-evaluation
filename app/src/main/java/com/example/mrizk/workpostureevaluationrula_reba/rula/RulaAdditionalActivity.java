@@ -56,7 +56,7 @@ public class RulaAdditionalActivity extends AppCompatActivity {
     private int wristTwistScore;
     private int legsScore;
 
-    private Bitmap bmpResult;
+    private String bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class RulaAdditionalActivity extends AppCompatActivity {
         lowerArmScore = intent.getIntExtra("lowerArmScore", 0);
         wristScore = intent.getIntExtra("wristScore", 0);
         wristTwistScore = intent.getIntExtra("wristTwistScore", 0);
-        bmpResult = intent.getParcelableExtra("bmpResult");
+        bmpResult = intent.getStringExtra("bmpResult");
 
         // Check ArmAndWristMuscle
         armAndWristMuscle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

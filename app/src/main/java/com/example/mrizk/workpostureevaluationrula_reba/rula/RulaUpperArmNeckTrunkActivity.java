@@ -79,7 +79,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     private int lowerArmPosition;
     private int wristPosition;
 
-    private Bitmap bmpResult;
+    private String bmpResult;
 
     private double trunkDegree;
     private double neckDegree;
@@ -108,7 +108,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         // Get Intent and Place Image
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
-//        bmpResult = (Bitmap) intent.getParcelableExtra("bmpResult");
+        bmpResult = intent.getStringExtra("bmpResult");
         imageView.setImageBitmap(bitmap);
 
         // add drawable right
@@ -128,6 +128,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
         // Create Camera and Gallery Selector Dialog
         selectorDialog = new CameraGallerySelectorDialog(this);
         selectorDialog.setChooseString("Take Top Posture");
+        selectorDialog.setImageString("file:///android_asset/guide_take_data3.png");
 
         selectorDialog.setOnSelectionSelected(new CameraGallerySelectorDialog.OnSelectionSelected() {
             @Override
@@ -213,17 +214,17 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
 
     private void addDrawableRight() {
         // upper arm
-        Picasso.get().load("file:///android_asset/shoulder_raised.png").into(ivUpperArm1);
-        Picasso.get().load("file:///android_asset/shoulder_abducted.png").into(ivUpperArm2);
-        Picasso.get().load("file:///android_asset/shoulder_leaning.png").into(ivUpperArm3);
+        Picasso.get().load("file:///android_asset/shoulder_raised.png").resize(800, 800).into(ivUpperArm1);
+        Picasso.get().load("file:///android_asset/shoulder_abducted.png").resize(800, 800).into(ivUpperArm2);
+        Picasso.get().load("file:///android_asset/shoulder_leaning.png").resize(800, 800).into(ivUpperArm3);
 
         // neck
-        Picasso.get().load("file:///android_asset/neck_twisted.png").into(ivNeck1);
-        Picasso.get().load("file:///android_asset/neck_bending.png").into(ivNeck2);
+        Picasso.get().load("file:///android_asset/neck_twisted.png").resize(800, 800).into(ivNeck1);
+        Picasso.get().load("file:///android_asset/neck_bending.png").resize(800, 800).into(ivNeck2);
 
         // trunk
-        Picasso.get().load("file:///android_asset/trunk_twisted.png").into(ivTrunk1);
-        Picasso.get().load("file:///android_asset/trunk_bending.png").into(ivTrunk2);
+        Picasso.get().load("file:///android_asset/trunk_twisted.png").resize(800, 800).into(ivTrunk1);
+        Picasso.get().load("file:///android_asset/trunk_bending.png").resize(800, 800).into(ivTrunk2);
 
     }
 

@@ -38,7 +38,7 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/reba_neck_trunk_linearLayoutNeck"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -52,21 +52,54 @@
                         android:text="Neck"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_neckCheck1"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Neck is twisted" />
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Neck is twisted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_imvNeckTwist"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_imvNeckTwist"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_imvNeckTwist" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_imvNeckTwist"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_textNeck" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_neckCheck2"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Neck is side bending" />
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Neck is side bending"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_imvNeckBend"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_imvNeckBend"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_imvNeckBend" />
 
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_imvNeckBend"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_imvNeckTwist" />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -80,7 +113,7 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/reba_neck_trunk_linearLayoutTrunk"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -94,21 +127,54 @@
                         android:text="Trunk"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_trunkCheck1"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Trunk is twisted" />
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Trunk is twisted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_trunkTwisted"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_trunkTwisted"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_trunkTwisted" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_trunkTwisted"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reba_neck_trunk_textTrunk"
+                        />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_trunkCheck2"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Trunk is side bending" />
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Trunk is side bending"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_trunkSideBend"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_trunkSideBend"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_trunkSideBend" />
 
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_trunkSideBend"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_trunkTwisted" />
+
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -122,7 +188,7 @@
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
-                <LinearLayout
+                <android.support.constraint.ConstraintLayout
                     android:id="@+id/reba_neck_trunk_linearLayoutUpperArm"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -137,26 +203,69 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="16dp"
                         android:textStyle="bold"
-                        />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_upperArm_check1"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Shoulder is raised" />
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Shoulder is raised"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_shoulderRaised"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_shoulderRaised"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_shoulderRaised" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_shoulderRaised"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_textUpperArm" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_upperArm_check2"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Upper arm is abducted" />
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Upper arm is abducted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_upperArmAbducted"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_upperArmAbducted"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_upperArmAbducted" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_upperArmAbducted"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_shoulderRaised" />
 
                     <CheckBox
                         android:id="@+id/reba_neck_trunk_upperArm_check3"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Arm is supported or person is leaning" />
-                </LinearLayout>
+                        android:text="Arm is supported or person is leaning"
+                        android:layout_marginRight="8dp"
+                        app:layout_constraintBottom_toBottomOf="@id/reba_neck_trunk_armSupported"
+                        app:layout_constraintRight_toLeftOf="@id/reba_neck_trunk_armSupported"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/reba_neck_trunk_armSupported" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_armSupported"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/reba_neck_trunk_upperArmAbducted"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
             
         </RelativeLayout>

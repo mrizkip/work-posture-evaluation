@@ -2,6 +2,7 @@ package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRulaB;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RulaTableA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RulaTableB;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -82,6 +86,7 @@ public class ResultRulaActivity extends AppCompatActivity {
     private MapKeyRulaB mapKeyRulaB;
 
     private Bitmap bmpResult;
+    private String pathToResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +118,7 @@ public class ResultRulaActivity extends AppCompatActivity {
         armAndWristLoadScore = intent.getIntExtra("armAndWristLoadScore", 0);
         neckTrunkLegsMuscleScore = intent.getIntExtra("neckTrunkLegsMuscleScore", 0);
         neckTrunkLegsLoadScore = intent.getIntExtra("neckTrunkLegsLoadScore", 0);
-        bmpResult = intent.getParcelableExtra("bmpResult");
+        pathToResult = intent.getStringExtra("bmpResult");
 
         // calculate result
         mapKeyRulaA = new MapKeyRulaA(upperArmScore, lowerArmScore, wristScore, wristTwistScore);
@@ -139,7 +144,7 @@ public class ResultRulaActivity extends AppCompatActivity {
         String stringHighScoreName = calculateMaxScore();
 
         // set image result
-        imvResult.setImageBitmap(bmpResult);
+        loadImageFromStorage(pathToResult);
 
         // set text
         tvNeckScore.setText("Neck Score: " + String.valueOf(neckScore));
@@ -171,6 +176,7 @@ public class ResultRulaActivity extends AppCompatActivity {
 
     private void home() {
         Intent intent = new Intent(ResultRulaActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -201,6 +207,18 @@ public class ResultRulaActivity extends AppCompatActivity {
         }
 
         return maxName;
+
+    }
+
+    private void loadImageFromStorage(String path) {
+
+        try {
+            File f = new File(path);
+            bmpResult = BitmapFactory.decodeStream(new FileInputStream(f));
+            imvResult.setImageBitmap(bmpResult);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
