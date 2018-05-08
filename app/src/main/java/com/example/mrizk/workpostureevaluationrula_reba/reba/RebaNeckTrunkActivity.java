@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -51,6 +52,20 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
     CheckBox upperArm2;
     @BindView(R.id.reba_neck_trunk_upperArm_check3)
     CheckBox upperArm3;
+    @BindView(R.id.reba_neck_trunk_imvNeckBend)
+    ImageView imvNeckBend;
+    @BindView(R.id.reba_neck_trunk_imvNeckTwist)
+    ImageView imvNeckTwist;
+    @BindView(R.id.reba_neck_trunk_shoulderRaised)
+    ImageView imvShoulderRaised;
+    @BindView(R.id.reba_neck_trunk_upperArmAbducted)
+    ImageView imvUpperArmAbducted;
+    @BindView(R.id.reba_neck_trunk_armSupported)
+    ImageView imvArmSupported;
+    @BindView(R.id.reba_neck_trunk_trunkTwisted)
+    ImageView imvTrunkTwisted;
+    @BindView(R.id.reba_neck_trunk_trunkSideBend)
+    ImageView imvTrunkSideBend;
 
     @BindView(R.id.reba_neck_trunk_toolbar)
     Toolbar toolbar;
@@ -78,6 +93,8 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
     private double wristDegree;
     private double legsDegree;
 
+    private String bmpResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +114,9 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
 
+        // add Drawable right
+        addDrawableRight();
+
         // get degrees
         trunkDegree = intent.getDoubleExtra("trunkPosition", 0);
         neckDegree = intent.getDoubleExtra("neckPosition", 0);
@@ -105,6 +125,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
         wristDegree = intent.getDoubleExtra("wristPosition", 0);
         legsDegree = intent.getDoubleExtra("legsPosition", 0);
         legsValue = intent.getIntExtra("legsValue", 0);
+        bmpResult = intent.getStringExtra("bmpResult");
 
         // calculate score of position
         calculatePositionScore(trunkDegree, neckDegree, upperArmDegree, lowerArmDegree, wristDegree, legsDegree);
@@ -223,6 +244,22 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
 
     }
 
+    private void addDrawableRight() {
+        // neck
+        Picasso.get().load("file:///android_asset/neck_twisted.png").resize(800, 800).into(imvNeckTwist);
+        Picasso.get().load("file:///android_asset/neck_bending.png").resize(800, 800).into(imvNeckBend);
+
+        // trunk
+        Picasso.get().load("file:///android_asset/trunk_twisted.png").resize(800, 800).into(imvTrunkTwisted);
+        Picasso.get().load("file:///android_asset/trunk_bending.png").resize(800, 800).into(imvTrunkSideBend);
+
+        // upper arm
+        Picasso.get().load("file:///android_asset/shoulder_raised.png").resize(800, 800).into(imvShoulderRaised);
+        Picasso.get().load("file:///android_asset/shoulder_abducted.png").resize(800, 800).into(imvUpperArmAbducted);
+        Picasso.get().load("file:///android_asset/shoulder_leaning.png").resize(800, 800).into(imvArmSupported);
+
+    }
+
     private void calculatePositionScore(double trunkDegree, double neckDegree, double upperArmDegree,
                                         double lowerArmDegree, double wristDegree, double legsDegree) {
         long trunk = Math.round(trunkDegree);
@@ -328,6 +365,7 @@ public class RebaNeckTrunkActivity extends AppCompatActivity {
                     intent.putExtra("lowerArmScore", lowerArmValue);
                     intent.putExtra("wristPosition", wristPosition);
                     intent.putExtra("legsScore", legsValue);
+                    intent.putExtra("bmpResult", bmpResult);
                     startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();

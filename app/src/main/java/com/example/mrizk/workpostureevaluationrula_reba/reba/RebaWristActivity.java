@@ -21,6 +21,7 @@ import android.widget.RadioGroup;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -49,6 +50,8 @@ public class RebaWristActivity extends AppCompatActivity {
     CheckBox activity2;
     @BindView(R.id.reba_wrist_activity_check3)
     CheckBox activity3;
+    @BindView(R.id.reba_wrist_imvWristBend)
+    ImageView imvWristBend;
 
     @BindView(R.id.reba_wrist_toolbar)
     Toolbar toolbar;
@@ -69,6 +72,8 @@ public class RebaWristActivity extends AppCompatActivity {
     private int lowerArmScore;
     private int legsScore;
 
+    private String bmpResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +88,9 @@ public class RebaWristActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        // add drawable right
+        addDrawableRight();
+
         Intent intent = getIntent();
         Bitmap bitmap = (Bitmap) intent.getParcelableExtra("photo");
         imageView.setImageBitmap(bitmap);
@@ -92,6 +100,7 @@ public class RebaWristActivity extends AppCompatActivity {
         lowerArmScore = intent.getIntExtra("lowerArmScore", 0);
         wristPosition = intent.getIntExtra("wristPosition", 0);
         legsScore = intent.getIntExtra("legsScore", 0);
+        bmpResult = intent.getStringExtra("bmpResult");
 
         // Check Wrist CheckBox
         wristValue = wristValue + wristPosition;
@@ -151,6 +160,11 @@ public class RebaWristActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void addDrawableRight() {
+        // wrist
+        Picasso.get().load("file:///android_asset/wrist_bent.png").resize(800, 800).into(imvWristBend);
     }
 
     @Override
@@ -213,6 +227,7 @@ public class RebaWristActivity extends AppCompatActivity {
                 intent.putExtra("loadScore", loadValue);
                 intent.putExtra("couplingScore", couplingValue);
                 intent.putExtra("activityScore", activityValue);
+                intent.putExtra("bmpResult", bmpResult);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

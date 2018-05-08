@@ -215,7 +215,6 @@ public class RulaSudutActivity extends AppCompatActivity {
                     imageView.setDrawingCacheEnabled(true);
                     Bitmap bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
                     imageView.setDrawingCacheEnabled(false);
-//                    bmpResult = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
                     String pathToImageResult = saveToInternalStorage(bmpResult);
 
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();

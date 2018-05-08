@@ -1,6 +1,8 @@
 package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -21,9 +24,13 @@ import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -49,6 +56,14 @@ public class RebaSudutActivity extends AppCompatActivity {
     CheckBox cbNeck;
     @BindView(R.id.reba_sudut_cbUpperArm)
     CheckBox cbUpperArm;
+    @BindView(R.id.reba_sudut_imvNeck)
+    ImageView imvNeck;
+    @BindView(R.id.reba_sudut_imvTrunk)
+    ImageView imvTrunk;
+    @BindView(R.id.reba_sudut_imvLegs)
+    ImageView imvLegs;
+    @BindView(R.id.reba_sudut_imvUpperArm)
+    ImageView imvUpperArm;
 
     ActionBar actionBar;
 
@@ -112,6 +127,23 @@ public class RebaSudutActivity extends AppCompatActivity {
         // Create Help Dialog
         helpDialog = new HelpDialog(this);
 
+        // add drawable right
+        addDrawableRight();
+
+    }
+
+    private void addDrawableRight() {
+        // trunk
+        Picasso.get().load("file:///android_asset/trunk_extention.png").resize(800, 800).into(imvTrunk);
+
+        // neck
+        Picasso.get().load("file:///android_asset/neck_extention.png").resize(800, 800).into(imvNeck);
+
+        // upper arm
+        Picasso.get().load("file:///android_asset/upper_arm_extention.png").resize(800, 800).into(imvUpperArm);
+
+        // legs
+        Picasso.get().load("file:///android_asset/legs.png").resize(2000, 800).into(imvLegs);
     }
 
     @Override
@@ -183,6 +215,12 @@ public class RebaSudutActivity extends AppCompatActivity {
             if (requestCode == EZPhotoPick.PHOTO_PICK_GALLERY_REQUEST_CODE
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
+                    // save image
+                    imageView.setDrawingCacheEnabled(true);
+                    Bitmap bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
+                    imageView.setDrawingCacheEnabled(false);
+                    String pathToImageResult = saveToInternalStorage(bmpResult);
+
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
                     Intent intent = new Intent(RebaSudutActivity.this, RebaNeckTrunkActivity.class);
                     intent.putExtra("photo", pickedPhoto);
@@ -193,6 +231,7 @@ public class RebaSudutActivity extends AppCompatActivity {
                     intent.putExtra("wristPosition", degreeList.get(4));
                     intent.putExtra("legsPosition", degreeList.get(5));
                     intent.putExtra("legsValue", legsValue);
+                    intent.putExtra("bmpResult", pathToImageResult);
                     startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -214,5 +253,32 @@ public class RebaSudutActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private String saveToInternalStorage(Bitmap bitmapImage) {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("WorkPostureEvaluation", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, "Posture" + now + ".jpg");
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return mypath.getAbsolutePath();
     }
 }

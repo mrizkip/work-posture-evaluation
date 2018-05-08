@@ -2,6 +2,7 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,9 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.RebaTableA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RebaTableB;
 import com.example.mrizk.workpostureevaluationrula_reba.util.RebaTableC;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -87,6 +91,7 @@ public class ResultRebaActivity extends AppCompatActivity {
     private int finalScore;
 
     private Bitmap bmpResult;
+    private String pathImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +122,7 @@ public class ResultRebaActivity extends AppCompatActivity {
         loadScore = intent.getIntExtra("loadScore", 0);
         couplingScore = intent.getIntExtra("couplingScore", 0);
         activityScore = intent.getIntExtra("activityScore", 0);
+        pathImage = intent.getStringExtra("bmpResult");
 
         // Calculate result
         mapKeyRebaA = new MapKeyRebaA(trunkScore, neckScore, legsScore);
@@ -158,6 +164,9 @@ public class ResultRebaActivity extends AppCompatActivity {
         tvLegsScore.setText("Legs Score: " + legsScore);
         tvTotalScore.setText("Total Score: " + finalScore);
         tvPartHighScore.setText(stringHighScoreName);
+
+        // set Image
+        loadImageFromStorage(pathImage);
 
         // set on click menu
         menuSideView.setOnClickListener(view -> sideView());
@@ -229,5 +238,17 @@ public class ResultRebaActivity extends AppCompatActivity {
     private void initTableC() {
         RebaTableC rebaTableC = new RebaTableC();
         mapTableC = rebaTableC.getMapTableC();
+    }
+
+    private void loadImageFromStorage(String path) {
+
+        try {
+            File f = new File(path);
+            bmpResult = BitmapFactory.decodeStream(new FileInputStream(f));
+            imvResult.setImageBitmap(bmpResult);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
