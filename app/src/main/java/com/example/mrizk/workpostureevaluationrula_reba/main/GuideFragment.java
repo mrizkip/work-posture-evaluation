@@ -1,28 +1,41 @@
 package com.example.mrizk.workpostureevaluationrula_reba.main;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
-
-import butterknife.BindView;
+import com.example.mrizk.workpostureevaluationrula_reba.util.ViewPagerAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GuideFragment extends Fragment {
 
+    private Context context;
+    ViewPager viewPager;
+    ViewPagerAdapter adapter;
+
+    private String[] images = {
+            "file:///android_asset/home.png",
+            "file:///android_asset/guide_angle.png"
+    };
+
     public static GuideFragment newInstance() {
         GuideFragment guideFragment = new GuideFragment();
         return guideFragment;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        this.context = context;
+        super.onAttach(context);
+    }
 
     public GuideFragment() {
         // Required empty public constructor
@@ -33,7 +46,14 @@ public class GuideFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guide, container, false);
+        View view = inflater.inflate(R.layout.fragment_guide, container, false);
+        viewPager = view.findViewById(R.id.guide_viewPager);
+        adapter = new ViewPagerAdapter(context, images);
+        viewPager.setAdapter(adapter);
+
+        return view;
     }
+
+
 
 }

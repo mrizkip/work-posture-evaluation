@@ -75,7 +75,7 @@ public class RulaSudutActivity extends AppCompatActivity {
     private Double upperArmDegree;
     private Double neckDegree;
 
-    private Bitmap bmpResult;
+//    private Bitmap bmpResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,9 +163,9 @@ public class RulaSudutActivity extends AppCompatActivity {
                 return true;
             case R.id.sudut_next:
                 // save image
-                imageView.setDrawingCacheEnabled(true);
-                bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
-                imageView.setDrawingCacheEnabled(false);
+//                imageView.setDrawingCacheEnabled(true);
+//                bmpResult = Bitmap.createBitmap(imageView.getDrawingCache());
+//                imageView.setDrawingCacheEnabled(false);
 //                bmpResult = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
 
                 // hitung sudut
@@ -221,7 +221,7 @@ public class RulaSudutActivity extends AppCompatActivity {
                     intent.putExtra("lowerArmPosition", degreeList.get(3));
                     intent.putExtra("wristPosition", degreeList.get(4));
                     intent.putExtra("legsScore", legsValue);
-                    intent.putExtra("bmpResult", bmpResult);
+//                    intent.putExtra("bmpResult", bmpResult);
                     startActivity(intent);
                 } catch (IOException e) {
                     Log.e(TAG, "onActivityResult: Error here");

@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +32,8 @@ public class AboutFragment extends Fragment {
     RelativeLayout ivEmailIcon;
     @BindView(R.id.about_callContainer)
     RelativeLayout ivCallIcon;
+    @BindView(R.id.about_imageAbout)
+    ImageView imvAbout;
 
     public static AboutFragment newInstance() {
         AboutFragment aboutFragment = new AboutFragment();
@@ -50,6 +53,8 @@ public class AboutFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         ButterKnife.bind(this, view);
+
+        Picasso.get().load("file:///android_asset/home.png").into(imvAbout);
 
         // set onClick
         ivWebIcon.setOnClickListener(v -> webClick());
