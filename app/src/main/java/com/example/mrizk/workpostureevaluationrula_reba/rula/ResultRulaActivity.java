@@ -7,9 +7,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,8 +26,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ResultRulaActivity extends AppCompatActivity {
-
-    private static final String TAG = "ResultRulaActivity";
 
     @BindView(R.id.result_rula_toolbar)
     Toolbar toolbar;
@@ -211,7 +206,6 @@ public class ResultRulaActivity extends AppCompatActivity {
     }
 
     private void loadImageFromStorage(String path) {
-
         try {
             File f = new File(path);
             bmpResult = BitmapFactory.decodeStream(new FileInputStream(f));
@@ -219,7 +213,6 @@ public class ResultRulaActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     private void initTableA() {

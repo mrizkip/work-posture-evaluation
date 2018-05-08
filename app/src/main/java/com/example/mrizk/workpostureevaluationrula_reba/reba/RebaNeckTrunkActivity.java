@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +19,6 @@ import android.widget.ImageView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
-import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -33,8 +31,6 @@ import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RebaNeckTrunkActivity extends AppCompatActivity {
-
-    private static final String TAG = "RebaNeckTrunkActivity";
 
     @BindView(R.id.reba_neck_trunk_imageView)
     ImageView imageView;

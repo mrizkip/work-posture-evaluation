@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
@@ -31,8 +30,6 @@ import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
-
-    private static final String TAG = "RulaUpperArmNeckTrunkAc";
 
     @BindView(R.id.rula_upperArm_imageView)
     ImageView imageView;

@@ -42,8 +42,6 @@ import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RebaSudutActivity extends AppCompatActivity {
 
-    private static final String TAG = "RebaSudutActivity";
-
     @BindView(R.id.reba_sudut_toolbar)
     Toolbar toolbar;
     @BindView(R.id.reba_sudut_drawView)

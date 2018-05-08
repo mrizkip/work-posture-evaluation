@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
@@ -24,8 +23,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RulaLowerArmActivity extends AppCompatActivity {
-
-    private static final String TAG = "RulaLowerArmActivity";
 
     @BindView(R.id.rula_lowerArm_imageView)
     ImageView imageView;

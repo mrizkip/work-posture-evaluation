@@ -1,27 +1,22 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -30,7 +25,6 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelect
 import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.example.mrizk.workpostureevaluationrula_reba.util.HelpDialog;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,8 +41,6 @@ import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
 public class RulaSudutActivity extends AppCompatActivity {
-
-    private static final String TAG = "RulaSudutActivity";
 
     @BindView(R.id.rula_sudut_toolbar)
     Toolbar toolbar;

@@ -7,15 +7,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.main.MainActivity;
-import com.example.mrizk.workpostureevaluationrula_reba.rula.ResultRulaActivity;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaB;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaC;
@@ -32,8 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ResultRebaActivity extends AppCompatActivity {
-
-    private static final String TAG = "ResultRebaActivity";
 
     @BindView(R.id.result_reba_toolbar)
     Toolbar toolbar;

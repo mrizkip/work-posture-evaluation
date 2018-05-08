@@ -1,7 +1,5 @@
 package com.example.mrizk.workpostureevaluationrula_reba.util;
 
-import java.util.Objects;
-
 /**
  * Created by mrizk on 16/03/2018.
  */
