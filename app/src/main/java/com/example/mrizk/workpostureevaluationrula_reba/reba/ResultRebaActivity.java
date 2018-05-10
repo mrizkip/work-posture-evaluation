@@ -3,15 +3,19 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.main.MainActivity;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DialogHealthCare;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaB;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaC;
@@ -176,15 +180,19 @@ public class ResultRebaActivity extends AppCompatActivity {
     }
 
     private void healthCare() {
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        DialogHealthCare newFragment = new DialogHealthCare();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
     }
 
     private void saveScreen() {
-
+        Toast.makeText(this, "Save Screenshot!", Toast.LENGTH_SHORT).show();
     }
 
     private void sideView() {
-
+        Toast.makeText(this, "Back to Side View", Toast.LENGTH_SHORT).show();
     }
 
     private String calculateMaxScore() {

@@ -27,7 +27,7 @@
         <activity android:name=".rula.RulaUpperArmNeckTrunkActivity" />
         <activity android:name=".rula.RulaLowerArmActivity" />
         <activity android:name=".reba.RebaNeckTrunkActivity" />
-        <activity android:name=".reba.RebaWristActivity"/>
+        <activity android:name=".reba.RebaWristActivity" />
     </application>
 
 </manifest>

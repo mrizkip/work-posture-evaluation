@@ -13,13 +13,13 @@ import android.widget.ImageView;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.squareup.picasso.Picasso;
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class ViewPagerGuideAdapter extends PagerAdapter {
 
     Context context;
     String[] images;
     LayoutInflater inflater;
 
-    public ViewPagerAdapter(Context context, String[] images) {
+    public ViewPagerGuideAdapter(Context context, String[] images) {
         this.context = context;
         this.images = images;
     }
