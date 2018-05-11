@@ -80,7 +80,7 @@ public class AboutFragment extends Fragment {
     }
 
     private void callClick() {
-        String phoneNumber = "+6285715057223";
+        String phoneNumber = "+62341587710";
         Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phoneNumber));
         if (callIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivity(callIntent);

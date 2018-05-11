@@ -21,7 +21,7 @@ public class GuideFragment extends Fragment {
     ViewPagerGuideAdapter adapter;
 
     private String[] images = {
-            "file:///android_asset/home.png",
+            "file:///android_asset/guide_take_data_new.png",
             "file:///android_asset/guide_angle.png"
     };
 

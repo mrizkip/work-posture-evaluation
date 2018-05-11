@@ -110,13 +110,13 @@ public class RulaLowerArmActivity extends AppCompatActivity {
 
     private void addDrawableRight() {
         // lower arm
-        Picasso.get().load("file:///android_asset/shoulder_raised.png").resize(800, 800).into(ivLowerArm1);
+        Picasso.get().load("file:///android_asset/lower_arm _across.png").resize(800, 800).into(ivLowerArm1);
 
         // wrist
         Picasso.get().load("file:///android_asset/wrist_bent.png").resize(800, 800).into(ivWrist1);
 
         // wrist twist
-        Picasso.get().load("file:///android_asset/neck_extention.png").resize(800, 800).into(ivWristTwist1);
+        Picasso.get().load("file:///android_asset/wrist_twist.png").resize(800, 800).into(ivWristTwist1);
     }
 
     @Override
