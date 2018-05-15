@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/reba_sudut_clear"
+        android:icon="@drawable/ic_clear_black_24dp"
+        app:showAsAction="always"
+        android:iconTint="#FFFFFF"
+        android:title="Clear"
+        tools:targetApi="o" />
+    <item
         android:id="@+id/reba_sudut_help"
         android:icon="@drawable/ic_help_black_24dp"
         app:showAsAction="always"

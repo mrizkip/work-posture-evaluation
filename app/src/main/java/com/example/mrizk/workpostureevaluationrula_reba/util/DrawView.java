@@ -183,6 +183,12 @@ public class DrawView extends AppCompatImageView {
         this.lineList = lineList;
     }
 
+    public void clear() {
+        lineList.clear();
+        pointList.clear();
+        invalidate();
+    }
+
     public String getType() {
         return type;
     }

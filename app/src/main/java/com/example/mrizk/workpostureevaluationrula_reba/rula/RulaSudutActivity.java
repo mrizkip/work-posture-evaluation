@@ -148,6 +148,10 @@ public class RulaSudutActivity extends AppCompatActivity {
         MenuItem itemHelp = menu.findItem(R.id.sudut_help);
         Drawable helpIcon = itemHelp.getIcon();
         helpIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+
+        MenuItem itemClear = menu.findItem(R.id.sudut_clear);
+        Drawable clearIcon = itemClear.getIcon();
+        clearIcon.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         return true;
     }
 
@@ -156,6 +160,11 @@ public class RulaSudutActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
+                return true;
+            case R.id.sudut_clear:
+                Toast.makeText(this, "Draw Clear", Toast.LENGTH_SHORT).show();
+                lineList.clear();
+                imageView.clear();
                 return true;
             case R.id.sudut_next:
 
