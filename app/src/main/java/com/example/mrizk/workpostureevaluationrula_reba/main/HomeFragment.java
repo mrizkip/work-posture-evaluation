@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
         Picasso.get().load("file:///android_asset/home.png").into(imageHome);
 
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), IntroductionActivity.class);
+            Intent intent = new Intent(getContext(), StartEvaluationActivity.class);
             startActivity(intent);
         });
 

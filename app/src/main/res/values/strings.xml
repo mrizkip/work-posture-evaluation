@@ -1,3 +1,143 @@
 <resources>
     <string name="app_name">Work Posture Evaluation (RULA-REBA)</string>
+    <string name="rula">RULA</string>
+    <string name="reba">REBA</string>
+
+    <string name="about_image_about">Image About</string>
+    <string name="about_conctact_developer">Conctact Developer:</string>
+    <string name="about_web">Web</string>
+    <string name="about_e_mail">E-mail</string>
+    <string name="about_call">Call</string>
+
+    <string name="home_image_home">Image Home</string>
+    <string name="home_start_evaluation">Start Evaluation</string>
+
+    <string name="guide_image_guide">Image Guide</string>
+
+    <string name="dialog_camera_gallery_image">Image Camera Gallery Selector</string>
+    <string name="dialog_camera_gallery_camera">Camera</string>
+    <string name="dialog_camera_gallery_gallery">Gallery</string>
+    <string name="dialog_health_close">Close</string>
+    <string name="dialog_health_health_care">Health Care</string>
+    <string name="dialog_help_image_help">Image Help</string>
+
+    <string name="start_evaluation_guide">Guide</string>
+
+    <string name="reba_image_reba">Image Reba</string>
+    <string name="reba_choose_photo_source">Choose posture photo source</string>
+    <string name="reba_camera">Camera</string>
+    <string name="reba_gallery">Gallery</string>
+
+    <string name="reba_front_view_image">Image Reba Front View</string>
+    <string name="reba_front_view_neck">Neck</string>
+    <string name="reba_front_view_neck_is_twisted">Neck is twisted</string>
+    <string name="reba_front_view_neck_side_bend">Neck is side bending</string>
+    <string name="reba_front_view_trunk">Trunk</string>
+    <string name="reba_front_view_trunk_twisted">Trunk is twisted</string>
+    <string name="reba_front_view_trunk_side_bend">Trunk is side bending</string>
+    <string name="reba_front_view_upper_arm">Upper Arm</string>
+    <string name="reba_front_view_shoulder_raised">Shoulder is raised</string>
+    <string name="reba_front_view_upper_arm_abducted">Upper arm is abducted</string>
+    <string name="reba_front_view_arm_supported">Arm is supported or person is leaning</string>
+
+    <string name="reba_side_view_trunk">Trunk</string>
+    <string name="reba_side_view_trunk_extension">Trunk position in extension</string>
+    <string name="reba_side_view_neck">Neck</string>
+    <string name="reba_side_view_neck_extension">Neck position in extension</string>
+    <string name="reba_side_view_upper_arm">Upper Arm</string>
+    <string name="reba_side_view_upper_arm_extension">Upper arm position in extension</string>
+    <string name="reba_side_view_legs">Legs</string>
+    <string name="reba_side_view_support_two_legs">Support in the two legs, walking or seated</string>
+    <string name="reba_side_view_support_one_leg">Support in one leg</string>
+
+    <string name="reba_result_side_view">Side View</string>
+    <string name="reba_result_neck_score">Neck Score:</string>
+    <string name="reba_result_trunk_score">Trunk Score:</string>
+    <string name="reba_result_upper_arm_score">Upper Arm Score:</string>
+    <string name="reba_result_lower_arm_score">Lower Arm Score:</string>
+    <string name="reba_result_wrist_score">Wrist Score:</string>
+    <string name="reba_result_total_score">Total Score:</string>
+    <string name="reba_result_careful">You must be careful in this part:</string>
+    <string name="reba_result_part">()</string>
+    <string name="reba_result_save_screenshot">Save Screenshot</string>
+    <string name="reba_result_back_to_side_view">Back to Side View</string>
+    <string name="reba_result_health_care">Health Care</string>
+    <string name="reba_result_home">Home</string>
+
+    <string name="rula_image_rula">Image Rula</string>
+    <string name="rula_choose_photo_source">Choose posture photo source</string>
+    <string name="rula_camera">Camera</string>
+    <string name="rula_gallery">Gallery</string>
+
+    <string name="rula_result_side_view">Side View</string>
+    <string name="rula_result_neck_score">Neck Score:</string>
+    <string name="rula_result_trunk_score">Trunk Score:</string>
+    <string name="rula_result_upper_arm_score">Upper Arm Score:</string>
+    <string name="rula_result_lower_arm_score">Lower Arm Score:</string>
+    <string name="rula_result_wrist_score">Wrist Score:</string>
+    <string name="rula_result_total_score">Total Score:</string>
+    <string name="rula_result_careful">You must be careful in this part:</string>
+    <string name="rula_result_part">()</string>
+    <string name="rula_result_back_to_side_view">Back to Side View</string>
+    <string name="rula_result_save_screenshot">Save Screenshot</string>
+    <string name="rula_result_health_care">Health Care</string>
+    <string name="rula_result_home">Home</string>
+
+    <string name="rula_additional_arm_and_wrist_muscle">Arm and Wrist Muscle</string>
+    <string name="rula_additional_posture_static"><![CDATA[Posture is mainly static, e.g. held > 10 minute orrepeated occurs 4X per minute]]></string>
+    <string name="rula_additional_arm_and_wrist_load">Arm and Wrist Load</string>
+    <string name="rula_additional_2kg">Less than 2 Kg intermittent load</string>
+    <string name="rula_additional_2_to_10kg_intermittent">2 to 10 Kg intermittent load</string>
+    <string name="rula_additional_2_to_10kg_repeated">2 to 10 Kg static or repeated load</string>
+    <string name="rula_additional_10kg">More than 10 Kg or repeated or shocks load</string>
+    <string name="rula_additional_neck_trunk_and_legs_muscle">Neck, Trunk, and Legs Muscle</string>
+    <string name="rula_additional_posture_static_neck"><![CDATA[Posture is mainly static, e.g. held > 10 minute orrepeated occurs 4X per minute]]></string>
+    <string name="rula_additional_neck_trunk_and_legs_load">Neck, Trunk, and Legs Load</string>
+
+    <string name="rula_front_view_image_front_view">Image Front View</string>
+    <string name="rula_front_view_upper_arm">Upper Arm</string>
+    <string name="rula_front_view_shoulder_is_raised">Shoulder is raised</string>
+    <string name="rula_front_view_upper_arm_abducted">Upper arm is abducted</string>
+    <string name="rula_front_view_arm_supported">Arm is supported or person is leaning</string>
+    <string name="rula_front_view_neck">Neck</string>
+    <string name="rula_front_view_neck_twisted">Neck is twisted</string>
+    <string name="rula_front_view_neck_side_bend">Neck is side bending</string>
+    <string name="rula_front_view_trunk">Trunk</string>
+    <string name="rula_front_view_trunk_twisted">Trunk is twisted</string>
+    <string name="rula_front_view_trunk_side_bending">Trunk is side bending</string>
+
+    <string name="rula_side_view_neck_position">Neck Position</string>
+    <string name="rula_side_view_neck_extension">Neck position in extension</string>
+    <string name="rula_side_view_upper_arm_position">Upper Arm Position</string>
+    <string name="rula_side_view_upper_arm_extension">Upper arm position in extension</string>
+    <string name="rula_side_view_legs">Legs</string>
+    <string name="rula_side_view_legs_supported">Legs and feet are supported in balanced posture</string>
+    <string name="rula_side_view_legs_not_supported">Legs and feet are not supported balanced posture</string>
+
+    <string name="rula_top_view_image_rula_top_view">Image Rula Top View</string>
+    <string name="rula_top_view_lower_arm">Lower Arm</string>
+    <string name="rula_top_view_lower_arm_accross_midline">Lower arm work across midline or out to side of body</string>
+    <string name="rula_top_view_wrist">Wrist</string>
+    <string name="rula_top_view_wrist_bent">Wrist is bent from midline</string>
+    <string name="rula_top_view_wrist_twist">Wrist Twist</string>
+    <string name="rula_top_view_wrist_is_twist_in_mid_range">Wrist is twist in mid-range</string>
+    <string name="rula_top_view_wrist_is_twist_at_or_near_end_of_range">Wrist is twist at or near end of range</string>
+
+    <string name="reba_top_view_image_reba_top_view">Image Reba Top View</string>
+    <string name="reba_top_view_wrist">Wrist</string>
+    <string name="reba_top_view_wrist_bent_twisted">Wrist is bent from midline or twisted</string>
+    <string name="reba_top_view_neck_trunk_and_legs_load">Neck, Trunk, and Legs Load</string>
+    <string name="reba_top_view_5kg">Less than 5 Kg</string>
+    <string name="reba_top_view_5_to_10kg">5 to 10 Kg</string>
+    <string name="reba_top_view_10kg">More than 10 Kg</string>
+    <string name="reba_top_view_shock_rapid">Shock or rapid build up of force</string>
+    <string name="reba_top_view_coupling">Coupling</string>
+    <string name="reba_top_view_good">Good</string>
+    <string name="reba_top_view_fair">Fair</string>
+    <string name="reba_top_view_poor">Poor</string>
+    <string name="reba_top_view_unacceptable">Unacceptable</string>
+    <string name="reba_top_view_activity">Activity</string>
+    <string name="reba_top_view_static">1 or more body parts are held for longer than 1 minute (static)</string>
+    <string name="reba_top_view_repeated">Repeated small range actions (more than 4x per minute)</string>
+    <string name="reba_top_view_changes">Action causes rapid large range changes in postures or unstable base</string>
 </resources>

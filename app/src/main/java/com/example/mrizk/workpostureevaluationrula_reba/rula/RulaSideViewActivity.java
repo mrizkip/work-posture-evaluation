@@ -40,7 +40,7 @@ import siclo.com.ezphotopicker.api.EZPhotoPickStorage;
 import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
-public class RulaSudutActivity extends AppCompatActivity {
+public class RulaSideViewActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_sudut_toolbar)
     Toolbar toolbar;
@@ -75,7 +75,7 @@ public class RulaSudutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula_sudut);
+        setContentView(R.layout.activity_rula_side_view);
 
         ButterKnife.bind(this);
 
@@ -105,7 +105,7 @@ public class RulaSudutActivity extends AppCompatActivity {
                 EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
                 cameraConfig.photoSource = PhotoSource.CAMERA;
                 cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaSudutActivity.this, cameraConfig);
+                EZPhotoPick.startPhotoPickActivity(RulaSideViewActivity.this, cameraConfig);
             }
 
             @Override
@@ -113,7 +113,7 @@ public class RulaSudutActivity extends AppCompatActivity {
                 EZPhotoPickConfig galleryConfig = new EZPhotoPickConfig();
                 galleryConfig.photoSource = PhotoSource.GALLERY;
                 galleryConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaSudutActivity.this, galleryConfig);
+                EZPhotoPick.startPhotoPickActivity(RulaSideViewActivity.this, galleryConfig);
             }
         });
 
@@ -219,7 +219,7 @@ public class RulaSudutActivity extends AppCompatActivity {
                     String pathToImageResult = saveToInternalStorage(bmpResult);
 
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RulaSudutActivity.this, RulaUpperArmNeckTrunkActivity.class);
+                    Intent intent = new Intent(RulaSideViewActivity.this, RulaFrontViewActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     intent.putExtra("trunkPosition", degreeList.get(0));
                     intent.putExtra("neckPosition", neckDegree);

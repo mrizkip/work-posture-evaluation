@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RebaWristActivity extends AppCompatActivity {
+public class RebaTopViewActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_wrist_imageView)
     ImageView imageView;
@@ -69,7 +69,7 @@ public class RebaWristActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reba_wrist);
+        setContentView(R.layout.activity_reba_top_view);
 
         ButterKnife.bind(this);
 
@@ -209,7 +209,7 @@ public class RebaWristActivity extends AppCompatActivity {
                 }
                 couplingValue = couplingValue + couplingRadio;
 
-                Intent intent = new Intent(RebaWristActivity.this, ResultRebaActivity.class);
+                Intent intent = new Intent(RebaTopViewActivity.this, ResultRebaActivity.class);
                 intent.putExtra("trunkScore", trunkScore);
                 intent.putExtra("neckScore", neckScore);
                 intent.putExtra("upperArmScore", upperArmScore);

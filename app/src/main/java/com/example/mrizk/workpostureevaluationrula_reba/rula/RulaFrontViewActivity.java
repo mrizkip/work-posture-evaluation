@@ -29,7 +29,7 @@ import siclo.com.ezphotopicker.api.EZPhotoPickStorage;
 import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
-public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
+public class RulaFrontViewActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_upperArm_imageView)
     ImageView imageView;
@@ -91,7 +91,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula_upper_arm_neck_trunk);
+        setContentView(R.layout.activity_rula_front_view);
 
         ButterKnife.bind(this);
 
@@ -133,7 +133,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                 EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
                 cameraConfig.photoSource = PhotoSource.CAMERA;
                 cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaUpperArmNeckTrunkActivity.this, cameraConfig);
+                EZPhotoPick.startPhotoPickActivity(RulaFrontViewActivity.this, cameraConfig);
             }
 
             @Override
@@ -141,7 +141,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                 EZPhotoPickConfig galleryConfig = new EZPhotoPickConfig();
                 galleryConfig.photoSource = PhotoSource.GALLERY;
                 galleryConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RulaUpperArmNeckTrunkActivity.this, galleryConfig);
+                EZPhotoPick.startPhotoPickActivity(RulaFrontViewActivity.this, galleryConfig);
             }
         });
 
@@ -315,7 +315,7 @@ public class RulaUpperArmNeckTrunkActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RulaUpperArmNeckTrunkActivity.this, RulaLowerArmActivity.class);
+                    Intent intent = new Intent(RulaFrontViewActivity.this, RulaTopViewActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     intent.putExtra("legsScore", legsScore);
                     intent.putExtra("upperArmScore", upperArmValue);

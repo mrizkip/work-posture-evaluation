@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RulaLowerArmActivity extends AppCompatActivity {
+public class RulaTopViewActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_lowerArm_imageView)
     ImageView imageView;
@@ -60,7 +60,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula_lower_arm);
+        setContentView(R.layout.activity_rula_top_view);
 
         ButterKnife.bind(this);
 
@@ -149,7 +149,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
                 }
 
                 wristTwistValue = wristTwistValue + wristTwistRadio;
-                Intent intent = new Intent(RulaLowerArmActivity.this, RulaAdditionalActivity.class);
+                Intent intent = new Intent(RulaTopViewActivity.this, RulaAdditionalActivity.class);
                 intent.putExtra("legsScore", legsScore);
                 intent.putExtra("upperArmScore", upperArmScore);
                 intent.putExtra("neckScore", neckScore);

@@ -82,7 +82,7 @@ public class RulaActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RulaActivity.this, RulaSudutActivity.class);
+                    Intent intent = new Intent(RulaActivity.this, RulaSideViewActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     startActivity(intent);
                 } catch (IOException e) {

@@ -16,18 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.IntroductionActivity" />
+        <activity android:name=".main.StartEvaluationActivity" />
         <activity android:name=".rula.RulaActivity" />
         <activity android:name=".reba.RebaActivity" />
-        <activity android:name=".rula.RulaSudutActivity" />
+        <activity android:name=".rula.RulaSideViewActivity" />
         <activity android:name=".rula.RulaAdditionalActivity" />
-        <activity android:name=".reba.RebaSudutActivity" />
+        <activity android:name=".reba.RebaSideViewActivity" />
         <activity android:name=".rula.ResultRulaActivity" />
         <activity android:name=".reba.ResultRebaActivity" />
-        <activity android:name=".rula.RulaUpperArmNeckTrunkActivity" />
-        <activity android:name=".rula.RulaLowerArmActivity" />
-        <activity android:name=".reba.RebaNeckTrunkActivity" />
-        <activity android:name=".reba.RebaWristActivity" />
+        <activity android:name=".rula.RulaFrontViewActivity" />
+        <activity android:name=".rula.RulaTopViewActivity" />
+        <activity android:name=".reba.RebaFrontViewActivity" />
+        <activity android:name=".reba.RebaTopViewActivity" />
     </application>
 
 </manifest>

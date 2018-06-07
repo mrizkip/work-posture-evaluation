@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class IntroductionActivity extends AppCompatActivity {
+public class StartEvaluationActivity extends AppCompatActivity {
 
     @BindView(R.id.intro_toolbar)
     Toolbar toolbar;
@@ -34,7 +34,7 @@ public class IntroductionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_introduction);
+        setContentView(R.layout.activity_start_evaluation);
 
         ButterKnife.bind(this);
 
@@ -50,7 +50,7 @@ public class IntroductionActivity extends AppCompatActivity {
         buttonRula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroductionActivity.this, RulaActivity.class);
+                Intent intent = new Intent(StartEvaluationActivity.this, RulaActivity.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class IntroductionActivity extends AppCompatActivity {
         buttonReba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroductionActivity.this, RebaActivity.class);
+                Intent intent = new Intent(StartEvaluationActivity.this, RebaActivity.class);
                 startActivity(intent);
             }
         });

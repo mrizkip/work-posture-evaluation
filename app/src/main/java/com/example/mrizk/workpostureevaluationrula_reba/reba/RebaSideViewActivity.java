@@ -40,7 +40,7 @@ import siclo.com.ezphotopicker.api.EZPhotoPickStorage;
 import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
 import siclo.com.ezphotopicker.api.models.PhotoSource;
 
-public class RebaSudutActivity extends AppCompatActivity {
+public class RebaSideViewActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_sudut_toolbar)
     Toolbar toolbar;
@@ -80,7 +80,7 @@ public class RebaSudutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reba_sudut);
+        setContentView(R.layout.activity_reba_side_view);
 
         ButterKnife.bind(this);
 
@@ -110,7 +110,7 @@ public class RebaSudutActivity extends AppCompatActivity {
                 EZPhotoPickConfig cameraConfig = new EZPhotoPickConfig();
                 cameraConfig.photoSource = PhotoSource.CAMERA;
                 cameraConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RebaSudutActivity.this, cameraConfig);
+                EZPhotoPick.startPhotoPickActivity(RebaSideViewActivity.this, cameraConfig);
             }
 
             @Override
@@ -118,7 +118,7 @@ public class RebaSudutActivity extends AppCompatActivity {
                 EZPhotoPickConfig galleryConfig = new EZPhotoPickConfig();
                 galleryConfig.photoSource = PhotoSource.GALLERY;
                 galleryConfig.exportingSize = 400;
-                EZPhotoPick.startPhotoPickActivity(RebaSudutActivity.this, galleryConfig);
+                EZPhotoPick.startPhotoPickActivity(RebaSideViewActivity.this, galleryConfig);
             }
         });
 
@@ -229,7 +229,7 @@ public class RebaSudutActivity extends AppCompatActivity {
                     String pathToImageResult = saveToInternalStorage(bmpResult);
 
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RebaSudutActivity.this, RebaNeckTrunkActivity.class);
+                    Intent intent = new Intent(RebaSideViewActivity.this, RebaFrontViewActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     intent.putExtra("trunkPosition", trunkDegree);
                     intent.putExtra("neckPosition", neckDegree);
