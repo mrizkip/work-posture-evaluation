@@ -18,7 +18,9 @@ public class DialogHealthCare extends DialogFragment {
     private Context context;
     private String[] images = {
             "file:///android_asset/healthy_1.png",
-            "file:///android_asset/healthy_2.png"
+            "file:///android_asset/healthy_2.png",
+            "file:///android_asset/healthy_3.png",
+            "file:///android_asset/healthy_4.png"
     };
 
     @Override

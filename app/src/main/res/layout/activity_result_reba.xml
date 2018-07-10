@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="@string/reba_result_total_score"
+                android:text="@string/reba_result_legs_score"
                 android:textColor="@color/white" />
 
             <TextView
@@ -114,6 +114,58 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/result_reba_linearLeft"
             app:layout_constraintTop_toBottomOf="@+id/result_reba_imvSudut">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_scoring"
+                android:textColor="@color/white"
+                />
+            
+            <TextView
+                android:id="@+id/result_reba_keterangan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_keterangan1"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_reba_keterangan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_keterangan2"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_reba_keterangan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_keterangan3"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_reba_keterangan4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_keterangan4"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_reba_keterangan5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reba_result_keterangan5"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
 
             <TextView
                 android:layout_width="match_parent"

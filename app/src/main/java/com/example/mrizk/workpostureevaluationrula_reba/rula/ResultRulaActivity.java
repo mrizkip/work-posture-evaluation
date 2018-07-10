@@ -61,6 +61,14 @@ public class ResultRulaActivity extends AppCompatActivity {
     ImageView menuHealthCare;
     @BindView(R.id.result_rula_home)
     ImageView menuHome;
+    @BindView(R.id.result_rula_keterangan1)
+    TextView keterangan1;
+    @BindView(R.id.result_rula_keterangan2)
+    TextView keterangan2;
+    @BindView(R.id.result_rula_keterangan3)
+    TextView keterangan3;
+    @BindView(R.id.result_rula_keterangan4)
+    TextView keterangan4;
 
     ActionBar actionBar;
 
@@ -144,7 +152,9 @@ public class ResultRulaActivity extends AppCompatActivity {
 
         calculateFinalScore();
 
+        // scoring
         String stringHighScoreName = calculateMaxScore();
+        scoring();
 
         // set image result
         loadImageFromStorage(pathToResult);
@@ -166,7 +176,23 @@ public class ResultRulaActivity extends AppCompatActivity {
         menuHome.setOnClickListener(view -> home());
     }
 
+    private void scoring() {
+        // total score
+        if (finalScore >= 1 && finalScore <= 2) {
+            keterangan1.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 3 && finalScore <= 4) {
+            keterangan2.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 5 && finalScore <= 6) {
+            keterangan3.setVisibility(View.VISIBLE);
+        } else if (finalScore == 7) {
+            keterangan4.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void sideView() {
+        Intent intent = new Intent(ResultRulaActivity.this, RulaSideViewActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         Toast.makeText(this, "Back to Side View", Toast.LENGTH_SHORT).show();
     }
 

@@ -140,4 +140,16 @@
     <string name="reba_top_view_static">1 or more body parts are held for longer than 1 minute (static)</string>
     <string name="reba_top_view_repeated">Repeated small range actions (more than 4x per minute)</string>
     <string name="reba_top_view_changes">Action causes rapid large range changes in postures or unstable base</string>
+    <string name="reba_result_legs_score">Legs Score</string>
+    <string name="reba_result_scoring">Scoring (total score):</string>
+    <string name="reba_result_keterangan1">1-2 = Negligible Risk.</string>
+    <string name="reba_result_keterangan2">2-3 = Low Risk. Change may be needed.</string>
+    <string name="reba_result_keterangan3">4-7 = Medium Risk. Further Investigate. Change Soon.</string>
+    <string name="reba_result_keterangan4">8-10 = High Risk. Investigate and Implement Change.</string>
+    <string name="reba_result_keterangan5">11+ = Very High Risk. Implement Change.</string>
+    <string name="result_rula_scoring">Scoring (total score):</string>
+    <string name="result_rula_keterangan1">1-2 = Acceptance posture.</string>
+    <string name="result_rula_keterangan2">3-4 = Further investigation, change may needed.</string>
+    <string name="result_rula_keterangan3">5-6 = further investigation, change soon.</string>
+    <string name="result_rula_keterangan4">7 = investigate and implement change.</string>
 </resources>

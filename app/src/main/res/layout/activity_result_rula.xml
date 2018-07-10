@@ -110,6 +110,49 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/result_rula_scoring"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan1"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan2"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan3"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan4"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/rula_result_careful"
                 android:textColor="@color/white" />
