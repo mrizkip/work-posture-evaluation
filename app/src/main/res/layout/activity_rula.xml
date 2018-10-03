@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.RulaActivity">
+
+    <include
+        android:id="@+id/rula_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ImageView
+        android:id="@+id/rula_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_below="@+id/rula_toolbar"
+        android:contentDescription="@string/rula_image_rula"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/rula_texViewInputGambar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rula_imageView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-15dp"
+        android:text="@string/rula_choose_photo_source"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Space
+        android:id="@+id/rula_centerPosition"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/rula_texViewInputGambar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp" />
+
+    <RelativeLayout
+        android:id="@+id/rula_cameraContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rula_texViewInputGambar"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_toLeftOf="@id/rula_centerPosition"
+        android:layout_toStartOf="@id/rula_centerPosition"
+        android:background="?android:selectableItemBackground"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/rula_cameraIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/rula_camera"
+            android:src="@drawable/ic_camera_alt_black_24dp"
+            android:tint="@color/white_icon" />
+
+        <TextView
+            android:id="@+id/rula_cameraString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rula_cameraIcon"
+            android:layout_centerHorizontal="true"
+            android:text="@string/rula_camera"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rula_galleryContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rula_texViewInputGambar"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@id/rula_centerPosition"
+        android:layout_toRightOf="@id/rula_centerPosition"
+        android:background="?android:selectableItemBackground"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/rula_galleryIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/rula_gallery"
+            android:src="@drawable/ic_image_black_24dp"
+            android:tint="@color/white_icon" />
+
+        <TextView
+            android:id="@+id/rula_galleryString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rula_galleryIcon"
+            android:layout_centerHorizontal="true"
+            android:text="@string/rula_gallery"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

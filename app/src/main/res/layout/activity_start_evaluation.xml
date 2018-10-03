@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/relativeLayout">
+
+    <include
+        android:id="@+id/intro_toolbar"
+        layout="@layout/view_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/intro_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_toolbar"
+        android:contentDescription="@string/start_evaluation_guide" />
+
+    <Button
+        android:id="@+id/intro_buttonRula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/button_background"
+        android:text="@string/rula"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/intro_buttonReba"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intro_imageView" />
+
+    <Button
+        android:id="@+id/intro_buttonReba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/button_background"
+        android:text="@string/reba"
+        android:textColor="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/intro_buttonRula"
+        app:layout_constraintTop_toBottomOf="@id/intro_imageView" />
+
+</android.support.constraint.ConstraintLayout>

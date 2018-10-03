@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.ResultRulaActivity">
+
+    <include
+        android:id="@+id/result_rula_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/result_rula_toolbar"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/result_rula_imvSudut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/rula_result_side_view"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearLeft"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearLeft"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearBottom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/result_rula_linearRight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/result_rula_imvSudut">
+
+            <TextView
+                android:id="@+id/result_rula_tvNeckScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_neck_score"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_tvTrunkScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_trunk_score"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_tvUpperArmScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_upper_arm_score"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_tvLowerArmScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_lower_arm_score"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_tvWristScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_wrist_score"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_tvTotalScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_total_score"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearRight"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/result_rula_linearBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/result_rula_linearLeft"
+            app:layout_constraintTop_toBottomOf="@+id/result_rula_imvSudut">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_scoring"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan1"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan2"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan3"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/result_rula_keterangan4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_rula_keterangan4"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_careful"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/result_rula_partHighScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/rula_result_part"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/result_rula_linearBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/result_rula_sideView"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/rula_result_back_to_side_view"
+                android:src="@drawable/ic_undo_black_24dp"
+                android:tint="@color/white_icon" />
+
+            <ImageView
+                android:id="@+id/result_rula_save"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/rula_result_save_screenshot"
+                android:src="@drawable/ic_save_black_24dp"
+                android:tint="@color/white_icon" />
+
+            <ImageView
+                android:id="@+id/result_rula_healthCare"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/rula_result_health_care"
+                android:src="@drawable/ic_accessibility_black_24dp"
+                android:tint="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/result_rula_home"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/rula_result_home"
+                android:src="@drawable/ic_home_black_24dp"
+                android:tint="@color/white_icon" />
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>

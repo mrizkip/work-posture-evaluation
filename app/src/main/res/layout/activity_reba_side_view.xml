@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.reba.RebaSideViewActivity">
+
+    <include
+        android:id="@+id/reba_sudut_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ScrollView
+        android:id="@+id/reba_sudut_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/reba_sudut_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/reba_sudut_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.mrizk.workpostureevaluationrula_reba.util.DrawView
+                android:id="@+id/reba_sudut_drawView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewTrunk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_drawView"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_sudut_linearLayoutTrunk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_side_view_trunk"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbTrunk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/reba_side_view_trunk_extension"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_sudut_imvTrunk"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_sudut_imvTrunk"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_sudut_imvTrunk" />
+
+                    <ImageView
+                        android:id="@+id/reba_sudut_imvTrunk"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_side_view_trunk_extension"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_sudut_textTrunk" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewTrunk"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_sudut_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_side_view_neck"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbNeck"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_side_view_neck_extension"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_sudut_imvNeck"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_sudut_imvNeck"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_sudut_imvNeck" />
+
+                    <ImageView
+                        android:id="@+id/reba_sudut_imvNeck"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_side_view_neck_extension"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reba_sudut_textNeck" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewUpperArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewNeck"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_sudut_linearLayoutUpperArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_side_view_upper_arm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_sudut_cbUpperArm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/reba_side_view_upper_arm_extension"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_sudut_imvUpperArm"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_sudut_imvUpperArm"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_sudut_imvUpperArm" />
+
+                    <ImageView
+                        android:id="@+id/reba_sudut_imvUpperArm"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_side_view_upper_arm_extension"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_sudut_textUpperArm" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_sudut_cardViewLeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_sudut_cardViewUpperArm"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_sudut_linearLayoutLeg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_sudut_textLeg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_side_view_legs"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/reba_sudut_leg_radioGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_sudut_textLeg">
+
+                        <RadioButton
+                            android:id="@+id/reba_sudut_leg_radio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/reba_side_view_support_two_legs" />
+
+                        <RadioButton
+                            android:id="@+id/reba_sudut_leg_radio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reba_side_view_support_one_leg" />
+
+                    </RadioGroup>
+
+                    <ImageView
+                        android:id="@+id/reba_sudut_imvLegs"
+                        android:layout_width="200dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="5dp"
+                        android:contentDescription="@string/reba_side_view_legs"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_sudut_leg_radioGroup" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

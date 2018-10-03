@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".main.HomeFragment">
+
+            <ImageView
+                android:id="@+id/home_imageHome"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="-30dp"
+                android:contentDescription="@string/home_image_home" />
+
+            <Button
+                android:id="@+id/home_buttonStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="-30dp"
+                android:background="@drawable/button_background"
+                android:text="@string/home_start_evaluation"
+                android:textColor="@color/white" />
+</LinearLayout>

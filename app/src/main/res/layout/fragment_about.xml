@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".main.AboutFragment">
+
+    <ImageView
+        android:id="@+id/about_imageAbout"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:contentDescription="@string/about_image_about"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about_conctact_developer"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:id="@+id/about_webContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/about_webIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/about_web"
+                android:src="@drawable/ic_web_icon"
+                android:tint="@color/white_icon" />
+
+            <TextView
+                android:id="@+id/about_webString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/about_webIcon"
+                android:layout_centerHorizontal="true"
+                android:text="@string/about_web"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/about_mailContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/about_mailIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/about_e_mail"
+                android:src="@drawable/ic_email_black_24dp"
+                android:tint="@color/white_icon" />
+
+            <TextView
+                android:id="@+id/about_mailString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/about_mailIcon"
+                android:layout_centerHorizontal="true"
+                android:text="@string/about_e_mail"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/about_callContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/about_callIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/about_call"
+                android:src="@drawable/ic_call_black_24dp"
+                android:tint="@color/white_icon" />
+
+            <TextView
+                android:id="@+id/about_callString"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/about_callIcon"
+                android:layout_centerHorizontal="true"
+                android:text="@string/about_call"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

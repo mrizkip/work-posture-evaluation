@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.RulaTopViewActivity">
+
+    <include
+        android:id="@+id/rula_lowerArm_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ScrollView
+        android:id="@+id/rula_lowerArm_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rula_lowerArm_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/rula_lowerArm_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/rula_lowerArm_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:contentDescription="@string/rula_top_view_image_rula_top_view"
+                android:src="@mipmap/ic_launcher" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_lowerArm_cardViewLowerArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rula_lowerArm_imageView"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/rula_lowerArm_linearLayoutLowerArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_lowerArm_textLowerArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rula_top_view_lower_arm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/rula_lowerArm_check1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/rula_top_view_lower_arm_accross_midline"
+                        app:layout_constraintBottom_toBottomOf="@id/rula_lowerArm_ivCheck1"
+                        app:layout_constraintRight_toLeftOf="@id/rula_lowerArm_ivCheck1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_lowerArm_textLowerArm" />
+
+                    <ImageView
+                        android:id="@+id/rula_lowerArm_ivCheck1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/rula_top_view_lower_arm_accross_midline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_lowerArm_textLowerArm" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_lowerArm_cardViewWrist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rula_lowerArm_cardViewLowerArm"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/rula_lowerArm_linearLayoutWrist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_lowerArm_textWrist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rula_top_view_wrist"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/rula_lowerArm_wrist_check1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/rula_top_view_wrist_bent"
+                        app:layout_constraintBottom_toBottomOf="@id/rula_wrist_ivCheck1"
+                        app:layout_constraintRight_toLeftOf="@id/rula_wrist_ivCheck1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_lowerArm_textWrist" />
+
+                    <ImageView
+                        android:id="@+id/rula_wrist_ivCheck1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/rula_top_view_wrist_bent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_lowerArm_textWrist" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/rula_lowerArm_cardViewWristTwist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rula_lowerArm_cardViewWrist"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/rula_lowerArm_linearLayoutWristTwist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/rula_lowerArm_textWristTwist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rula_top_view_wrist_twist"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RadioGroup
+                        android:id="@+id/rula_lowerArm_wristTwist_radioGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="@id/rula_lowerArm_wristTwist_ivRadio"
+                        app:layout_constraintRight_toLeftOf="@id/rula_lowerArm_wristTwist_ivRadio"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/rula_lowerArm_wristTwist_ivRadio">
+
+                        <RadioButton
+                            android:id="@+id/rula_lowerArm_wristTwist_radio1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/rula_top_view_wrist_is_twist_in_mid_range" />
+
+                        <RadioButton
+                            android:id="@+id/rula_lowerArm_wristTwist_radio2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rula_top_view_wrist_is_twist_at_or_near_end_of_range" />
+
+                    </RadioGroup>
+
+                    <ImageView
+                        android:id="@+id/rula_lowerArm_wristTwist_ivRadio"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/rula_top_view_wrist_twist"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_lowerArm_textWristTwist" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

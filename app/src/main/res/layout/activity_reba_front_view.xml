@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.reba.RebaFrontViewActivity">
+
+    <include
+        android:id="@+id/reba_neck_trunk_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ScrollView
+        android:id="@+id/reba_neck_trunk_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/reba_neck_trunk_toolbar">
+
+        <RelativeLayout
+            android:id="@+id/reba_neck_trunk_relativeLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/reba_neck_trunk_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:contentDescription="@string/reba_front_view_image"
+                android:src="@mipmap/ic_launcher" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_neck_trunk_cardViewNeck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/reba_neck_trunk_imageView"
+                android:layout_margin="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_neck_trunk_linearLayoutNeck"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_neck_trunk_textNeck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_front_view_neck"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_neckCheck1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/reba_front_view_neck_is_twisted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_imvNeckTwist"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_imvNeckTwist"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_imvNeckTwist" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_imvNeckTwist"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_front_view_neck_is_twisted"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_textNeck" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_neckCheck2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_neck_side_bend"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_imvNeckBend"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_imvNeckBend"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_imvNeckBend" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_imvNeckBend"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@string/reba_front_view_neck_side_bend"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_imvNeckTwist" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_neck_trunk_cardViewTrunk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reba_neck_trunk_cardViewNeck"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_neck_trunk_linearLayoutTrunk"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_neck_trunk_textTrunk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_front_view_trunk"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_trunkCheck1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_trunk_twisted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_trunkTwisted"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_trunkTwisted"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_trunkTwisted" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_trunkTwisted"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_front_view_trunk_twisted"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reba_neck_trunk_textTrunk" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_trunkCheck2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_trunk_side_bend"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_trunkSideBend"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_trunkSideBend"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_trunkSideBend" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_trunkSideBend"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@string/reba_front_view_trunk_side_bend"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_trunkTwisted" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/reba_neck_trunk_cardViewUpperArm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/reba_neck_trunk_cardViewTrunk"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="2dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/reba_neck_trunk_linearLayoutUpperArm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/reba_neck_trunk_textUpperArm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/reba_front_view_upper_arm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_upperArm_check1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_shoulder_raised"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_shoulderRaised"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_shoulderRaised"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_shoulderRaised" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_shoulderRaised"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:contentDescription="@string/reba_front_view_shoulder_raised"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_textUpperArm" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_upperArm_check2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_upper_arm_abducted"
+                        app:layout_constraintBottom_toBottomOf="@+id/reba_neck_trunk_upperArmAbducted"
+                        app:layout_constraintEnd_toStartOf="@+id/reba_neck_trunk_upperArmAbducted"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/reba_neck_trunk_upperArmAbducted" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_upperArmAbducted"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@string/reba_front_view_upper_arm_abducted"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/reba_neck_trunk_shoulderRaised" />
+
+                    <CheckBox
+                        android:id="@+id/reba_neck_trunk_upperArm_check3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_front_view_arm_supported"
+                        app:layout_constraintBottom_toBottomOf="@id/reba_neck_trunk_armSupported"
+                        app:layout_constraintRight_toLeftOf="@id/reba_neck_trunk_armSupported"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/reba_neck_trunk_armSupported" />
+
+                    <ImageView
+                        android:id="@+id/reba_neck_trunk_armSupported"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:contentDescription="@string/reba_front_view_arm_supported"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reba_neck_trunk_upperArmAbducted" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
