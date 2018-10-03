@@ -10,24 +10,26 @@
         android:id="@+id/cameraGallerySelector_imageIntro"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@mipmap/ic_launcher"
-        />
+        android:contentDescription="@string/dialog_camera_gallery_image"
+        android:src="@mipmap/ic_launcher" />
 
     <Space
         android:id="@+id/cameraGallerySelector_centerPosition"
-        android:layout_below="@id/cameraGallerySelector_imageIntro"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_below="@id/cameraGallerySelector_imageIntro"
         android:layout_centerInParent="true" />
 
     <RelativeLayout
         android:id="@+id/cameraGallerySelector_cameraContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/cameraGallerySelector_imageIntro"
+        android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="20dp"
         android:layout_toLeftOf="@id/cameraGallerySelector_centerPosition"
-        android:layout_below="@id/cameraGallerySelector_imageIntro"
+        android:layout_toStartOf="@id/cameraGallerySelector_centerPosition"
         android:background="?android:selectableItemBackground"
         android:padding="12dp">
 
@@ -36,6 +38,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerHorizontal="true"
+            android:contentDescription="@string/dialog_camera_gallery_camera"
             android:src="@drawable/ic_camera_alt_black_24dp" />
 
         <TextView
@@ -44,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cameraGallerySelector_cameraIcon"
             android:layout_centerHorizontal="true"
-            android:text="Camera" />
+            android:text="@string/dialog_camera_gallery_camera" />
 
     </RelativeLayout>
 
@@ -52,10 +55,12 @@
         android:id="@+id/cameraGallerySelector_galleryContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@id/cameraGallerySelector_centerPosition"
         android:layout_below="@id/cameraGallerySelector_imageIntro"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/cameraGallerySelector_centerPosition"
+        android:layout_toRightOf="@id/cameraGallerySelector_centerPosition"
         android:background="?android:selectableItemBackground"
         android:padding="12dp">
 
@@ -64,6 +69,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerHorizontal="true"
+            android:contentDescription="@string/dialog_camera_gallery_gallery"
             android:src="@drawable/ic_image_black_24dp" />
 
         <TextView
@@ -72,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cameraGallerySelector_galleryIcon"
             android:layout_centerHorizontal="true"
-            android:text="Gallery" />
+            android:text="@string/dialog_camera_gallery_gallery" />
 
     </RelativeLayout>
 

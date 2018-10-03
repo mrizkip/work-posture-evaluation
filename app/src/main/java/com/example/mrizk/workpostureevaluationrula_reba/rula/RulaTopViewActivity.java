@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 
@@ -23,9 +22,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RulaLowerArmActivity extends AppCompatActivity {
-
-    private static final String TAG = "RulaLowerArmActivity";
+public class RulaTopViewActivity extends AppCompatActivity {
 
     @BindView(R.id.rula_lowerArm_imageView)
     ImageView imageView;
@@ -63,7 +60,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rula_lower_arm);
+        setContentView(R.layout.activity_rula_top_view);
 
         ButterKnife.bind(this);
 
@@ -113,13 +110,13 @@ public class RulaLowerArmActivity extends AppCompatActivity {
 
     private void addDrawableRight() {
         // lower arm
-        Picasso.get().load("file:///android_asset/shoulder_raised.png").resize(800, 800).into(ivLowerArm1);
+        Picasso.get().load("file:///android_asset/lower_arm _across.png").resize(800, 800).into(ivLowerArm1);
 
         // wrist
         Picasso.get().load("file:///android_asset/wrist_bent.png").resize(800, 800).into(ivWrist1);
 
         // wrist twist
-        Picasso.get().load("file:///android_asset/neck_extention.png").resize(800, 800).into(ivWristTwist1);
+        Picasso.get().load("file:///android_asset/wrist_twist.png").resize(800, 800).into(ivWristTwist1);
     }
 
     @Override
@@ -152,7 +149,7 @@ public class RulaLowerArmActivity extends AppCompatActivity {
                 }
 
                 wristTwistValue = wristTwistValue + wristTwistRadio;
-                Intent intent = new Intent(RulaLowerArmActivity.this, RulaAdditionalActivity.class);
+                Intent intent = new Intent(RulaTopViewActivity.this, RulaAdditionalActivity.class);
                 intent.putExtra("legsScore", legsScore);
                 intent.putExtra("upperArmScore", upperArmScore);
                 intent.putExtra("neckScore", neckScore);

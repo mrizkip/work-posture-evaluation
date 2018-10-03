@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.mrizk.workpostureevaluationrula_reba.reba.RebaWristActivity">
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.reba.RebaTopViewActivity">
 
     <include
         android:id="@+id/reba_wrist_toolbar"
@@ -20,14 +20,14 @@
         <RelativeLayout
             android:id="@+id/reba_wrist_relativeLayoutScroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/reba_wrist_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:src="@mipmap/ic_launcher"
-                />
+                android:contentDescription="@string/reba_top_view_image_reba_top_view"
+                android:src="@mipmap/ic_launcher" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/reba_wrist_cardViewWrist"
@@ -49,34 +49,33 @@
                         android:id="@+id/reba_wrist_textWrist"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Wrist"
+                        android:text="@string/reba_top_view_wrist"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/reba_wrist_wrist_check1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Wrist is bent from midline or twisted"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/reba_wrist_imvWristBend"
-                        app:layout_constraintBottom_toBottomOf="@id/reba_wrist_imvWristBend"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginRight="8dp" />
+                        android:layout_marginRight="8dp"
+                        android:text="@string/reba_top_view_wrist_bent_twisted"
+                        app:layout_constraintBottom_toBottomOf="@id/reba_wrist_imvWristBend"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/reba_wrist_imvWristBend" />
 
                     <ImageView
                         android:id="@+id/reba_wrist_imvWristBend"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:layout_constraintTop_toBottomOf="@id/reba_wrist_textWrist"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:contentDescription="@string/reba_top_view_wrist_bent_twisted"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/reba_wrist_textWrist" />
 
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
@@ -103,9 +102,9 @@
                         android:id="@+id/reba_wrist_textLoad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Neck, Trunk, and Legs Load"
+                        android:text="@string/reba_top_view_neck_trunk_and_legs_load"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <RadioGroup
@@ -118,19 +117,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="Less than 5 Kg" />
+                            android:text="@string/reba_top_view_5kg" />
 
                         <RadioButton
                             android:id="@+id/reba_wrist_load_radio2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="5 to 10 Kg" />
+                            android:text="@string/reba_top_view_5_to_10kg" />
 
                         <RadioButton
                             android:id="@+id/reba_wrist_load_radio3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="More than 10 Kg" />
+                            android:text="@string/reba_top_view_10kg" />
 
                     </RadioGroup>
 
@@ -138,8 +137,7 @@
                         android:id="@+id/reba_wrist_load_check1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Shock or rapid build up of force"
-                        />
+                        android:text="@string/reba_top_view_shock_rapid" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -166,9 +164,9 @@
                         android:id="@+id/reba_wrist_textCoupling"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Coupling"
+                        android:text="@string/reba_top_view_coupling"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <RadioGroup
@@ -181,32 +179,27 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="Good"
-                            />
+                            android:text="@string/reba_top_view_good" />
 
                         <RadioButton
                             android:id="@+id/reba_wrist_coupling_radio2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Fair"
-                            />
+                            android:text="@string/reba_top_view_fair" />
 
                         <RadioButton
                             android:id="@+id/reba_wrist_coupling_radio3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Poor"
-                            />
+                            android:text="@string/reba_top_view_poor" />
 
                         <RadioButton
                             android:id="@+id/reba_wrist_coupling_radio4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Unacceptable"
-                            />
+                            android:text="@string/reba_top_view_unacceptable" />
 
                     </RadioGroup>
-
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -232,35 +225,32 @@
                         android:id="@+id/reba_wrist_textActivity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Activity"
+                        android:text="@string/reba_top_view_activity"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <CheckBox
                         android:id="@+id/reba_wrist_activity_check1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1 or more body parts are held for longer than 1 minute (static)" />
+                        android:text="@string/reba_top_view_static" />
 
                     <CheckBox
                         android:id="@+id/reba_wrist_activity_check2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Repeated small range actions (more than 4x per minute)" />
+                        android:text="@string/reba_top_view_repeated" />
 
                     <CheckBox
                         android:id="@+id/reba_wrist_activity_check3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Action causes rapid large range changes in postures or unstable base" />
+                        android:text="@string/reba_top_view_changes" />
 
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-            
         </RelativeLayout>
-    
     </ScrollView>
-    
 </RelativeLayout>

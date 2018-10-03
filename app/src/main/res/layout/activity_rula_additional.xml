@@ -20,16 +20,16 @@
         <RelativeLayout
             android:id="@+id/rulaAdd_relativeLyoutScroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/rulaAdd_arm_wrist_cardViewMuscle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
@@ -44,17 +44,16 @@
                         android:id="@+id/rulaAdd_arm_wrist_textMuscle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Arm and Wrist Muscle"
+                        android:text="@string/rula_additional_arm_and_wrist_muscle"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <CheckBox
                         android:id="@+id/rulaAdd_arm_wrist_muscle_check1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Posture is mainly static, e.g. held
-> 10 minute orrepeated occurs 4X per minute" />
+                        android:text="@string/rula_additional_posture_static" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -81,9 +80,9 @@
                         android:id="@+id/rulaAdd_arm_wrist_textLoad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Arm and Wrist Load"
+                        android:text="@string/rula_additional_arm_and_wrist_load"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <RadioGroup
@@ -96,29 +95,25 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="Less than 2 Kg intermittent load"
-                            />
+                            android:text="@string/rula_additional_2kg" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_arm_wrist_load_radio2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2 to 10 Kg intermittent load"
-                            />
+                            android:text="@string/rula_additional_2_to_10kg_intermittent" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_arm_wrist_load_radio3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2 to 10 Kg static or repeated load"
-                            />
+                            android:text="@string/rula_additional_2_to_10kg_repeated" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_arm_wrist_load_radio4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="more than 10 Kg or repeated or shocks load"
-                            />
+                            android:text="@string/rula_additional_10kg" />
 
                     </RadioGroup>
 
@@ -130,9 +125,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rulaAdd_arm_wrist_cardViewLoad"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
@@ -147,18 +142,16 @@
                         android:id="@+id/rulaAdd_neck_trunk_legs_textMuscle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Neck, Trunk, and Legs Muscle"
+                        android:text="@string/rula_additional_neck_trunk_and_legs_muscle"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <CheckBox
                         android:id="@+id/rulaAdd_neck_trunk_legs_Muscle_check1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Posture is mainly static, e.g. held
-> 10 minute orrepeated occurs 4X per minute" />
+                        android:text="@string/rula_additional_posture_static_neck" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -168,9 +161,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rulaAdd_neck_trunk_legs_cardViewMuscle"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
@@ -185,11 +178,10 @@
                         android:id="@+id/rulaAdd_neck_trunk_legs_textLoad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Neck, Trunk, and Legs Load"
+                        android:text="@string/rula_additional_neck_trunk_and_legs_load"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <RadioGroup
                         android:id="@+id/rulaAdd_neck_trunk_legs_load_radioGroup"
@@ -201,36 +193,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="Less than 2 Kg intermittent load"
-                            />
+                            android:text="@string/rula_additional_2kg" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_neck_trunk_legs_load_radio2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2 to 10 Kg intermittent load"
-                            />
+                            android:text="@string/rula_additional_2_to_10kg_intermittent" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_neck_trunk_legs_load_radio3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="2 to 10 Kg static or repeated load"
-                            />
+                            android:text="@string/rula_additional_2_to_10kg_repeated" />
 
                         <RadioButton
                             android:id="@+id/rulaAdd_neck_trunk_legs_load_radio4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="more than 10 Kg or repeated or shocks load"
-                            />
+                            android:text="@string/rula_additional_10kg" />
 
                     </RadioGroup>
-
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-            
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>

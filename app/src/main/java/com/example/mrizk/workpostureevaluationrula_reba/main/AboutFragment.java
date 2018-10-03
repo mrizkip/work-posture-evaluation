@@ -1,13 +1,9 @@
 package com.example.mrizk.workpostureevaluationrula_reba.main;
 
-
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +17,6 @@ import com.squareup.picasso.Picasso;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AboutFragment extends Fragment {
 
     @BindView(R.id.about_webContainer)
@@ -87,7 +80,7 @@ public class AboutFragment extends Fragment {
     }
 
     private void callClick() {
-        String phoneNumber = "+6285715057223";
+        String phoneNumber = "+62341587710";
         Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phoneNumber));
         if (callIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivity(callIntent);

@@ -1,7 +1,6 @@
 package com.example.mrizk.workpostureevaluationrula_reba.rula;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -22,8 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RulaAdditionalActivity extends AppCompatActivity {
-
-    private static final String TAG = "RulaAdditionalPartAActi";
 
     @BindView(R.id.rulaAdd1_toolbar)
     Toolbar toolbar;

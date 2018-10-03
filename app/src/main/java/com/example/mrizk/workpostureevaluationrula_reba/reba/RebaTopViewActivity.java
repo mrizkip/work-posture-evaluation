@@ -1,6 +1,5 @@
 package com.example.mrizk.workpostureevaluationrula_reba.reba;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -19,20 +18,13 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
-import com.example.mrizk.workpostureevaluationrula_reba.util.CameraGallerySelectorDialog;
-import com.example.mrizk.workpostureevaluationrula_reba.util.DrawView;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import siclo.com.ezphotopicker.api.EZPhotoPick;
-import siclo.com.ezphotopicker.api.EZPhotoPickStorage;
-import siclo.com.ezphotopicker.api.models.EZPhotoPickConfig;
-import siclo.com.ezphotopicker.api.models.PhotoSource;
 
-public class RebaWristActivity extends AppCompatActivity {
+public class RebaTopViewActivity extends AppCompatActivity {
 
     @BindView(R.id.reba_wrist_imageView)
     ImageView imageView;
@@ -77,7 +69,7 @@ public class RebaWristActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reba_wrist);
+        setContentView(R.layout.activity_reba_top_view);
 
         ButterKnife.bind(this);
 
@@ -217,7 +209,7 @@ public class RebaWristActivity extends AppCompatActivity {
                 }
                 couplingValue = couplingValue + couplingRadio;
 
-                Intent intent = new Intent(RebaWristActivity.this, ResultRebaActivity.class);
+                Intent intent = new Intent(RebaTopViewActivity.this, ResultRebaActivity.class);
                 intent.putExtra("trunkScore", trunkScore);
                 intent.putExtra("neckScore", neckScore);
                 intent.putExtra("upperArmScore", upperArmScore);

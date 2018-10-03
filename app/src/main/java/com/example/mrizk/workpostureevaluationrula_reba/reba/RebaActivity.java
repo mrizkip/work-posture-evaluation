@@ -81,7 +81,7 @@ public class RebaActivity extends AppCompatActivity {
                     || requestCode == EZPhotoPick.PHOTO_PICK_CAMERA_REQUEST_CODE) {
                 try {
                     Bitmap pickedPhoto = new EZPhotoPickStorage(this).loadLatestStoredPhotoBitmap();
-                    Intent intent = new Intent(RebaActivity.this, RebaSudutActivity.class);
+                    Intent intent = new Intent(RebaActivity.this, RebaSideViewActivity.class);
                     intent.putExtra("photo", pickedPhoto);
                     startActivity(intent);
                     return;

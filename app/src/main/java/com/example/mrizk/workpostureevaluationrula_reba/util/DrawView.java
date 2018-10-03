@@ -8,15 +8,12 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DrawView extends AppCompatImageView {
-
-    private static final String TAG = "DrawView";
 
     private Paint pointPaint;
     private Paint trunkPointPaint;
@@ -59,14 +56,8 @@ public class DrawView extends AppCompatImageView {
     }
 
     private void initPaint() {
-        Log.d(TAG, "initPaint: called");
         pointPaint = new Paint();
-//        pointPaint.setColor(Color.BLUE);
-//        pointPaint.setStyle(Paint.Style.FILL);
         linePaint = new Paint();
-//        linePaint.setColor(Color.BLUE);
-//        linePaint.setStyle(Paint.Style.STROKE);
-//        linePaint.setStrokeWidth(10f);
         
         trunkPointPaint = new Paint();
         trunkPointPaint.setColor(Color.RED);
@@ -190,6 +181,12 @@ public class DrawView extends AppCompatImageView {
 
     public void setLineList(List<Line> lineList) {
         this.lineList = lineList;
+    }
+
+    public void clear() {
+        lineList.clear();
+        pointList.clear();
+        invalidate();
     }
 
     public String getType() {

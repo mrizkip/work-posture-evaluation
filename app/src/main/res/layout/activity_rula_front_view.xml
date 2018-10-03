@@ -5,30 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.RulaUpperArmNeckTrunkActivity">
+    tools:context="com.example.mrizk.workpostureevaluationrula_reba.rula.RulaFrontViewActivity">
 
     <include
         android:id="@+id/rula_upperArm_toolbar"
-        layout="@layout/view_toolbar"
-        />
-    
+        layout="@layout/view_toolbar" />
+
     <ScrollView
         android:id="@+id/rula_upperArm_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rula_upperArm_toolbar"
-        >
+        android:layout_below="@id/rula_upperArm_toolbar">
+
         <RelativeLayout
             android:id="@+id/rula_upperArm_relativeLayoutScroll"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/rula_upperArm_imageView"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:src="@mipmap/ic_launcher"
-                />
+                android:contentDescription="@string/rula_front_view_image_front_view"
+                android:src="@mipmap/ic_launcher" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/rula_upperArm_cardViewUpperArm"
@@ -50,12 +49,12 @@
                         android:id="@+id/rula_upperArm_textUpperArm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Upper Arm"
+                        android:text="@string/rula_front_view_upper_arm"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/rula_upperArm_check1"
@@ -63,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Shoulder is raised"
+                        android:text="@string/rula_front_view_shoulder_is_raised"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_upperArm_ivCheck1"
                         app:layout_constraintRight_toLeftOf="@id/rula_upperArm_ivCheck1"
                         app:layout_constraintStart_toStartOf="parent"
@@ -73,9 +72,10 @@
                         android:id="@+id/rula_upperArm_ivCheck1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_textUpperArm"
+                        android:contentDescription="@string/rula_front_view_shoulder_is_raised"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_textUpperArm" />
 
                     <CheckBox
                         android:id="@+id/rula_upperArm_check2"
@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Upper arm is abducted"
+                        android:text="@string/rula_front_view_upper_arm_abducted"
                         app:layout_constraintBottom_toTopOf="@+id/rula_upperArm_ivCheck3"
                         app:layout_constraintRight_toLeftOf="@id/rula_upperArm_ivCheck2"
                         app:layout_constraintStart_toStartOf="parent"
@@ -94,9 +94,10 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="5dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_ivCheck1"
+                        android:contentDescription="@string/rula_front_view_upper_arm_abducted"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_ivCheck1" />
 
                     <CheckBox
                         android:id="@+id/rula_upperArm_check3"
@@ -104,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Arm is supported or person is leaning"
+                        android:text="@string/rula_front_view_arm_supported"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_upperArm_ivCheck3"
                         app:layout_constraintRight_toLeftOf="@id/rula_upperArm_ivCheck3"
                         app:layout_constraintStart_toStartOf="parent"
@@ -115,9 +116,10 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="5dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_ivCheck2"
+                        android:contentDescription="@string/rula_front_view_arm_supported"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_upperArm_ivCheck2" />
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
 
@@ -140,19 +142,19 @@
                         android:id="@+id/rula_neck_textNeck"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Neck"
+                        android:text="@string/rula_front_view_neck"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/rula_neck_Neck_check1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Neck is twisted"
+                        android:text="@string/rula_front_view_neck_twisted"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_neck_ivCheck1"
                         app:layout_constraintRight_toLeftOf="@id/rula_neck_ivCheck1"
                         app:layout_constraintStart_toStartOf="parent"
@@ -162,9 +164,10 @@
                         android:id="@+id/rula_neck_ivCheck1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_neck_textNeck"
+                        android:contentDescription="@string/rula_front_view_neck_twisted"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_neck_textNeck" />
 
                     <CheckBox
                         android:id="@+id/rula_neck_Neck_check2"
@@ -172,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Neck is side bending"
+                        android:text="@string/rula_front_view_neck_side_bend"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_neck_ivCheck2"
                         app:layout_constraintRight_toLeftOf="@id/rula_neck_ivCheck2"
                         app:layout_constraintStart_toStartOf="parent"
@@ -183,9 +186,10 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="5dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_neck_ivCheck1"
+                        android:contentDescription="@string/rula_front_view_neck_side_bend"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_neck_ivCheck1" />
 
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
@@ -195,9 +199,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rula_neck_cardViewNeck"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
                 android:background="#FFFFFF"
                 app:cardCornerRadius="2dp">
 
@@ -211,19 +215,19 @@
                         android:id="@+id/rula_trunk_textTrunk"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Trunk"
+                        android:text="@string/rula_front_view_trunk"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
                         android:id="@+id/rula_trunk_check1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="Trunk is twisted"
+                        android:text="@string/rula_front_view_trunk_twisted"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_trunk_ivCheck1"
                         app:layout_constraintRight_toLeftOf="@id/rula_trunk_ivCheck1"
                         app:layout_constraintStart_toStartOf="parent"
@@ -233,9 +237,10 @@
                         android:id="@+id/rula_trunk_ivCheck1"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_trunk_textTrunk"
+                        android:contentDescription="@string/rula_front_view_trunk_twisted"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_trunk_textTrunk" />
 
                     <CheckBox
                         android:id="@+id/rula_trunk_check2"
@@ -243,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Trunk is side bending"
+                        android:text="@string/rula_front_view_trunk_side_bending"
                         app:layout_constraintBottom_toBottomOf="@+id/rula_trunk_ivCheck2"
                         app:layout_constraintRight_toLeftOf="@id/rula_trunk_ivCheck2"
                         app:layout_constraintStart_toStartOf="parent"
@@ -254,15 +259,13 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="5dp"
-                        app:layout_constraintTop_toBottomOf="@id/rula_trunk_ivCheck1"
+                        android:contentDescription="@string/rula_front_view_trunk_side_bending"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintRight_toRightOf="parent" />
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rula_trunk_ivCheck1" />
 
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.CardView>
-            
         </RelativeLayout>
-        
     </ScrollView>
-    
 </RelativeLayout>

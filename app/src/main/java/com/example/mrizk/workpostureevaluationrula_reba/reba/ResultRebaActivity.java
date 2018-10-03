@@ -3,19 +3,21 @@ package com.example.mrizk.workpostureevaluationrula_reba.reba;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.example.mrizk.workpostureevaluationrula_reba.main.MainActivity;
-import com.example.mrizk.workpostureevaluationrula_reba.rula.ResultRulaActivity;
+import com.example.mrizk.workpostureevaluationrula_reba.util.DialogHealthCare;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaA;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaB;
 import com.example.mrizk.workpostureevaluationrula_reba.util.MapKeyRebaC;
@@ -26,14 +28,14 @@ import com.example.mrizk.workpostureevaluationrula_reba.util.RebaTableC;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Date;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ResultRebaActivity extends AppCompatActivity {
-
-    private static final String TAG = "ResultRebaActivity";
 
     @BindView(R.id.result_reba_toolbar)
     Toolbar toolbar;
@@ -63,6 +65,16 @@ public class ResultRebaActivity extends AppCompatActivity {
     ImageView menuHealthCare;
     @BindView(R.id.result_reba_home)
     ImageView menuHome;
+    @BindView(R.id.result_reba_keterangan1)
+    TextView keterangan1;
+    @BindView(R.id.result_reba_keterangan2)
+    TextView keterangan2;
+    @BindView(R.id.result_reba_keterangan3)
+    TextView keterangan3;
+    @BindView(R.id.result_reba_keterangan4)
+    TextView keterangan4;
+    @BindView(R.id.result_reba_keterangan5)
+    TextView keterangan5;
 
     ActionBar actionBar;
 
@@ -153,7 +165,9 @@ public class ResultRebaActivity extends AppCompatActivity {
         }
         finalScore = tableCScore + activityScore;
 
+        // set score
         String stringHighScoreName = calculateMaxScore();
+        scoring();
 
         // set text
         tvNeckScore.setText("Neck Score: " + String.valueOf(neckScore));
@@ -175,6 +189,21 @@ public class ResultRebaActivity extends AppCompatActivity {
         menuHome.setOnClickListener(view -> home());
     }
 
+    private void scoring() {
+        // total score
+        if (finalScore == 1) {
+            keterangan1.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 2 && finalScore <= 3) {
+            keterangan2.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 4 && finalScore <= 7) {
+            keterangan3.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 8 && finalScore <= 10) {
+            keterangan4.setVisibility(View.VISIBLE);
+        } else if (finalScore >= 11) {
+            keterangan5.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void home() {
         Intent intent = new Intent(ResultRebaActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -182,15 +211,23 @@ public class ResultRebaActivity extends AppCompatActivity {
     }
 
     private void healthCare() {
-
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        DialogHealthCare newFragment = new DialogHealthCare();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
     }
 
     private void saveScreen() {
-
+        takeScreenshot();
+        Toast.makeText(this, "Screenshot Saved!", Toast.LENGTH_SHORT).show();
     }
 
     private void sideView() {
-
+        Intent intent = new Intent(ResultRebaActivity.this, RebaSideViewActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        Toast.makeText(this, "Back to Side View", Toast.LENGTH_SHORT).show();
     }
 
     private String calculateMaxScore() {
@@ -250,5 +287,33 @@ public class ResultRebaActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+    private void takeScreenshot() {
+        Date now = new Date();
+        android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", now);
+
+        try {
+            // image naming and path  to include sd card  appending name you choose for file
+            String mPath = Environment.getExternalStorageDirectory().toString() + "/DCIM/Screenshots/" + now + ".jpg";
+
+            // create bitmap screen capture
+            View v1 = getWindow().getDecorView().getRootView();
+            v1.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(v1.getDrawingCache());
+            v1.setDrawingCacheEnabled(false);
+
+            File imageFile = new File(mPath);
+
+            FileOutputStream outputStream = new FileOutputStream(imageFile);
+            int quality = 100;
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream);
+            outputStream.flush();
+            outputStream.close();
+
+        } catch (Throwable e) {
+            // Several error may come out with file handling or DOM
+            e.printStackTrace();
+        }
     }
 }

@@ -15,10 +15,6 @@ import android.widget.TextView;
 import com.example.mrizk.workpostureevaluationrula_reba.R;
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by mrizk on 16/03/2018.
- */
-
 public class CameraGallerySelectorDialog {
 
     private final AlertDialog.Builder alertDialogBuilder;
